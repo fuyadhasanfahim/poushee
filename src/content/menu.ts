@@ -1,0 +1,1835 @@
+import type { MenuCategory } from "./types";
+
+/* ------------------------------------------------------------------ *
+ *  poushee menu — 15 chapters, transcribed from the client's printed
+ *  menu (pages 1–15). Category 4 (Beef & Mutton) uses the client's
+ *  real photography and copy verified against Bangladeshi sources:
+ *  Prothom Alo, Bangla Tribune, bn.wikipedia (Mezban / Kalabhuna).
+ * ------------------------------------------------------------------ */
+
+export const MENU: MenuCategory[] = [
+  /* ============================================================ 1 */
+  {
+    slug: "rice-biriyani",
+    order: 1,
+    name: { en: "Rice & Biriyani", bn: "ভাত ও বিরিয়ানি" },
+    blurb: {
+      en: "Aromatic long-grain biryani, polau and khichuri — the centre of every Bangladeshi table.",
+      bn: "সুগন্ধি বিরিয়ানি, পোলাও আর খিচুড়ি — প্রতিটি বাঙালি টেবিলের কেন্দ্র।",
+    },
+    cover: "/img/biryani.jpg",
+    dishes: [
+      {
+        slug: "chicken-biriyani",
+        name: { en: "Chicken Biriyani", bn: "চিকেন বিরিয়ানি" },
+        tagline: {
+          en: "Coconut-milk polau, roast chicken, boiled egg",
+          bn: "নারকেল দুধের পোলাও, রোস্ট মুরগি, ডিম",
+        },
+        price: { en: "৳ 300", bn: "৳ ৩০০" },
+        image: "/img/biryani.jpg",
+        featured: true,
+        story: {
+          en: "Biryani reached Bengal with the Mughal kitchens of Dhaka and Murshidabad, then softened into the milder, sweeter style the region loves today. This plate keeps to that local reading — rice drawn up in coconut milk with cashew and dried grapes, layered over spiced roast chicken and served with egg, dopiyaja and borhani-style pickle.",
+          bn: "বিরিয়ানি বাংলায় এসেছে ঢাকা ও মুর্শিদাবাদের মুঘল হেঁশেল হয়ে, পরে রূপ নিয়েছে এ অঞ্চলের প্রিয় নরম-মিষ্টি ঘরানায়। এই প্লেট সেই স্থানীয় স্বাদেরই — নারকেল দুধে টানা ভাত, কাজু ও কিশমিশ, নিচে মসলায় রাঁধা রোস্ট মুরগি, সঙ্গে ডিম, দোপেঁয়াজা ও আচার।",
+        },
+        ingredients: {
+          en: [
+            "Aromatic rice",
+            "Coconut milk",
+            "Roast chicken",
+            "Cashew nuts",
+            "Dried grapes (raisins)",
+            "Ghee",
+            "Onion",
+            "Garam masala",
+            "Boiled egg",
+          ],
+          bn: [
+            "সুগন্ধি চাল",
+            "নারকেল দুধ",
+            "রোস্ট মুরগি",
+            "কাজুবাদাম",
+            "কিশমিশ",
+            "ঘি",
+            "পেঁয়াজ",
+            "গরম মসলা",
+            "সেদ্ধ ডিম",
+          ],
+        },
+      },
+      {
+        slug: "chicken-polau",
+        name: { en: "Chicken Polau", bn: "মোরগ পোলাও" },
+        tagline: {
+          en: "Spiced chicken roast masala over fragrant polau",
+          bn: "সুগন্ধি পোলাওয়ের সঙ্গে ঝাল রোস্ট মসলা",
+        },
+        price: { en: "৳ 310", bn: "৳ ৩১০" },
+        image: "",
+        story: {
+          en: "Morog polau is the everyday cousin of biryani — lighter on the rice, heavier on the whole spice. The chicken here is cooked in a spicier roast masala and folded through polau built on coconut milk, cashew and carrot.",
+          bn: "মোরগ পোলাও বিরিয়ানির ঘরোয়া রূপ — ভাতে হালকা, আস্ত মসলায় ভারী। এখানে মুরগি রাঁধা হয় ঝাল রোস্ট মসলায়, তারপর মেশানো হয় নারকেল দুধ, কাজু ও গাজরের পোলাওয়ে।",
+        },
+        ingredients: {
+          en: ["Polau rice", "Chicken", "Coconut milk", "Cashew nuts", "Carrot", "Whole garam masala", "Ghee", "Fried onion"],
+          bn: ["পোলাওয়ের চাল", "মুরগি", "নারকেল দুধ", "কাজুবাদাম", "গাজর", "আস্ত গরম মসলা", "ঘি", "বেরেস্তা"],
+        },
+      },
+      {
+        slug: "beef-biryani",
+        name: { en: "Beef Biryani", bn: "বিফ বিরিয়ানি" },
+        tagline: {
+          en: "Aromatic rice layered with beef kala bhuna",
+          bn: "গরুর কালা ভুনা দিয়ে স্তরে সাজানো ভাত",
+        },
+        price: { en: "৳ 360", bn: "৳ ৩৬০" },
+        image: "/img/biryani.jpg",
+        story: {
+          en: "A Chattogram twist on biryani: instead of a plain qorma-style meat, the rice is layered with dark, dry beef kala bhuna. The result is smokier and deeper than a Dhaka beef biryani.",
+          bn: "বিরিয়ানির চাটগাঁইয়া রূপ: সাধারণ কোরমা ঘরানার মাংসের বদলে ভাত সাজানো হয় গাঢ়, শুকনো কালা ভুনা দিয়ে। ঢাকার বিফ বিরিয়ানির চেয়ে এতে ধোঁয়াটে গভীর স্বাদ।",
+        },
+        ingredients: {
+          en: ["Aromatic rice", "Beef kala bhuna", "Coconut milk", "Cashew nuts", "Carrot", "Dried grapes", "Ghee", "Dopiyaja"],
+          bn: ["সুগন্ধি চাল", "গরুর কালা ভুনা", "নারকেল দুধ", "কাজুবাদাম", "গাজর", "কিশমিশ", "ঘি", "দোপেঁয়াজা"],
+        },
+      },
+      {
+        slug: "mutton-biryani-kacchi",
+        name: { en: "Mutton Biryani (Kacchi)", bn: "খাসি বিরিয়ানি (কাচ্চি)" },
+        tagline: {
+          en: "Raw-marinated mutton and rice, sealed and slow-cooked",
+          bn: "কাঁচা জ্বাল দেওয়া খাসি ও চাল, বন্ধ হাঁড়িতে দমে",
+        },
+        price: { en: "৳ 390", bn: "৳ ৩৯০" },
+        image: "/img/curry-rice.jpg",
+        featured: true,
+        story: {
+          en: "Kacchi biryani is the Old Dhaka classic where marinated raw mutton and half-cooked rice go into the same sealed pot and finish together on 'dom'. Poushee's plate carries two pieces of mutton, potato and egg.",
+          bn: "কাচ্চি বিরিয়ানি পুরান ঢাকার ক্লাসিক — কাঁচা মেরিনেট করা খাসি আর আধা-সেদ্ধ চাল একসঙ্গে বন্ধ হাঁড়িতে দমে রাঁধা। পউষীর প্লেটে থাকে দুই টুকরো খাসি, আলু ও ডিম।",
+        },
+        ingredients: {
+          en: ["Aromatic rice", "Mutton", "Yoghurt", "Potato", "Ghee", "Fried onion", "Cashew & poppy paste", "Kewra & saffron", "Boiled egg"],
+          bn: ["সুগন্ধি চাল", "খাসির মাংস", "টক দই", "আলু", "ঘি", "বেরেস্তা", "কাজু ও পোস্ত বাটা", "কেওড়া ও জাফরান", "সেদ্ধ ডিম"],
+        },
+      },
+      {
+        slug: "khichuri",
+        name: { en: "Khichuri", bn: "খিচুড়ি" },
+        tagline: {
+          en: "Rice and lentils cooked down together",
+          bn: "চাল-ডাল একসঙ্গে জ্বাল দেওয়া",
+        },
+        price: { en: "৳ 280", bn: "৳ ২৮০" },
+        image: "",
+        story: {
+          en: "The rainy-day comfort dish of every Bangladeshi home — rice and lentils cooked soft with turmeric and whole spice. Served with beef, egg, dopiyaja and pickle.",
+          bn: "প্রতিটি বাঙালি ঘরের বর্ষার আরামের খাবার — হলুদ আর আস্ত মসলায় নরম করে রাঁধা চাল-ডাল। সঙ্গে গরুর মাংস, ডিম, দোপেঁয়াজা ও আচার।",
+        },
+        ingredients: {
+          en: ["Rice", "Lentils", "Coconut milk", "Turmeric", "Whole garam masala", "Ginger", "Ghee", "Green chilli"],
+          bn: ["চাল", "ডাল", "নারকেল দুধ", "হলুদ", "আস্ত গরম মসলা", "আদা", "ঘি", "কাঁচা মরিচ"],
+        },
+      },
+      {
+        slug: "special-beef-khichuri",
+        name: { en: "Special Beef Khichuri", bn: "স্পেশাল বিফ খিচুড়ি" },
+        tagline: {
+          en: "Khichuri finished with beef kala bhuna",
+          bn: "খিচুড়ির সঙ্গে গরুর কালা ভুনা",
+        },
+        price: { en: "৳ 370", bn: "৳ ৩৭০" },
+        image: "/img/curry-rice.jpg",
+        story: {
+          en: "The house upgrade: the same soft turmeric khichuri, but stirred through with dark beef kala bhuna and served with egg, dopiyaja and mixed salad.",
+          bn: "ঘরের বিশেষ সংস্করণ: একই নরম হলুদ খিচুড়ি, তবে গাঢ় কালা ভুনা মিশিয়ে, সঙ্গে ডিম, দোপেঁয়াজা ও সালাদ।",
+        },
+        ingredients: {
+          en: ["Rice", "Lentils", "Beef kala bhuna", "Coconut milk", "Turmeric", "Whole spice", "Ghee", "Fried onion"],
+          bn: ["চাল", "ডাল", "গরুর কালা ভুনা", "নারকেল দুধ", "হলুদ", "আস্ত মসলা", "ঘি", "বেরেস্তা"],
+        },
+      },
+      {
+        slug: "plain-rice",
+        name: { en: "Plain Rice", bn: "সাদা ভাত" },
+        tagline: { en: "Steamed, per plate", bn: "সেদ্ধ, প্রতি প্লেট" },
+        price: { en: "৳ 60 / 120 / 220 / 400", bn: "৳ ৬০ / ১২০ / ২২০ / ৪০০" },
+        image: "",
+        story: {
+          en: "Plainly steamed white rice in four sharing sizes — the base for any curry, bhorta or dal on the menu.",
+          bn: "চার মাপের সাদা সেদ্ধ ভাত — মেনুর যেকোনো তরকারি, ভর্তা বা ডালের সঙ্গী।",
+        },
+        ingredients: { en: ["Rice", "Water", "Salt"], bn: ["চাল", "পানি", "লবণ"] },
+      },
+      {
+        slug: "polau-rice",
+        name: { en: "Polau Rice", bn: "পোলাও ভাত" },
+        tagline: { en: "Ghee polau, 1:1", bn: "ঘি পোলাও, ১:১" },
+        price: { en: "৳ 100 / 200", bn: "৳ ১০০ / ২০০" },
+        image: "",
+        story: {
+          en: "Short, fragrant polau rice cooked in ghee with whole spice — served alongside qorma, rezala and roast.",
+          bn: "ঘিয়ে আস্ত মসলা দিয়ে রাঁধা ছোট সুগন্ধি পোলাও — কোরমা, রেজালা ও রোস্টের সঙ্গী।",
+        },
+        ingredients: { en: ["Polau rice", "Ghee", "Bay leaf", "Cardamom", "Cinnamon", "Salt"], bn: ["পোলাওয়ের চাল", "ঘি", "তেজপাতা", "এলাচ", "দারুচিনি", "লবণ"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 2 */
+  {
+    slug: "starter-appetizer",
+    order: 2,
+    name: { en: "Starter & Desi Appetizer", bn: "স্টার্টার ও দেশি ভর্তা" },
+    blurb: {
+      en: "Bhorta, bhaji and shak — the local paste-and-greens spread eaten first with rice.",
+      bn: "ভর্তা, ভাজি আর শাক — ভাতের সঙ্গে শুরুতে খাওয়ার দেশি পদ।",
+    },
+    cover: "/img/samosa.jpg",
+    dishes: [
+      {
+        slug: "package-bhorta-veg",
+        name: { en: "Package Bhorta (Vegetables)", bn: "প্যাকেজ ভর্তা (সবজি)" },
+        tagline: { en: "A sharing platter of assorted vegetable pastes", bn: "নানা রকম সবজি ভর্তার প্ল্যাটার" },
+        price: { en: "৳ 250 / 300 / 400", bn: "৳ ২৫০ / ৩০০ / ৪০০" },
+        image: "",
+        story: {
+          en: "Bhorta — vegetables or fish mashed with mustard oil, fried onion and chilli — is the heart of a Bangladeshi rice meal. This platter brings a spread of five to eight pastes to the table at once.",
+          bn: "ভর্তা — সরিষার তেল, বেরেস্তা আর মরিচ দিয়ে মাখা সবজি বা মাছ — বাঙালি ভাতের প্রাণ। এই প্ল্যাটারে একসঙ্গে আসে পাঁচ থেকে আটটি ভর্তা।",
+        },
+        ingredients: {
+          en: ["Potato", "Green banana", "Mashed banana flower", "Brinjal", "Green bean", "Mustard oil", "Fried onion", "Dried chilli"],
+          bn: ["আলু", "কাঁচকলা", "মোচা", "বেগুন", "শিম", "সরিষার তেল", "বেরেস্তা", "শুকনা মরিচ"],
+        },
+      },
+      {
+        slug: "package-bhorta-fish",
+        name: { en: "Package Bhorta (Fish & Vegetables)", bn: "প্যাকেজ ভর্তা (মাছ ও সবজি)" },
+        tagline: { en: "Dried-fish and vegetable pastes together", bn: "শুঁটকি ও সবজি ভর্তা একসঙ্গে" },
+        price: { en: "৳ 300 / 350 / 400", bn: "৳ ৩০০ / ৩৫০ / ৪০০" },
+        image: "",
+        story: {
+          en: "The coastal version of the bhorta platter, adding dried-fish pastes — loitta and shrimp shutki — to the vegetable spread.",
+          bn: "ভর্তা প্ল্যাটারের উপকূলীয় রূপ — সবজির সঙ্গে যোগ হয় লইট্টা ও চিংড়ি শুঁটকির ভর্তা।",
+        },
+        ingredients: {
+          en: ["Dried loitta fish", "Dried shrimp", "Potato", "Brinjal", "Tomato", "Mustard oil", "Fried onion", "Garlic", "Chilli"],
+          bn: ["লইট্টা শুঁটকি", "চিংড়ি শুঁটকি", "আলু", "বেগুন", "টমেটো", "সরিষার তেল", "বেরেস্তা", "রসুন", "মরিচ"],
+        },
+      },
+      {
+        slug: "vegetable-paste",
+        name: { en: "Vegetable Paste", bn: "সবজি ভর্তা" },
+        tagline: { en: "Choose one: potato, banana, brinjal…", bn: "যেকোনো একটি: আলু, কলা, বেগুন…" },
+        price: { en: "৳ 60", bn: "৳ ৬০" },
+        image: "",
+        story: {
+          en: "A single bhorta of your choice — potato, green banana, mashed banana flower, brinjal or green bean — mashed with mustard oil, onion and chilli.",
+          bn: "আপনার পছন্দের একটি ভর্তা — আলু, কাঁচকলা, মোচা, বেগুন বা শিম — সরিষার তেল, পেঁয়াজ ও মরিচ দিয়ে মাখা।",
+        },
+        ingredients: { en: ["Chosen vegetable", "Mustard oil", "Onion", "Green/dried chilli", "Coriander", "Salt"], bn: ["পছন্দের সবজি", "সরিষার তেল", "পেঁয়াজ", "কাঁচা/শুকনা মরিচ", "ধনেপাতা", "লবণ"] },
+      },
+      {
+        slug: "sauteed-vegetable",
+        name: { en: "Sauteed Vegetable (Bhaji)", bn: "সবজি ভাজি" },
+        tagline: { en: "Okra, cabbage, bitter gourd, snake gourd…", bn: "ঢেঁড়স, বাঁধাকপি, করলা, চিচিঙ্গা…" },
+        price: { en: "৳ 60", bn: "৳ ৬০" },
+        image: "",
+        story: {
+          en: "A quick dry stir-fry of one seasonal vegetable with panch phoron, garlic and green chilli — the plain foil to a heavy curry.",
+          bn: "একটি মৌসুমি সবজির দ্রুত শুকনো ভাজি — পাঁচফোড়ন, রসুন ও কাঁচা মরিচে। ভারী তরকারির পাশে হালকা সঙ্গী।",
+        },
+        ingredients: { en: ["Seasonal vegetable", "Panch phoron", "Garlic", "Green chilli", "Turmeric", "Oil"], bn: ["মৌসুমি সবজি", "পাঁচফোড়ন", "রসুন", "কাঁচা মরিচ", "হলুদ", "তেল"] },
+      },
+      {
+        slug: "sauteed-green-leaves",
+        name: { en: "Sauteed Green Leaves with Garlic", bn: "রসুন দিয়ে শাক ভাজি" },
+        tagline: { en: "Spinach, water spinach, jute or radish leaves", bn: "পালং, কলমি, পাট বা মুলা শাক" },
+        price: { en: "৳ 60", bn: "৳ ৬০" },
+        image: "",
+        story: {
+          en: "Leafy greens — spinach, kalmi, jute leaf or radish leaf — flash-fried with plenty of garlic and dried chilli.",
+          bn: "শাক — পালং, কলমি, পাট বা মুলা — প্রচুর রসুন আর শুকনা মরিচে দ্রুত ভাজা।",
+        },
+        ingredients: { en: ["Green leaves", "Garlic", "Dried chilli", "Onion", "Mustard oil", "Salt"], bn: ["শাক", "রসুন", "শুকনা মরিচ", "পেঁয়াজ", "সরিষার তেল", "লবণ"] },
+      },
+      {
+        slug: "dried-ribbon-fish-paste",
+        name: { en: "Dried Ribbon Fish Paste (Spicy)", bn: "ছুরি শুঁটকি ভর্তা" },
+        tagline: { en: "Churi shutki, red and green chilli", bn: "ছুরি শুঁটকি, লাল-কাঁচা মরিচ" },
+        price: { en: "৳ 80", bn: "৳ ৮০" },
+        image: "",
+        story: {
+          en: "Dried ribbon fish (churi shutki) roasted and pounded with roasted red chilli, garlic and onion — a fiery Chattogram favourite.",
+          bn: "ছুরি শুঁটকি সেঁকে পোড়া লাল মরিচ, রসুন ও পেঁয়াজের সঙ্গে বাটা — চট্টগ্রামের ঝাল প্রিয় পদ।",
+        },
+        ingredients: { en: ["Dried ribbon fish", "Roasted red chilli", "Garlic", "Onion", "Mustard oil", "Coriander"], bn: ["ছুরি শুঁটকি", "পোড়া লাল মরিচ", "রসুন", "পেঁয়াজ", "সরিষার তেল", "ধনেপাতা"] },
+      },
+      {
+        slug: "dried-shrimp-paste",
+        name: { en: "Dried Shrimp Paste (Sea Food)", bn: "চিংড়ি শুঁটকি ভর্তা" },
+        tagline: { en: "Balachao-style dried shrimp", bn: "বালাচাও ঘরানার চিংড়ি শুঁটকি" },
+        price: { en: "৳ 200", bn: "৳ ২০০" },
+        image: "",
+        story: {
+          en: "Dried shrimp fried crisp and pounded with garlic, onion and chilli into a rich, concentrated relish — a spoonful goes a long way with plain rice.",
+          bn: "চিংড়ি শুঁটকি মচমচে ভেজে রসুন, পেঁয়াজ ও মরিচের সঙ্গে বাটা গাঢ় ভর্তা — সাদা ভাতের সঙ্গে এক চামচেই যথেষ্ট।",
+        },
+        ingredients: { en: ["Dried shrimp", "Garlic", "Onion", "Dried chilli", "Mustard oil", "Salt"], bn: ["চিংড়ি শুঁটকি", "রসুন", "পেঁয়াজ", "শুকনা মরিচ", "সরিষার তেল", "লবণ"] },
+      },
+      {
+        slug: "tomato-paste-bhorta",
+        name: { en: "Tomato Paste (Bhorta)", bn: "টমেটো ভর্তা" },
+        tagline: { en: "Charred tomato, mustard oil", bn: "পোড়া টমেটো, সরিষার তেল" },
+        price: { en: "৳ 100", bn: "৳ ১০০" },
+        image: "",
+        story: {
+          en: "Tomatoes charred over flame until soft, then mashed with fried onion, coriander and raw mustard oil.",
+          bn: "টমেটো আগুনে পুড়িয়ে নরম করে বেরেস্তা, ধনেপাতা ও কাঁচা সরিষার তেলে মাখা।",
+        },
+        ingredients: { en: ["Tomato", "Fried onion", "Green chilli", "Coriander", "Mustard oil", "Salt"], bn: ["টমেটো", "বেরেস্তা", "কাঁচা মরিচ", "ধনেপাতা", "সরিষার তেল", "লবণ"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 3 */
+  {
+    slug: "chicken",
+    order: 3,
+    name: { en: "Chicken", bn: "চিকেন" },
+    blurb: {
+      en: "Wild deshi chicken, leghorn roast, achari and duck — the poultry mains.",
+      bn: "দেশি মুরগি, লেয়ার রোস্ট, আচারি আর হাঁস — মুরগির প্রধান পদ।",
+    },
+    cover: "/img/tandoori.jpg",
+    dishes: [
+      {
+        slug: "chicken-curry-deshi",
+        name: { en: "Deshi Chicken Curry", bn: "দেশি মোরগ কারি" },
+        tagline: { en: "Free-range bird, medium-spicy gravy", bn: "দেশি মুরগি, মাঝারি ঝাল ঝোল" },
+        price: { en: "৳ 300 / 600", bn: "৳ ৩০০ / ৬০০" },
+        image: "/img/karahi.jpg",
+        featured: true,
+        story: {
+          en: "Deshi (free-range) chicken has firmer meat and deeper flavour than farmed birds, and it stands up to a long simmer. Cooked here in a classic onion-ginger-garlic gravy, medium hot.",
+          bn: "দেশি মুরগির মাংস ফার্মের চেয়ে শক্ত ও স্বাদে গভীর, দীর্ঘ জ্বালে ভালো থাকে। এখানে রাঁধা ক্লাসিক পেঁয়াজ-আদা-রসুনের ঝোলে, মাঝারি ঝাল।",
+        },
+        ingredients: { en: ["Deshi chicken", "Onion", "Ginger", "Garlic", "Turmeric", "Chilli powder", "Garam masala", "Mustard oil"], bn: ["দেশি মুরগি", "পেঁয়াজ", "আদা", "রসুন", "হলুদ", "মরিচ গুঁড়া", "গরম মসলা", "সরিষার তেল"] },
+      },
+      {
+        slug: "chicken-roast",
+        name: { en: "Chicken Roast", bn: "মোরগ রোস্ট" },
+        tagline: { en: "Leghorn, mild — the wedding roast", bn: "লেয়ার মুরগি, হালকা — বিয়ের রোস্ট" },
+        price: { en: "৳ 250", bn: "৳ ২৫০" },
+        image: "",
+        story: {
+          en: "The pale, gently sweet roast served at Bangladeshi weddings — leghorn chicken braised in a yoghurt-and-cashew gravy with kewra water, barely any chilli.",
+          bn: "বাঙালি বিয়ের সেই ফ্যাকাশে, হালকা মিষ্টি রোস্ট — লেয়ার মুরগি টক দই ও কাজুর ঝোলে, কেওড়া জল দিয়ে, প্রায় ঝালহীন।",
+        },
+        ingredients: { en: ["Leghorn chicken", "Yoghurt", "Cashew paste", "Fried onion", "Ghee", "Kewra water", "Cardamom", "Cinnamon"], bn: ["লেয়ার মুরগি", "টক দই", "কাজু বাটা", "বেরেস্তা", "ঘি", "কেওড়া জল", "এলাচ", "দারুচিনি"] },
+      },
+      {
+        slug: "chicken-masala-roast",
+        name: { en: "Chicken Masala Roast", bn: "মোরগ মসলা রোস্ট" },
+        tagline: { en: "Leghorn, medium-spicy", bn: "লেয়ার মুরগি, মাঝারি ঝাল" },
+        price: { en: "৳ 250", bn: "৳ ২৫০" },
+        image: "/img/tandoori.jpg",
+        story: {
+          en: "The restaurant answer to the mild wedding roast — same tender leghorn, but finished in a darker, spicier onion masala.",
+          bn: "হালকা বিয়ের রোস্টের রেস্তোরাঁ সংস্করণ — একই নরম মুরগি, তবে গাঢ় ঝাল পেঁয়াজ মসলায় শেষ।",
+        },
+        ingredients: { en: ["Leghorn chicken", "Onion", "Ginger-garlic", "Yoghurt", "Chilli powder", "Garam masala", "Tomato", "Oil"], bn: ["লেয়ার মুরগি", "পেঁয়াজ", "আদা-রসুন", "টক দই", "মরিচ গুঁড়া", "গরম মসলা", "টমেটো", "তেল"] },
+      },
+      {
+        slug: "chicken-achari",
+        name: { en: "Chicken Achari", bn: "চিকেন আচারি" },
+        tagline: { en: "Cooked with pickle spices and tang", bn: "আচারের মসলা ও টক দিয়ে রাঁধা" },
+        price: { en: "৳ 280", bn: "৳ ২৮০" },
+        image: "",
+        story: {
+          en: "Chicken cooked with the building blocks of a South Asian pickle — panch phoron, mustard, nigella and a spoon of sour achar — for a sharp, aromatic gravy.",
+          bn: "মুরগি রাঁধা আচারের মসলায় — পাঁচফোড়ন, সরিষা, কালোজিরা আর এক চামচ টক আচার — ঝাঁঝালো সুগন্ধি ঝোলের জন্য।",
+        },
+        ingredients: { en: ["Chicken", "Panch phoron", "Mustard seed", "Nigella", "Sour pickle", "Garlic", "Turmeric", "Mustard oil"], bn: ["মুরগি", "পাঁচফোড়ন", "সরিষা", "কালোজিরা", "টক আচার", "রসুন", "হলুদ", "সরিষার তেল"] },
+      },
+      {
+        slug: "duck-bhuna",
+        name: { en: "Duck Curry / Bhuna", bn: "হাঁস ভুনা" },
+        tagline: { en: "2 / 4 pieces, dark winter bhuna", bn: "২ / ৪ পিস, গাঢ় শীতের ভুনা" },
+        price: { en: "৳ 300 / 600", bn: "৳ ৩০০ / ৬০০" },
+        image: "/img/curry-pot.jpg",
+        featured: true,
+        story: {
+          en: "Duck bhuna is winter food in rural Bengal, traditionally eaten with chitoi or bhapa pitha. The dark meat is bhuna-fried slowly with onion and whole spice until the gravy clings.",
+          bn: "হাঁস ভুনা গ্রামবাংলার শীতের খাবার, চিতই বা ভাপা পিঠার সঙ্গে খাওয়া হয়। গাঢ় মাংস পেঁয়াজ আর আস্ত মসলায় ধীরে ভুনা করা হয় যতক্ষণ না ঝোল মাখা মাখা হয়।",
+        },
+        ingredients: { en: ["Duck", "Onion", "Ginger-garlic", "Cinnamon", "Cardamom", "Clove", "Chilli powder", "Mustard oil"], bn: ["হাঁস", "পেঁয়াজ", "আদা-রসুন", "দারুচিনি", "এলাচ", "লবঙ্গ", "মরিচ গুঁড়া", "সরিষার তেল"] },
+      },
+      {
+        slug: "turkey-masala-curry",
+        name: { en: "Turkey Masala Curry", bn: "টার্কি মসলা কারি" },
+        tagline: { en: "Lean turkey in a spiced gravy", bn: "কম চর্বির টার্কি, মসলাদার ঝোলে" },
+        price: { en: "৳ 300", bn: "৳ ৩০০" },
+        image: "",
+        story: {
+          en: "Turkey is a newer bird on the Bangladeshi table. Its lean meat is cooked here in a robust onion-tomato masala so it stays moist.",
+          bn: "টার্কি বাঙালি টেবিলে নতুন পাখি। এর কম চর্বির মাংস এখানে রাঁধা শক্ত পেঁয়াজ-টমেটো মসলায়, যেন রসালো থাকে।",
+        },
+        ingredients: { en: ["Turkey", "Onion", "Tomato", "Ginger-garlic", "Yoghurt", "Chilli powder", "Garam masala", "Oil"], bn: ["টার্কি", "পেঁয়াজ", "টমেটো", "আদা-রসুন", "টক দই", "মরিচ গুঁড়া", "গরম মসলা", "তেল"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 4 — REAL */
+  {
+    slug: "beef-mutton",
+    order: 4,
+    real: true,
+    name: { en: "Beef & Mutton", bn: "গরু ও খাসি" },
+    blurb: {
+      en: "The heart of the menu — Chattogram mezbani, kala bhuna and slow-cooked mutton, from the client's own kitchen.",
+      bn: "মেনুর প্রাণ — চাটগাঁইয়া মেজবানি, কালা ভুনা আর ধীরে রাঁধা খাসি, রান্নাঘরের নিজের হাতে।",
+    },
+    cover: "/menu/beef-mutton/cover.jpg",
+    dishes: [
+      {
+        slug: "chatgaiya-mezbani",
+        name: { en: "Chatgaiya Mezbani", bn: "চাটগাঁইয়া মেজবানি" },
+        tagline: {
+          en: "Traditional Chattogram mezban beef with roasted lentils",
+          bn: "ঐতিহ্যবাহী চট্টগ্রামের মেজবানি মাংস, ভাজা ডালসহ",
+        },
+        price: { en: "৳ 350", bn: "৳ ৩৫০" },
+        image: "/menu/beef-mutton/chatgaiya-mezbani.jpg",
+        featured: true,
+        story: {
+          en: "In Chattogram, a 'mezban' is a community feast — the Persian word means 'host', and mezbani is the act of hospitality itself. Families have thrown these open-invitation lunches for centuries, to mark a birth, a death anniversary, or simply good fortune, and the guest of honour is always this beef. What makes it mezbani and not an ordinary curry is the slow fire and the paste: ground onion, roasted chickpea and mustard, coconut and peanut, cooked down in mustard oil and ghee for hours until the gravy is thick, red and glossy. It is eaten with plain hot rice, and nothing else is really needed.",
+          bn: "চট্টগ্রামে 'মেজবান' মানে সমাজের সবার জন্য ভোজ — ফারসি শব্দটির অর্থ 'অতিথি আপ্যায়নকারী', আর মেজবানি মানে আতিথেয়তা নিজেই। শত বছর ধরে পরিবারগুলো এই খোলা-নিমন্ত্রণের দাওয়াত দিয়ে আসছে — জন্ম, মৃত্যুবার্ষিকী, কিংবা কেবল সচ্ছলতা উপলক্ষে — আর প্রধান অতিথি সবসময় এই গরুর মাংস। একে সাধারণ তরকারি থেকে আলাদা করে ধীর আঁচ আর বাটা মসলা: পেঁয়াজ, ভাজা বুট ও সরিষা, নারকেল ও চিনাবাদাম বাটা, সরিষার তেল আর ঘিয়ে ঘণ্টার পর ঘণ্টা কষানো — যতক্ষণ না ঝোল ঘন, লাল আর চকচকে হয়। গরম সাদা ভাতের সঙ্গে খাওয়া হয়, আর কিছু লাগে না।",
+        },
+        ingredients: {
+          en: [
+            "Beef (with bone)",
+            "Onion — half ground, half sliced",
+            "Ginger paste",
+            "Garlic paste",
+            "Roasted chickpea (bootor dal) paste",
+            "White mustard paste",
+            "Peanut paste",
+            "Coconut paste",
+            "Coriander & cumin powder",
+            "Red chilli & turmeric",
+            "Whole garam masala",
+            "Mustard oil & ghee",
+          ],
+          bn: [
+            "গরুর মাংস (হাড়সহ)",
+            "পেঁয়াজ — অর্ধেক বাটা, অর্ধেক কুচি",
+            "আদা বাটা",
+            "রসুন বাটা",
+            "ভাজা বুটের ডাল বাটা",
+            "সাদা সরিষা বাটা",
+            "চিনাবাদাম বাটা",
+            "নারকেল বাটা",
+            "ধনে ও জিরা গুঁড়া",
+            "মরিচ ও হলুদ গুঁড়া",
+            "আস্ত গরম মসলা",
+            "সরিষার তেল ও ঘি",
+          ],
+        },
+      },
+      {
+        slug: "beef-kala-bhuna",
+        name: { en: "Beef Kala Bhuna", bn: "গরুর কালা ভুনা" },
+        tagline: {
+          en: "Chattogram's near-black, dry-fried beef",
+          bn: "চট্টগ্রামের প্রায় কালো, শুকনো ভুনা",
+        },
+        price: { en: "৳ 300 / 600", bn: "৳ ৩০০ / ৬০০" },
+        image: "/menu/beef-mutton/beef-kala-bhuna.jpg",
+        featured: true,
+        story: {
+          en: "Kala bhuna — 'hala bhuno' in the Chattogram dialect — takes its name from its colour: the meat is fried down so long, in so many spices, that it turns almost black. There is no water added. Beef is marinated with ginger, garlic, onion paste and a heavy hand of ground spice, then 'koshano' — stirred over a low flame for well over an hour while the fat renders and a separate roasted spice mix (clove, black pepper, mace, radhuni, black cumin) goes in at the end. A crown of fried sliced onion and whole garlic finishes it. Dry, dark and intensely savoury, it belongs with plain rice or a ghee polau.",
+          bn: "কালা ভুনা — চাটগাঁইয়া ভাষায় 'হালা ভুনো' — নাম পেয়েছে তার রং থেকে: মাংস এত দীর্ঘ সময়, এত মসলায় ভুনা হয় যে প্রায় কালো হয়ে যায়। পানি দেওয়া হয় না। গরুর মাংস আদা, রসুন, পেঁয়াজ বাটা আর প্রচুর গুঁড়া মসলায় মেখে 'কষানো' হয় — কম আঁচে এক ঘণ্টারও বেশি, যতক্ষণ চর্বি ছেড়ে আসে; শেষে যোগ হয় আলাদা ভাজা মসলা (লবঙ্গ, গোলমরিচ, জয়ত্রী, রাঁধুনি, কালোজিরা)। উপরে ভাজা পেঁয়াজ ও আস্ত রসুনের মুকুট। শুকনো, গাঢ় আর ভীষণ সুস্বাদু — সাদা ভাত বা ঘি পোলাওয়ের সঙ্গে।",
+        },
+        ingredients: {
+          en: [
+            "Beef",
+            "Onion paste & sliced onion",
+            "Ginger paste",
+            "Garlic paste + whole garlic cloves",
+            "Coriander & cumin powder",
+            "Red chilli powder",
+            "Green cardamom, star anise, bay leaf, cinnamon",
+            "Roasted spice: clove, black pepper, mace, radhuni, black cumin",
+            "Sugar (a touch)",
+            "Mustard oil",
+          ],
+          bn: [
+            "গরুর মাংস",
+            "পেঁয়াজ বাটা ও পেঁয়াজ কুচি",
+            "আদা বাটা",
+            "রসুন বাটা + আস্ত রসুন",
+            "ধনে ও জিরা গুঁড়া",
+            "মরিচ গুঁড়া",
+            "সবুজ এলাচ, তারা মৌরি, তেজপাতা, দারুচিনি",
+            "ভাজা মসলা: লবঙ্গ, গোলমরিচ, জয়ত্রী, রাঁধুনি, কালোজিরা",
+            "সামান্য চিনি",
+            "সরিষার তেল",
+          ],
+        },
+      },
+      {
+        slug: "beef-rosha-bhuna",
+        name: { en: "Beef Rosha Bhuna", bn: "গরুর রসা ভুনা" },
+        tagline: {
+          en: "Bhuna with the gravy kept — rich and mopping-wet",
+          bn: "ঝোল রেখে ভুনা — গাঢ়, মাখানোর মতো",
+        },
+        price: { en: "৳ 300 / 600", bn: "৳ ৩০০ / ৬০০" },
+        image: "/menu/beef-mutton/beef-rosha-bhuna.jpg",
+        story: {
+          en: "'Rosha' means the gravy, the broth. Where kala bhuna is fried bone-dry, rosha bhuna is stopped earlier, while a thick, oil-slicked red gravy still coats every piece — the kind you mop up with paratha or luchi. The beef is browned with onion, ginger and garlic, then simmered with tomato, yoghurt and ground spice until it is fork-tender and the gravy has reduced by half.",
+          bn: "'রসা' মানে ঝোল, রস। কালা ভুনা যেখানে একদম শুকনো, রসা ভুনা থামানো হয় আগেই — যখন ঘন, তেল-চকচকে লাল ঝোল প্রতিটি টুকরোয় লেগে থাকে, পরোটা বা লুচি দিয়ে মেখে খাওয়ার মতো। গরুর মাংস পেঁয়াজ, আদা-রসুনে বাদামি করে টমেটো, দই আর গুঁড়া মসলায় কষানো হয় যতক্ষণ না নরম হয় আর ঝোল অর্ধেক হয়ে আসে।",
+        },
+        ingredients: {
+          en: [
+            "Beef (with bone)",
+            "Onion (sliced & paste)",
+            "Ginger-garlic paste",
+            "Tomato",
+            "Yoghurt",
+            "Turmeric, chilli, coriander, cumin powder",
+            "Whole garam masala",
+            "Green chilli",
+            "Soybean & mustard oil",
+          ],
+          bn: [
+            "গরুর মাংস (হাড়সহ)",
+            "পেঁয়াজ (কুচি ও বাটা)",
+            "আদা-রসুন বাটা",
+            "টমেটো",
+            "টক দই",
+            "হলুদ, মরিচ, ধনে, জিরা গুঁড়া",
+            "আস্ত গরম মসলা",
+            "কাঁচা মরিচ",
+            "সয়াবিন ও সরিষার তেল",
+          ],
+        },
+      },
+      {
+        slug: "beef-achari",
+        name: { en: "Beef Achari", bn: "বিফ আচারি" },
+        tagline: {
+          en: "Beef braised with whole garlic and pickle spice",
+          bn: "আস্ত রসুন আর আচারের মসলায় কষানো গরু",
+        },
+        price: { en: "৳ 350", bn: "৳ ৩৫০" },
+        image: "/menu/beef-mutton/beef-achari.jpg",
+        story: {
+          en: "Achari beef borrows everything from the pickle jar — panch phoron, mustard and nigella seed, whole dried chilli, and a spoonful of a sour aam or jolpai achar stirred in near the end. Whole cloves of garlic are left in to soften into the gravy. The finished dish is tangy, warm with whole spice, and keeps well — it is often cooked ahead for journeys, eaten with khichuri, polau, rice or paratha.",
+          bn: "আচারি গরু আচারের বয়াম থেকে সব নিয়ে নেয় — পাঁচফোড়ন, সরিষা ও কালোজিরা, আস্ত শুকনা মরিচ, আর শেষদিকে এক চামচ টক আম বা জলপাইয়ের আচার। আস্ত রসুনের কোয়া রেখে দেওয়া হয়, ঝোলে গলে নরম হয়। শেষ পদটি টক-ঝাল, আস্ত মসলায় উষ্ণ, আর অনেকদিন ভালো থাকে — প্রায়ই ভ্রমণের জন্য আগে রেঁধে রাখা হয়, খিচুড়ি, পোলাও, ভাত বা পরোটার সঙ্গে।",
+        },
+        ingredients: {
+          en: [
+            "Beef",
+            "Whole garlic cloves",
+            "Panch phoron (fennel, cumin, mustard, fenugreek, nigella)",
+            "Whole dried red chilli",
+            "Sour mango / olive pickle",
+            "Onion",
+            "Turmeric & chilli powder",
+            "Mustard oil",
+          ],
+          bn: [
+            "গরুর মাংস",
+            "আস্ত রসুনের কোয়া",
+            "পাঁচফোড়ন (মৌরি, জিরা, সরিষা, মেথি, কালোজিরা)",
+            "আস্ত শুকনা মরিচ",
+            "টক আম / জলপাই আচার",
+            "পেঁয়াজ",
+            "হলুদ ও মরিচ গুঁড়া",
+            "সরিষার তেল",
+          ],
+        },
+      },
+      {
+        slug: "mutton-korma",
+        name: { en: "Mutton Korma", bn: "খাসির কোরমা" },
+        tagline: {
+          en: "2 / 4 pieces — pale, fragrant, festive",
+          bn: "২ / ৪ পিস — ফ্যাকাশে, সুগন্ধি, উৎসবের",
+        },
+        price: { en: "৳ 300 / 600", bn: "৳ ৩০০ / ৬০০" },
+        image: "/menu/beef-mutton/mutton-korma.jpg",
+        story: {
+          en: "Korma came down from the Mughal courts and stayed on for Eid and weddings. It is the gentle opposite of kala bhuna: mutton cooked slowly in yoghurt, fried-onion paste, cashew and poppy seed, with ghee and whole cardamom, and almost no chilli or turmeric — which is why the gravy stays pale gold. Best with polau, jafrani rice or a soft naan.",
+          bn: "কোরমা এসেছে মুঘল দরবার থেকে, রয়ে গেছে ঈদ আর বিয়ের জন্য। এটি কালা ভুনার নরম বিপরীত: খাসির মাংস ধীরে রাঁধা টক দই, বেরেস্তা বাটা, কাজু ও পোস্তে, ঘি আর আস্ত এলাচে — মরিচ বা হলুদ প্রায় নেই, তাই ঝোল থাকে ফিকে সোনালি। পোলাও, জাফরানি ভাত বা নরম নানের সঙ্গে সেরা।",
+        },
+        ingredients: {
+          en: [
+            "Mutton",
+            "Yoghurt",
+            "Fried-onion (beresta) paste",
+            "Cashew paste",
+            "Poppy seed paste",
+            "Ghee",
+            "Green cardamom, cinnamon, clove",
+            "White pepper",
+            "Kewra water",
+          ],
+          bn: [
+            "খাসির মাংস",
+            "টক দই",
+            "বেরেস্তা বাটা",
+            "কাজু বাটা",
+            "পোস্তদানা বাটা",
+            "ঘি",
+            "সবুজ এলাচ, দারুচিনি, লবঙ্গ",
+            "সাদা গোলমরিচ",
+            "কেওড়া জল",
+          ],
+        },
+      },
+      {
+        slug: "mutton-rezala",
+        name: { en: "Mutton Rezala", bn: "খাসির রেজালা" },
+        tagline: {
+          en: "On order — thin white gravy, sharp with chilli and cardamom",
+          bn: "অর্ডারে — পাতলা সাদা ঝোল, মরিচ ও এলাচে ঝাঁঝালো",
+        },
+        price: { en: "৳ 300 / 600", bn: "৳ ৩০০ / ৬০০" },
+        image: "/menu/beef-mutton/mutton-rezala.jpg",
+        story: {
+          en: "Rezala is the Old Dhaka restaurant classic — thinner and sharper than korma, its white gravy built from yoghurt, cashew and poppy paste but cut with green chilli, whole cardamom and a squeeze of lime or kewra. It was one dish in the nawabi kitchens and another on Nazira Bazar's tables; this is the leaner restaurant version, made to order and eaten with naan or paratha.",
+          bn: "রেজালা পুরান ঢাকার রেস্তোরাঁর ক্লাসিক — কোরমার চেয়ে পাতলা ও ঝাঁঝালো, এর সাদা ঝোল দই, কাজু ও পোস্ত বাটায় গড়া কিন্তু কাঁচা মরিচ, আস্ত এলাচ আর একটু লেবু বা কেওড়ায় কাটা। নবাবি হেঁশেলে ছিল এক রকম, নাজিরা বাজারের টেবিলে আরেক রকম; এটি রেস্তোরাঁর হালকা সংস্করণ, অর্ডারে তৈরি, নান বা পরোটার সঙ্গে।",
+        },
+        ingredients: {
+          en: [
+            "Mutton",
+            "Yoghurt",
+            "Fried onion (beresta)",
+            "Cashew & poppy paste",
+            "Ghee & oil",
+            "Kashmiri chilli powder",
+            "Green chilli",
+            "Whole cardamom, cinnamon, clove",
+            "Lime / kewra water",
+          ],
+          bn: [
+            "খাসির মাংস",
+            "টক দই",
+            "বেরেস্তা",
+            "কাজু ও পোস্ত বাটা",
+            "ঘি ও তেল",
+            "কাশ্মিরি মরিচ গুঁড়া",
+            "কাঁচা মরিচ",
+            "আস্ত এলাচ, দারুচিনি, লবঙ্গ",
+            "লেবু / কেওড়া জল",
+          ],
+        },
+      },
+    ],
+  },
+
+  /* ============================================================ 5 */
+  {
+    slug: "fish-fry",
+    order: 5,
+    name: { en: "Fish Fry", bn: "মাছ ভাজা" },
+    blurb: {
+      en: "The day's catch, floured and fried — pomfret, loitta, kachki and dried-fish gravies.",
+      bn: "দিনের মাছ, মেখে ভাজা — রূপচাঁদা, লইট্টা, কাচকি আর শুঁটকির ঝোল।",
+    },
+    cover: "/img/crispy-fish.jpg",
+    dishes: [
+      {
+        slug: "pomfret-fry",
+        name: { en: "Pomfret Fry (Sea Food)", bn: "রূপচাঁদা ভাজা" },
+        tagline: { en: "Whole silver pomfret, 1:2", bn: "আস্ত রূপচাঁদা, ১:২" },
+        price: { en: "৳ 700 / 800", bn: "৳ ৭০০ / ৮০০" },
+        image: "/img/crispy-fish.jpg",
+        featured: true,
+        story: {
+          en: "Silver pomfret (rup chanda) is the prize of the Bay of Bengal — firm, sweet, almost boneless. Scored, rubbed with turmeric, chilli and lime, and shallow-fried whole until the skin crisps.",
+          bn: "রূপচাঁদা বঙ্গোপসাগরের গর্ব — শক্ত, মিষ্টি, প্রায় কাঁটাহীন। গায়ে চিরে হলুদ, মরিচ ও লেবু মেখে আস্ত ভাজা হয় যতক্ষণ না চামড়া মচমচে হয়।",
+        },
+        ingredients: { en: ["Silver pomfret", "Turmeric", "Chilli powder", "Lime juice", "Garlic paste", "Salt", "Mustard oil"], bn: ["রূপচাঁদা মাছ", "হলুদ", "মরিচ গুঁড়া", "লেবুর রস", "রসুন বাটা", "লবণ", "সরিষার তেল"] },
+      },
+      {
+        slug: "loitta-fry",
+        name: { en: "Loitta / Bombay Duck Fry", bn: "লইট্টা ফ্রাই" },
+        tagline: { en: "Soft sea fish in a crisp batter", bn: "নরম সামুদ্রিক মাছ, মচমচে ব্যাটারে" },
+        price: { en: "৳ 280", bn: "৳ ২৮০" },
+        image: "",
+        story: {
+          en: "Loitta (Bombay duck) is soft, almost jelly-like fresh — the trick is a dry spiced flour coat and hot oil, which turns it crunchy outside and creamy within. A Chattogram tea-time staple.",
+          bn: "লইট্টা তাজা অবস্থায় নরম, প্রায় জেলির মতো — কৌশল হলো শুকনো মসলা-ময়দার প্রলেপ আর গরম তেল, বাইরে মচমচে ভেতরে মাখনের মতো। চট্টগ্রামের বিকেলের নাশতা।",
+        },
+        ingredients: { en: ["Loitta fish", "Rice flour", "Turmeric", "Chilli powder", "Garlic", "Salt", "Oil for frying"], bn: ["লইট্টা মাছ", "চালের গুঁড়া", "হলুদ", "মরিচ গুঁড়া", "রসুন", "লবণ", "ভাজার তেল"] },
+      },
+      {
+        slug: "kachki-fry",
+        name: { en: "Kachki / Mullet Fry", bn: "কাচকি ফ্রাই" },
+        tagline: { en: "Tiny fish fried whole and crisp", bn: "ছোট মাছ, আস্ত মচমচে ভাজা" },
+        price: { en: "৳ 280", bn: "৳ ২৮০" },
+        image: "/img/crispy-fish.jpg",
+        story: {
+          en: "Kachki are eaten whole, bones and all, for their calcium and their nutty crunch. Tossed with onion, green chilli and a little flour, then fried until they hold together in golden clusters.",
+          bn: "কাচকি আস্ত খাওয়া হয়, কাঁটাসহ — ক্যালসিয়াম আর বাদামি মচমচে স্বাদের জন্য। পেঁয়াজ, কাঁচা মরিচ আর সামান্য ময়দায় মেখে সোনালি দলা হয়ে ভাজা হয়।",
+        },
+        ingredients: { en: ["Kachki fish", "Onion", "Green chilli", "Turmeric", "Flour", "Coriander leaf", "Mustard oil"], bn: ["কাচকি মাছ", "পেঁয়াজ", "কাঁচা মরিচ", "হলুদ", "ময়দা", "ধনেপাতা", "সরিষার তেল"] },
+      },
+      {
+        slug: "kachki-bhuna",
+        name: { en: "Kachki Fish Bhuna", bn: "কাচকি মাছ ভুনা" },
+        tagline: { en: "Small fish in a dry onion bhuna", bn: "ছোট মাছ, শুকনো পেঁয়াজ ভুনায়" },
+        price: { en: "৳ 220", bn: "৳ ২২০" },
+        image: "",
+        story: {
+          en: "The same tiny fish, this time bhuna-fried with a lot of onion, garlic and green chilli until dry and dark — a rice-eater's dish.",
+          bn: "একই ছোট মাছ, এবার প্রচুর পেঁয়াজ, রসুন আর কাঁচা মরিচে ভুনা — শুকনো আর গাঢ়, ভাতের সঙ্গে খাওয়ার পদ।",
+        },
+        ingredients: { en: ["Kachki fish", "Onion", "Garlic", "Green chilli", "Turmeric", "Chilli powder", "Mustard oil"], bn: ["কাচকি মাছ", "পেঁয়াজ", "রসুন", "কাঁচা মরিচ", "হলুদ", "মরিচ গুঁড়া", "সরিষার তেল"] },
+      },
+      {
+        slug: "dried-loitta-gravy",
+        name: { en: "Dried Loitta Gravy (Sea Food)", bn: "লইট্টা শুঁটকির ঝোল" },
+        tagline: { en: "Loitta shutki simmered with chilli", bn: "লইট্টা শুঁটকি, মরিচ দিয়ে ঝোল" },
+        price: { en: "৳ 200", bn: "৳ ২০০" },
+        image: "",
+        story: {
+          en: "Dried loitta rehydrated and simmered in a fierce red gravy heavy with garlic and chilli — a smell that fills the house and a taste that divides the room.",
+          bn: "লইট্টা শুঁটকি ভিজিয়ে রসুন আর মরিচে ভরা কড়া লাল ঝোলে রাঁধা — গন্ধে ভরে যায় ঘর, স্বাদে ভাগ হয়ে যায় টেবিল।",
+        },
+        ingredients: { en: ["Dried loitta fish", "Onion", "Garlic", "Dried & green chilli", "Turmeric", "Tomato", "Mustard oil"], bn: ["লইট্টা শুঁটকি", "পেঁয়াজ", "রসুন", "শুকনা ও কাঁচা মরিচ", "হলুদ", "টমেটো", "সরিষার তেল"] },
+      },
+      {
+        slug: "beans-curry-dried-fish",
+        name: { en: "Beans Curry with Dried Fish", bn: "শিমের বিচি শুঁটকি কারি" },
+        tagline: { en: "Bean seeds cooked with ribbon-fish or shrimp shutki", bn: "শিমের বিচি, ছুরি বা চিংড়ি শুঁটকিসহ" },
+        price: { en: "৳ 200", bn: "৳ ২০০" },
+        image: "",
+        story: {
+          en: "A winter village dish: dried bean seeds slow-cooked with dried ribbon fish, loitta or shrimp until both go soft and the gravy thickens on its own.",
+          bn: "শীতের গ্রামীণ পদ: শুকনো শিমের বিচি ছুরি, লইট্টা বা চিংড়ি শুঁটকির সঙ্গে ধীরে রাঁধা — দুটোই নরম হয়, ঝোল ঘন হয় নিজে থেকেই।",
+        },
+        ingredients: { en: ["Dried bean seeds", "Dried fish (ribbon / loitta / shrimp)", "Onion", "Garlic", "Turmeric", "Chilli", "Mustard oil"], bn: ["শুকনো শিমের বিচি", "শুঁটকি (ছুরি / লইট্টা / চিংড়ি)", "পেঁয়াজ", "রসুন", "হলুদ", "মরিচ", "সরিষার তেল"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 6 */
+  {
+    slug: "fish-curry",
+    order: 6,
+    name: { en: "Fish Curry", bn: "মাছের কারি" },
+    blurb: {
+      en: "Reef fish, river fish and the king of them all — sorshe ilish in mustard gravy.",
+      bn: "সামুদ্রিক মাছ, নদীর মাছ আর সবার রাজা — সরষে ইলিশ।",
+    },
+    cover: "/img/salmon-plate.jpg",
+    dishes: [
+      {
+        slug: "sorshe-ilish",
+        name: { en: "Hilsa in Mustard (Sorshe Ilish)", bn: "সরষে ইলিশ" },
+        tagline: { en: "The national fish, 1:1, in mustard-poppy gravy", bn: "জাতীয় মাছ, ১:১, সরষে-পোস্ত ঝোলে" },
+        price: { en: "৳ 600", bn: "৳ ৬০০" },
+        image: "/img/salmon-plate.jpg",
+        featured: true,
+        story: {
+          en: "Ilish is the fish Bengalis argue about across borders and seasons. The purest way to cook it is the least: mustard and poppy seed ground to a paste, a slit of green chilli, raw mustard oil, and just enough heat to set the gravy. Nothing fried, nothing browned.",
+          bn: "ইলিশ সেই মাছ, যা নিয়ে বাঙালি সীমান্ত আর ঋতু পেরিয়ে তর্ক করে। রাঁধার সবচেয়ে খাঁটি উপায় সবচেয়ে কম: সরষে আর পোস্ত বাটা, চেরা কাঁচা মরিচ, কাঁচা সরিষার তেল, আর ঠিক যতটুকু আঁচে ঝোল বসে। কিছু ভাজা নয়, কিছু বাদামি নয়।",
+        },
+        ingredients: { en: ["Hilsa (ilish)", "Yellow & black mustard paste", "Poppy seed paste", "Green chilli", "Turmeric", "Raw mustard oil", "Salt"], bn: ["ইলিশ মাছ", "সাদা ও কালো সরষে বাটা", "পোস্ত বাটা", "কাঁচা মরিচ", "হলুদ", "কাঁচা সরিষার তেল", "লবণ"] },
+      },
+      {
+        slug: "koral-curry",
+        name: { en: "Koral / Sea Bass Curry", bn: "কোরাল মাছের ঝোল" },
+        tagline: { en: "Barramundi, low-bone, light gravy (1:1)", bn: "কম কাঁটা, হালকা ঝোল (১:১)" },
+        price: { en: "৳ 320", bn: "৳ ৩২০" },
+        image: "/img/salmon-plate.jpg",
+        story: {
+          en: "Koral (barramundi / Asian sea bass) has thick, low-bone fillets that suit a lighter hand. Cooked in a thin turmeric gravy with tomato and coriander so the fish stays the loudest thing on the plate.",
+          bn: "কোরাল (বারামুন্ডি / এশিয়ান সি-বাস) মোটা, কম-কাঁটা মাছ, হালকা রান্নার উপযোগী। টমেটো আর ধনেপাতা দিয়ে পাতলা হলুদ ঝোলে রাঁধা — মাছই থাকে প্লেটের প্রধান।",
+        },
+        ingredients: { en: ["Koral fish", "Onion", "Tomato", "Ginger-garlic", "Turmeric", "Cumin", "Green chilli", "Coriander leaf"], bn: ["কোরাল মাছ", "পেঁয়াজ", "টমেটো", "আদা-রসুন", "হলুদ", "জিরা", "কাঁচা মরিচ", "ধনেপাতা"] },
+      },
+      {
+        slug: "salmon-curry-bd",
+        name: { en: "Salmon Fish Curry (BD)", bn: "দেশি স্যামন কারি" },
+        tagline: { en: "Local salmon-type fish, per piece", bn: "দেশি স্যামন-জাতীয় মাছ, প্রতি পিস" },
+        price: { en: "৳ 320", bn: "৳ ৩২০" },
+        image: "",
+        story: {
+          en: "A firm, pink-fleshed local sea fish cooked in a mild onion-tomato gravy — rich enough to carry the fish, gentle enough not to bury it.",
+          bn: "শক্ত, গোলাপি মাংসের দেশি সামুদ্রিক মাছ, হালকা পেঁয়াজ-টমেটো ঝোলে রাঁধা — মাছ বহন করার মতো গাঢ়, চাপা না দেওয়ার মতো নরম।",
+        },
+        ingredients: { en: ["Local salmon fish", "Onion", "Tomato", "Garlic", "Turmeric", "Chilli", "Cumin", "Oil"], bn: ["দেশি স্যামন মাছ", "পেঁয়াজ", "টমেটো", "রসুন", "হলুদ", "মরিচ", "জিরা", "তেল"] },
+      },
+      {
+        slug: "rita-catfish-curry",
+        name: { en: "Rita / Catfish Curry (Sea Food)", bn: "রিটা / গুইজ্জা মাছের ঝোল" },
+        tagline: { en: "Big-flake catfish in a red gravy", bn: "বড় আঁশের মাছ, লাল ঝোলে" },
+        price: { en: "৳ 320", bn: "৳ ৩২০" },
+        image: "/img/karahi.jpg",
+        story: {
+          en: "Rita and gulsha catfish have soft, large flakes and almost no small bones. They take a bolder red gravy with garlic, tomato and a touch of tamarind.",
+          bn: "রিটা ও গুইজ্জা মাছের আঁশ নরম আর বড়, ছোট কাঁটা প্রায় নেই। রসুন, টমেটো আর একটু তেঁতুলে গাঢ় লাল ঝোলে ভালো লাগে।",
+        },
+        ingredients: { en: ["Rita / catfish", "Onion", "Garlic", "Tomato", "Tamarind", "Turmeric", "Chilli powder", "Coriander"], bn: ["রিটা / গুইজ্জা মাছ", "পেঁয়াজ", "রসুন", "টমেটো", "তেঁতুল", "হলুদ", "মরিচ গুঁড়া", "ধনেপাতা"] },
+      },
+      {
+        slug: "prawn-curry",
+        name: { en: "Prawn / Shrimp Curry", bn: "চিংড়ি মাছের কারি" },
+        tagline: { en: "Golda prawn, coconut gravy (1:2)", bn: "গলদা চিংড়ি, নারকেল ঝোল (১:২)" },
+        price: { en: "৳ 600", bn: "৳ ৬০০" },
+        image: "/img/prawn-rice.jpg",
+        featured: true,
+        story: {
+          en: "Golda (freshwater prawn) cooked the coastal way — in a coconut-milk gravy scented with cinnamon and cardamom, thick enough to stand a spoon in. Sometimes called chingri malai curry.",
+          bn: "গলদা চিংড়ি রাঁধা উপকূলীয় কায়দায় — দারুচিনি আর এলাচের সুবাসে নারকেল দুধের ঝোলে, চামচ দাঁড়িয়ে থাকার মতো ঘন। একে চিংড়ি মালাই কারিও বলা হয়।",
+        },
+        ingredients: { en: ["Golda prawn", "Coconut milk", "Onion paste", "Ginger-garlic", "Cinnamon & cardamom", "Turmeric", "Green chilli", "Ghee"], bn: ["গলদা চিংড়ি", "নারকেল দুধ", "পেঁয়াজ বাটা", "আদা-রসুন", "দারুচিনি ও এলাচ", "হলুদ", "কাঁচা মরিচ", "ঘি"] },
+      },
+      {
+        slug: "rui-fish-curry",
+        name: { en: "Rui / Rohu Fish Curry", bn: "রুই মাছের ঝোল" },
+        tagline: { en: "The everyday river fish, per piece", bn: "প্রতিদিনের নদীর মাছ, প্রতি পিস" },
+        price: { en: "৳ 240", bn: "৳ ২৪০" },
+        image: "",
+        story: {
+          en: "Rui is the fish of the ordinary Bengali lunch — lightly fried, then simmered in a turmeric gravy with potato, nigella and green chilli.",
+          bn: "রুই সাধারণ বাঙালি দুপুরের মাছ — হালকা ভেজে আলু, কালোজিরা আর কাঁচা মরিচ দিয়ে হলুদ ঝোলে রাঁধা।",
+        },
+        ingredients: { en: ["Rui fish", "Potato", "Nigella seed", "Onion", "Turmeric", "Chilli", "Green chilli", "Mustard oil"], bn: ["রুই মাছ", "আলু", "কালোজিরা", "পেঁয়াজ", "হলুদ", "মরিচ", "কাঁচা মরিচ", "সরিষার তেল"] },
+      },
+      {
+        slug: "tengra-curry",
+        name: { en: "Tengra / Bata Fish Curry", bn: "টেংরা / বাটা মাছের ঝোল" },
+        tagline: { en: "Small river fish, sharp tomato gravy", bn: "ছোট নদীর মাছ, ঝাঁঝালো টমেটো ঝোল" },
+        price: { en: "৳ 300", bn: "৳ ৩০০" },
+        image: "",
+        story: {
+          en: "Tengra is small but full-flavoured, prized for its soft roe. Cooked in a tangy tomato-and-coriander gravy that suits its slight bitterness.",
+          bn: "টেংরা ছোট কিন্তু স্বাদে ভরা, নরম ডিমের জন্য প্রিয়। টক টমেটো-ধনেপাতা ঝোলে রাঁধা, যা এর হালকা তেতোভাবের সঙ্গে মানায়।",
+        },
+        ingredients: { en: ["Tengra / bata fish", "Tomato", "Onion", "Garlic", "Turmeric", "Chilli", "Coriander leaf", "Mustard oil"], bn: ["টেংরা / বাটা মাছ", "টমেটো", "পেঁয়াজ", "রসুন", "হলুদ", "মরিচ", "ধনেপাতা", "সরিষার তেল"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 7 — combined */
+  {
+    slug: "breakfast-set-menu",
+    order: 7,
+    name: { en: "Breakfast & Set Menu", bn: "নাশতা ও সেট মেনু" },
+    blurb: {
+      en: "A morning platter, and 25 fixed thali combinations for a full lunch in one order.",
+      bn: "সকালের প্ল্যাটার, আর এক অর্ডারে পূর্ণ দুপুরের ২৫টি সেট থালি।",
+    },
+    cover: "/img/pancakes.jpg",
+    sections: [
+      { id: "breakfast", title: { en: "Breakfast", bn: "নাশতা" } },
+      { id: "set-menu", title: { en: "Set Menu", bn: "সেট মেনু" } },
+    ],
+    dishes: [
+      {
+        slug: "breakfast-platter",
+        section: "breakfast",
+        name: { en: "Breakfast Platter", bn: "নাশতার প্ল্যাটার" },
+        tagline: { en: "Paratha ×2, dal bhaji, egg omelet, tea", bn: "পরোটা ×২, ডাল ভাজি, ডিম অমলেট, চা" },
+        price: { en: "৳ 170", bn: "৳ ১৭০" },
+        image: "/img/pancakes.jpg",
+        featured: true,
+        story: {
+          en: "The standard Bangladeshi hotel breakfast, set on one plate: two hand-rolled parathas, a lentil-and-vegetable bhaji, an egg omelet or poached egg, and a cup of milk tea.",
+          bn: "বাঙালি হোটেলের চিরাচরিত নাশতা, এক প্লেটে: হাতে বেলা দুটি পরোটা, ডাল-সবজি ভাজি, ডিমের অমলেট বা পোচ, আর এক কাপ দুধ চা।",
+        },
+        ingredients: { en: ["Paratha", "Lentils", "Mixed vegetable", "Egg", "Milk tea", "Oil / ghee"], bn: ["পরোটা", "ডাল", "মিক্সড সবজি", "ডিম", "দুধ চা", "তেল / ঘি"] },
+      },
+      {
+        slug: "set-1-deshi-meat",
+        section: "set-menu",
+        name: { en: "Set 1 — Rice, Bhorta, Bhaji, Dal, Meat", bn: "সেট ১ — ভাত, ভর্তা, ভাজি, ডাল, মাংস" },
+        tagline: { en: "Rice + half bhorta + half bhaji + dal + half deshi chicken / beef", bn: "ভাত + হাফ ভর্তা + হাফ ভাজি + ডাল + হাফ দেশি মুরগি / গরু" },
+        price: { en: "৳ 450", bn: "৳ ৪৫০" },
+        image: "",
+        story: {
+          en: "A complete thali in one order — rice with a half portion each of bhorta, bhaji and dal, plus a half portion of deshi chicken or beef curry.",
+          bn: "এক অর্ডারে পূর্ণ থালি — ভাত, সঙ্গে হাফ করে ভর্তা, ভাজি ও ডাল, আর হাফ দেশি মুরগি বা গরুর তরকারি।",
+        },
+        ingredients: { en: ["Rice", "Vegetable bhorta", "Vegetable bhaji", "Lentil dal", "Deshi chicken / beef curry"], bn: ["ভাত", "সবজি ভর্তা", "সবজি ভাজি", "ডাল", "দেশি মুরগি / গরুর তরকারি"] },
+      },
+      {
+        slug: "set-2-koral",
+        section: "set-menu",
+        name: { en: "Set 2 — Rice, Bhorta, Bhaji, Dal, Koral", bn: "সেট ২ — ভাত, ভর্তা, ভাজি, ডাল, কোরাল" },
+        tagline: { en: "Rice + half bhorta + half bhaji + dal + koral fish", bn: "ভাত + হাফ ভর্তা + হাফ ভাজি + ডাল + কোরাল মাছ" },
+        price: { en: "৳ 450", bn: "৳ ৪৫০" },
+        image: "",
+        story: {
+          en: "The fish version of the standard thali — the same rice, bhorta, bhaji and dal, finished with a piece of koral (sea bass) curry.",
+          bn: "চিরাচরিত থালির মাছ সংস্করণ — একই ভাত, ভর্তা, ভাজি ও ডাল, সঙ্গে এক টুকরো কোরাল মাছের ঝোল।",
+        },
+        ingredients: { en: ["Rice", "Vegetable bhorta", "Vegetable bhaji", "Lentil dal", "Koral fish curry"], bn: ["ভাত", "সবজি ভর্তা", "সবজি ভাজি", "ডাল", "কোরাল মাছের ঝোল"] },
+      },
+      {
+        slug: "set-5-pomfret",
+        section: "set-menu",
+        name: { en: "Set 5 — Rice, Bhorta, Dal, Pomfret", bn: "সেট ৫ — ভাত, ভর্তা, ডাল, রূপচাঁদা" },
+        tagline: { en: "Rice + half bhorta + dal + half pomfret fry / curry", bn: "ভাত + হাফ ভর্তা + ডাল + হাফ রূপচাঁদা ভাজা / ঝোল" },
+        price: { en: "৳ 480", bn: "৳ ৪৮০" },
+        image: "",
+        story: {
+          en: "A lighter thali built around pomfret — rice, a half bhorta and dal, with a half portion of pomfret, fried or in curry.",
+          bn: "রূপচাঁদা ঘিরে হালকা থালি — ভাত, হাফ ভর্তা ও ডাল, সঙ্গে হাফ রূপচাঁদা, ভাজা বা ঝোল।",
+        },
+        ingredients: { en: ["Rice", "Vegetable bhorta", "Lentil dal", "Pomfret (fried / curry)"], bn: ["ভাত", "সবজি ভর্তা", "ডাল", "রূপচাঁদা (ভাজা / ঝোল)"] },
+      },
+      {
+        slug: "set-7-sorshe-ilish",
+        section: "set-menu",
+        name: { en: "Set 7 — Rice, Bhorta, Dal, Sorshe Ilish", bn: "সেট ৭ — ভাত, ভর্তা, ডাল, সরষে ইলিশ" },
+        tagline: { en: "Rice + half bhorta + dal + mustard hilsa", bn: "ভাত + হাফ ভর্তা + ডাল + সরষে ইলিশ" },
+        price: { en: "৳ 730", bn: "৳ ৭৩০" },
+        image: "/img/salmon-plate.jpg",
+        featured: true,
+        story: {
+          en: "The premium thali — rice, a half bhorta and dal, with a piece of hilsa in mustard gravy. Priced for the fish.",
+          bn: "প্রিমিয়াম থালি — ভাত, হাফ ভর্তা ও ডাল, সঙ্গে এক টুকরো সরষে ইলিশ। দাম মাছের জন্য।",
+        },
+        ingredients: { en: ["Rice", "Vegetable bhorta", "Lentil dal", "Hilsa in mustard gravy"], bn: ["ভাত", "সবজি ভর্তা", "ডাল", "সরষে ইলিশ"] },
+      },
+      {
+        slug: "set-20-prawn-full",
+        section: "set-menu",
+        name: { en: "Set 20 — Full Platter with Prawn", bn: "সেট ২০ — চিংড়িসহ পূর্ণ প্ল্যাটার" },
+        tagline: { en: "Rice + bhorta + bhaji + prawn (1pc) + dal + half pomfret fry / curry", bn: "ভাত + ভর্তা + ভাজি + চিংড়ি (১পিস) + ডাল + হাফ রূপচাঁদা" },
+        price: { en: "৳ 670", bn: "৳ ৬৭০" },
+        image: "",
+        story: {
+          en: "The largest set — rice with bhorta and bhaji, a prawn, dal, and a half portion of pomfret. A full spread for one big appetite or two smaller ones.",
+          bn: "সবচেয়ে বড় সেট — ভাত, ভর্তা ও ভাজি, একটি চিংড়ি, ডাল, আর হাফ রূপচাঁদা। এক বড় ক্ষুধা বা দুই ছোট ক্ষুধার জন্য।",
+        },
+        ingredients: { en: ["Rice", "Bhorta", "Bhaji", "Prawn", "Lentil dal", "Pomfret (fried / curry)"], bn: ["ভাত", "ভর্তা", "ভাজি", "চিংড়ি", "ডাল", "রূপচাঁদা (ভাজা / ঝোল)"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 8 */
+  {
+    slug: "bbq-fish",
+    order: 8,
+    name: { en: "BBQ Fish & Sea Foods", bn: "বার্বিকিউ ফিশ ও সি-ফুড" },
+    blurb: {
+      en: "Whole reef fish and shellfish, coal-grilled to order — snapper, tuna, lobster, crab.",
+      bn: "আস্ত সামুদ্রিক মাছ ও শেলফিশ, অর্ডারে কয়লায় গ্রিল — স্ন্যাপার, টুনা, লবস্টার, কাঁকড়া।",
+    },
+    cover: "/img/seafood-ice.jpg",
+    dishes: [
+      {
+        slug: "grilled-koral-snapper",
+        name: { en: "Koral / White Snapper (On Order)", bn: "কোরাল / হোয়াইট স্ন্যাপার" },
+        tagline: { en: "Per kg, whole, coal-grilled", bn: "প্রতি কেজি, আস্ত, কয়লায় গ্রিল" },
+        price: { en: "৳ 1800 / kg", bn: "৳ ১৮০০ / কেজি" },
+        image: "/img/seafood-ice.jpg",
+        featured: true,
+        story: {
+          en: "A whole white snapper, scored to the bone, marinated in a green-chilli, garlic and lime paste and grilled slowly over coal until the skin blisters and the flesh flakes clean.",
+          bn: "আস্ত হোয়াইট স্ন্যাপার, হাড় পর্যন্ত চিরে, কাঁচা মরিচ-রসুন-লেবুর বাটায় মেখে কয়লায় ধীরে গ্রিল — যতক্ষণ না চামড়া ফোস্কা পড়ে আর মাংস আলগা হয়।",
+        },
+        ingredients: { en: ["Whole snapper", "Green chilli paste", "Garlic", "Lime", "Turmeric", "Black pepper", "Oil", "Coal"], bn: ["আস্ত স্ন্যাপার", "কাঁচা মরিচ বাটা", "রসুন", "লেবু", "হলুদ", "গোলমরিচ", "তেল", "কয়লা"] },
+      },
+      {
+        slug: "grilled-salmon-bd",
+        name: { en: "Deshi Salmon Fish (On Order)", bn: "দেশি স্যামন" },
+        tagline: { en: "Per kg, thick steaks off the coal", bn: "প্রতি কেজি, মোটা স্টেক, কয়লায়" },
+        price: { en: "৳ 1600 / kg", bn: "৳ ১৬০০ / কেজি" },
+        image: "",
+        story: {
+          en: "Thick, pink steaks of local salmon-type fish, brushed with a light spice-and-butter baste so the outside chars while the centre stays just done.",
+          bn: "দেশি স্যামন-জাতীয় মাছের মোটা গোলাপি স্টেক, হালকা মসলা-মাখনে ব্রাশ করে গ্রিল — বাইরে ঝলসানো, ভেতরে সবেমাত্র হওয়া।",
+        },
+        ingredients: { en: ["Salmon-type fish steak", "Butter", "Garlic", "Paprika", "Black pepper", "Lime", "Salt"], bn: ["স্যামন মাছের স্টেক", "মাখন", "রসুন", "পাপরিকা", "গোলমরিচ", "লেবু", "লবণ"] },
+      },
+      {
+        slug: "grilled-red-snapper",
+        name: { en: "Red Snapper (On Order)", bn: "রেড স্ন্যাপার / রাঙা চোখা" },
+        tagline: { en: "Per kg, whole, mild masala", bn: "প্রতি কেজি, আস্ত, হালকা মসলা" },
+        price: { en: "৳ 1600 / kg", bn: "৳ ১৬০০ / কেজি" },
+        image: "/img/seafood-ice.jpg",
+        story: {
+          en: "Red snapper (ranga chokha) has sweet, firm flesh that needs little more than salt, chilli and fire. Grilled whole and served with kasundi salad.",
+          bn: "রেড স্ন্যাপার (রাঙা চোখা) মিষ্টি, শক্ত মাংস — লবণ, মরিচ আর আগুন ছাড়া বেশি কিছু লাগে না। আস্ত গ্রিল করে কাসুন্দি সালাদসহ পরিবেশন।",
+        },
+        ingredients: { en: ["Whole red snapper", "Chilli powder", "Turmeric", "Garlic", "Lime", "Mustard oil", "Coal"], bn: ["আস্ত রেড স্ন্যাপার", "মরিচ গুঁড়া", "হলুদ", "রসুন", "লেবু", "সরিষার তেল", "কয়লা"] },
+      },
+      {
+        slug: "grilled-tuna",
+        name: { en: "Tuna Fish (On Order)", bn: "টুনা মাছ" },
+        tagline: { en: "Per kg, seared steaks", bn: "প্রতি কেজি, সিয়ার করা স্টেক" },
+        price: { en: "৳ 1000 / kg", bn: "৳ ১০০০ / কেজি" },
+        image: "",
+        story: {
+          en: "Tuna dries out fast, so it is seared hard and fast over the hottest part of the coal — dark crust, ruby centre — and rested before serving.",
+          bn: "টুনা দ্রুত শুকিয়ে যায়, তাই কয়লার সবচেয়ে গরম অংশে কড়া করে দ্রুত সিয়ার করা হয় — গাঢ় খোলস, লাল ভেতর — পরিবেশনের আগে বিশ্রাম দেওয়া হয়।",
+        },
+        ingredients: { en: ["Tuna steak", "Olive / mustard oil", "Black pepper", "Garlic", "Lime", "Salt"], bn: ["টুনা স্টেক", "অলিভ / সরিষার তেল", "গোলমরিচ", "রসুন", "লেবু", "লবণ"] },
+      },
+      {
+        slug: "grilled-rup-chanda",
+        name: { en: "Rup Chanda Fish (On Order)", bn: "রূপচাঁদা মাছ (গ্রিল)" },
+        tagline: { en: "Live ~250 gm, whole", bn: "জীবন্ত ~২৫০ গ্রাম, আস্ত" },
+        price: { en: "৳ 700", bn: "৳ ৭০০" },
+        image: "",
+        story: {
+          en: "A whole ~250 gm silver pomfret, scored and grilled fast so the sweet flesh does not dry — the single-portion star of the BBQ list.",
+          bn: "আস্ত ~২৫০ গ্রাম রূপচাঁদা, চিরে দ্রুত গ্রিল — মিষ্টি মাংস যেন না শুকায়। বার্বিকিউ তালিকার এক-জনের তারকা।",
+        },
+        ingredients: { en: ["Whole silver pomfret", "Chilli", "Turmeric", "Garlic-lime paste", "Mustard oil", "Coal"], bn: ["আস্ত রূপচাঁদা", "মরিচ", "হলুদ", "রসুন-লেবু বাটা", "সরিষার তেল", "কয়লা"] },
+      },
+      {
+        slug: "grilled-lobster",
+        name: { en: "Lobster (On Order)", bn: "লবস্টার" },
+        tagline: { en: "Per 100 gm, split and butter-basted", bn: "প্রতি ১০০ গ্রাম, চিরে মাখনে গ্রিল" },
+        price: { en: "৳ 400 / 100gm", bn: "৳ ৪০০ / ১০০গ্রাম" },
+        image: "/img/seafood-ice.jpg",
+        featured: true,
+        story: {
+          en: "Rock lobster split down the middle, basted with garlic butter and grilled shell-side first so the meat steams in its own shell before it catches colour.",
+          bn: "রক লবস্টার মাঝ বরাবর চিরে, রসুন-মাখনে ব্রাশ করে খোলসের দিক আগে গ্রিল — মাংস নিজের খোলসেই ভাপে সেদ্ধ হয়, পরে রং ধরে।",
+        },
+        ingredients: { en: ["Rock lobster", "Garlic butter", "Black pepper", "Lime", "Paprika", "Parsley / coriander"], bn: ["রক লবস্টার", "রসুন মাখন", "গোলমরিচ", "লেবু", "পাপরিকা", "ধনেপাতা"] },
+      },
+      {
+        slug: "grilled-crab",
+        name: { en: "Crab (On Order)", bn: "কাঁকড়া" },
+        tagline: { en: "Per plate, chilli-garlic", bn: "প্রতি প্লেট, মরিচ-রসুন" },
+        price: { en: "৳ 300", bn: "৳ ৩০০" },
+        image: "/img/seafood-ice.jpg",
+        story: {
+          en: "Mud crab cracked, tossed in a chilli-garlic-butter sauce and finished on the grill so the sauce caramelises onto the shell.",
+          bn: "শিলা কাঁকড়া ভেঙে মরিচ-রসুন-মাখনের সসে মেখে গ্রিলে শেষ — সস খোলসে লেগে ক্যারামেল হয়ে যায়।",
+        },
+        ingredients: { en: ["Mud crab", "Garlic", "Green & dried chilli", "Butter", "Oyster / soy sauce", "Spring onion"], bn: ["শিলা কাঁকড়া", "রসুন", "কাঁচা ও শুকনা মরিচ", "মাখন", "ওয়েস্টার / সয়া সস", "পেঁয়াজ পাতা"] },
+      },
+      {
+        slug: "squid-fry",
+        name: { en: "Squid Fry (On Order)", bn: "স্কুইড ফ্রাই" },
+        tagline: { en: "Per plate, salt-and-pepper rings", bn: "প্রতি প্লেট, সল্ট-অ্যান্ড-পেপার রিং" },
+        price: { en: "৳ 400", bn: "৳ ৪০০" },
+        image: "",
+        story: {
+          en: "Squid cut into rings, dusted in seasoned flour and flash-fried so they stay tender — a quick, crunchy start before the grill arrives.",
+          bn: "স্কুইড রিং করে কাটা, মসলা-ময়দায় মেখে দ্রুত ভাজা যেন নরম থাকে — গ্রিল আসার আগে দ্রুত, মচমচে শুরু।",
+        },
+        ingredients: { en: ["Squid", "Flour & cornflour", "Black pepper", "Garlic powder", "Egg", "Chilli flakes", "Oil"], bn: ["স্কুইড", "ময়দা ও কর্নফ্লাওয়ার", "গোলমরিচ", "রসুন গুঁড়া", "ডিম", "মরিচ ফ্লেক্স", "তেল"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 9 — combined */
+  {
+    slug: "bbq-chicken-beef",
+    order: 9,
+    name: { en: "BBQ Chicken & Beef", bn: "বার্বিকিউ চিকেন ও বিফ" },
+    blurb: {
+      en: "Grilled chicken, chaap, boti and sheek kebab off the coal, with mayo and salad.",
+      bn: "গ্রিল চিকেন, চাপ, বটি আর সিক কাবাব — কয়লা থেকে, মেয়ো ও সালাদসহ।",
+    },
+    cover: "/img/ribs-board.jpg",
+    sections: [
+      { id: "bbq-chicken", title: { en: "BBQ Chicken", bn: "বার্বিকিউ চিকেন" } },
+      { id: "beef-bbq", title: { en: "Beef BBQ", bn: "বিফ বার্বিকিউ" } },
+    ],
+    dishes: [
+      {
+        slug: "grilled-chicken",
+        section: "bbq-chicken",
+        name: { en: "Grilled Chicken", bn: "গ্রিল্ড চিকেন" },
+        tagline: { en: "Per piece, with mayo, masala and salad", bn: "প্রতি পিস, মেয়ো, মসলা ও সালাদসহ" },
+        price: { en: "৳ 150 / 600", bn: "৳ ১৫০ / ৬০০" },
+        image: "/img/tandoori.jpg",
+        featured: true,
+        story: {
+          en: "Quarter chicken marinated overnight in yoghurt, ginger-garlic and a red tandoori-style spice, then grilled over coal and served with mayonnaise, a sour-spicy masala and mixed salad.",
+          bn: "সিকি মুরগি সারারাত টক দই, আদা-রসুন আর লাল তন্দুরি মসলায় মেখে কয়লায় গ্রিল — সঙ্গে মেয়োনিজ, টক-ঝাল মসলা আর মিক্সড সালাদ।",
+        },
+        ingredients: { en: ["Chicken (quarter)", "Yoghurt", "Ginger-garlic paste", "Kashmiri chilli", "Garam masala", "Lime", "Mustard oil", "Mayonnaise"], bn: ["মুরগি (সিকি)", "টক দই", "আদা-রসুন বাটা", "কাশ্মিরি মরিচ", "গরম মসলা", "লেবু", "সরিষার তেল", "মেয়োনিজ"] },
+      },
+      {
+        slug: "chicken-chaap",
+        section: "bbq-chicken",
+        name: { en: "Chicken Chaap", bn: "চিকেন চাপ" },
+        tagline: { en: "Flattened, spiced, griddle-finished", bn: "চ্যাপ্টা করা, মসলাদার, তাওয়ায় শেষ" },
+        price: { en: "৳ 220", bn: "৳ ২২০" },
+        image: "",
+        story: {
+          en: "Old Dhaka-style chaap — chicken pounded flat, steeped in a thick poppy-seed and cashew marinade, then finished slowly on a griddle in ghee.",
+          bn: "পুরান ঢাকার ঘরানার চাপ — মুরগি পিটিয়ে চ্যাপ্টা, ঘন পোস্ত-কাজুর মেরিনেডে ভিজিয়ে, তারপর ঘিয়ে তাওয়ায় ধীরে শেষ।",
+        },
+        ingredients: { en: ["Chicken", "Poppy seed paste", "Cashew paste", "Yoghurt", "Fried onion", "Ghee", "White pepper", "Garam masala"], bn: ["মুরগি", "পোস্ত বাটা", "কাজু বাটা", "টক দই", "বেরেস্তা", "ঘি", "সাদা গোলমরিচ", "গরম মসলা"] },
+      },
+      {
+        slug: "chicken-boti-kabab",
+        section: "bbq-chicken",
+        name: { en: "Chicken Boti Kabab (On Order)", bn: "চিকেন বটি কাবাব" },
+        tagline: { en: "Per piece, boneless cubes on skewers", bn: "প্রতি পিস, হাড়ছাড়া কিউব, শিকে" },
+        price: { en: "৳ 220", bn: "৳ ২২০" },
+        image: "/img/tandoori.jpg",
+        story: {
+          en: "Boneless chicken cubes marinated in yoghurt and spice, threaded onto skewers and grilled fast so the edges char but the centre stays juicy.",
+          bn: "হাড়ছাড়া মুরগির কিউব টক দই ও মসলায় মেখে শিকে গেঁথে দ্রুত গ্রিল — কিনারা ঝলসানো, ভেতর রসালো।",
+        },
+        ingredients: { en: ["Boneless chicken", "Yoghurt", "Ginger-garlic", "Chilli powder", "Chaat masala", "Lime", "Oil"], bn: ["হাড়ছাড়া মুরগি", "টক দই", "আদা-রসুন", "মরিচ গুঁড়া", "চাট মসলা", "লেবু", "তেল"] },
+      },
+      {
+        slug: "chicken-chille",
+        section: "bbq-chicken",
+        name: { en: "Chicken Chille (On Order)", bn: "চিকেন চিলি" },
+        tagline: { en: "Per plate, Indo-Chinese, sweet-hot", bn: "প্রতি প্লেট, ইন্দো-চাইনিজ, মিষ্টি-ঝাল" },
+        price: { en: "৳ 220", bn: "৳ ২২০" },
+        image: "",
+        story: {
+          en: "The restaurant-Chinese favourite — fried chicken tossed with capsicum, onion and green chilli in a glossy soy-and-chilli sauce.",
+          bn: "রেস্তোরাঁ-চাইনিজের প্রিয় পদ — ভাজা মুরগি ক্যাপসিকাম, পেঁয়াজ আর কাঁচা মরিচের সঙ্গে চকচকে সয়া-চিলি সসে মাখা।",
+        },
+        ingredients: { en: ["Chicken", "Capsicum", "Onion", "Green chilli", "Soy sauce", "Chilli sauce", "Garlic", "Cornflour"], bn: ["মুরগি", "ক্যাপসিকাম", "পেঁয়াজ", "কাঁচা মরিচ", "সয়া সস", "চিলি সস", "রসুন", "কর্নফ্লাওয়ার"] },
+      },
+      {
+        slug: "chicken-tikka",
+        section: "bbq-chicken",
+        name: { en: "Chicken Tikka (On Order)", bn: "চিকেন টিক্কা" },
+        tagline: { en: "Per piece, red-marinated, coal-grilled", bn: "প্রতি পিস, লাল মেরিনেড, কয়লায় গ্রিল" },
+        price: { en: "৳ 220", bn: "৳ ২২০" },
+        image: "/img/tandoori.jpg",
+        story: {
+          en: "Big chunks of chicken in a deep-red yoghurt marinade with kashmiri chilli and mustard oil, grilled until the edges blacken.",
+          bn: "বড় টুকরো মুরগি গাঢ় লাল দই মেরিনেডে — কাশ্মিরি মরিচ আর সরিষার তেল — কিনারা কালো হওয়া পর্যন্ত গ্রিল।",
+        },
+        ingredients: { en: ["Chicken", "Yoghurt", "Kashmiri chilli", "Ginger-garlic", "Mustard oil", "Chaat masala", "Lime"], bn: ["মুরগি", "টক দই", "কাশ্মিরি মরিচ", "আদা-রসুন", "সরিষার তেল", "চাট মসলা", "লেবু"] },
+      },
+      {
+        slug: "beef-sheek-kebab",
+        section: "beef-bbq",
+        name: { en: "Beef Sheek Kebab (On Order)", bn: "বিফ সিক কাবাব" },
+        tagline: { en: "Per plate, minced beef moulded on skewers", bn: "প্রতি প্লেট, কিমা মাংস শিকে গড়া" },
+        price: { en: "৳ 300", bn: "৳ ৩০০" },
+        image: "/img/ribs-board.jpg",
+        featured: true,
+        story: {
+          en: "Minced beef worked with onion, green chilli, roasted spice and a little raw papaya, moulded around flat skewers and grilled over coal so the fat drips and smokes.",
+          bn: "গরুর কিমা পেঁয়াজ, কাঁচা মরিচ, ভাজা মসলা আর একটু কাঁচা পেঁপে দিয়ে মেখে চ্যাপ্টা শিকে গড়া, কয়লায় গ্রিল — চর্বি ঝরে, ধোঁয়া ওঠে।",
+        },
+        ingredients: { en: ["Minced beef", "Onion", "Green chilli", "Raw papaya", "Roasted cumin-coriander", "Black pepper", "Ginger-garlic", "Oil"], bn: ["গরুর কিমা", "পেঁয়াজ", "কাঁচা মরিচ", "কাঁচা পেঁপে", "ভাজা জিরা-ধনে", "গোলমরিচ", "আদা-রসুন", "তেল"] },
+      },
+      {
+        slug: "beef-butti-kebab",
+        section: "beef-bbq",
+        name: { en: "Beef Butti Kebab (On Order)", bn: "বিফ বটি কাবাব" },
+        tagline: { en: "Per plate, marinated beef cubes on skewers", bn: "প্রতি প্লেট, মেরিনেট করা কিউব, শিকে" },
+        price: { en: "৳ 300", bn: "৳ ৩০০" },
+        image: "/img/ribs-board.jpg",
+        story: {
+          en: "Cubes of tender beef in a papaya-and-yoghurt marinade, skewered with onion and capsicum and grilled until just pink inside.",
+          bn: "নরম গরুর কিউব পেঁপে-দই মেরিনেডে, পেঁয়াজ আর ক্যাপসিকামসহ শিকে গেঁথে গ্রিল — ভেতরে সবেমাত্র গোলাপি।",
+        },
+        ingredients: { en: ["Beef cubes", "Raw papaya", "Yoghurt", "Ginger-garlic", "Black pepper", "Onion & capsicum", "Mustard oil"], bn: ["গরুর কিউব", "কাঁচা পেঁপে", "টক দই", "আদা-রসুন", "গোলমরিচ", "পেঁয়াজ ও ক্যাপসিকাম", "সরিষার তেল"] },
+      },
+      {
+        slug: "beef-chille",
+        section: "beef-bbq",
+        name: { en: "Beef Chille (On Order)", bn: "বিফ চিলি" },
+        tagline: { en: "Per plate, Indo-Chinese, dark and hot", bn: "প্রতি প্লেট, ইন্দো-চাইনিজ, গাঢ় ও ঝাল" },
+        price: { en: "৳ 400", bn: "৳ ৪০০" },
+        image: "",
+        story: {
+          en: "Strips of beef fried crisp, then wok-tossed with onion, capsicum and green chilli in a dark, peppery soy-chilli sauce.",
+          bn: "গরুর মাংসের ফালি মচমচে ভেজে ওক-এ পেঁয়াজ, ক্যাপসিকাম আর কাঁচা মরিচের সঙ্গে গাঢ়, ঝাঁঝালো সয়া-চিলি সসে।",
+        },
+        ingredients: { en: ["Beef strips", "Onion", "Capsicum", "Green chilli", "Soy sauce", "Chilli sauce", "Black pepper", "Cornflour"], bn: ["গরুর মাংসের ফালি", "পেঁয়াজ", "ক্যাপসিকাম", "কাঁচা মরিচ", "সয়া সস", "চিলি সস", "গোলমরিচ", "কর্নফ্লাওয়ার"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 10 — combined */
+  {
+    slug: "pickles-dessert",
+    order: 10,
+    name: { en: "Pickles, Sides & Dessert", bn: "আচার, সাইড ও ডেজার্ট" },
+    blurb: {
+      en: "Seasonal achar and dal to round out a meal, then firni, falooda and misti doi to finish.",
+      bn: "মৌসুমি আচার ও ডাল খাবার পূর্ণ করতে, শেষে ফিরনি, ফালুদা আর মিষ্টি দই।",
+    },
+    cover: "/img/halwa.jpg",
+    sections: [
+      { id: "pickles-sides", title: { en: "Pickles & Sides", bn: "আচার ও সাইড" } },
+      { id: "dessert", title: { en: "Dessert", bn: "ডেজার্ট" } },
+    ],
+    dishes: [
+      {
+        slug: "seasonal-pickles",
+        section: "pickles-sides",
+        name: { en: "Seasonal Pickles", bn: "মৌসুমি আচার" },
+        tagline: { en: "Jujube, mango, olive or pulm-hog", bn: "বরই, আম, জলপাই বা আমড়া" },
+        price: { en: "৳ 50 / 100 / 500", bn: "৳ ৫০ / ১০০ / ৫০০" },
+        image: "",
+        story: {
+          en: "Whatever fruit is in season — boroi, green mango, jolpai or amra — cured in mustard oil with panch phoron, roasted chilli and jaggery, and left to mature.",
+          bn: "যে ফল মৌসুমে — বরই, কাঁচা আম, জলপাই বা আমড়া — সরিষার তেলে পাঁচফোড়ন, পোড়া মরিচ আর গুড় দিয়ে জারিয়ে পরিণত হতে দেওয়া।",
+        },
+        ingredients: { en: ["Seasonal fruit", "Mustard oil", "Panch phoron", "Roasted chilli", "Jaggery / sugar", "Salt", "Turmeric"], bn: ["মৌসুমি ফল", "সরিষার তেল", "পাঁচফোড়ন", "পোড়া মরিচ", "গুড় / চিনি", "লবণ", "হলুদ"] },
+      },
+      {
+        slug: "dal-split-lentil",
+        section: "pickles-sides",
+        name: { en: "Dal (Split Brown Lentils)", bn: "মসুর ডাল" },
+        tagline: { en: "Liquid soup style, five sizes", bn: "পাতলা স্যুপ ঘরানা, পাঁচ মাপ" },
+        price: { en: "৳ 20 / 50 / 80 / 100 / 150", bn: "৳ ২০ / ৫০ / ৮০ / ১০০ / ১৫০" },
+        image: "",
+        story: {
+          en: "Everyday masoor dal cooked thin with turmeric and finished with a tempering of garlic, dried chilli and nigella in hot oil.",
+          bn: "প্রতিদিনের মসুর ডাল, হলুদ দিয়ে পাতলা করে রাঁধা, শেষে গরম তেলে রসুন, শুকনা মরিচ আর কালোজিরার ফোড়ন।",
+        },
+        ingredients: { en: ["Masoor lentils", "Turmeric", "Garlic", "Dried chilli", "Nigella seed", "Onion", "Oil"], bn: ["মসুর ডাল", "হলুদ", "রসুন", "শুকনা মরিচ", "কালোজিরা", "পেঁয়াজ", "তেল"] },
+      },
+      {
+        slug: "dal-makhni",
+        section: "pickles-sides",
+        name: { en: "Dal Makhni", bn: "ডাল মাখানি" },
+        tagline: { en: "Black lentils, slow-simmered with butter", bn: "কালো ডাল, মাখনে ধীরে জ্বাল" },
+        price: { en: "৳ 80", bn: "৳ ৮০" },
+        image: "",
+        story: {
+          en: "Whole black lentils and kidney beans simmered for hours with tomato, cream and butter until thick and dark — a Punjabi classic that travels well.",
+          bn: "আস্ত কালো ডাল আর রাজমা ঘণ্টার পর ঘণ্টা টমেটো, ক্রিম আর মাখনে জ্বাল — ঘন আর গাঢ়। একটি পাঞ্জাবি ক্লাসিক।",
+        },
+        ingredients: { en: ["Black urad lentils", "Kidney beans", "Tomato", "Butter", "Cream", "Ginger-garlic", "Garam masala"], bn: ["কালো মাষকলাই ডাল", "রাজমা", "টমেটো", "মাখন", "ক্রিম", "আদা-রসুন", "গরম মসলা"] },
+      },
+      {
+        slug: "egg-curry",
+        section: "pickles-sides",
+        name: { en: "Egg Curry", bn: "ডিম কারি" },
+        tagline: { en: "Per piece, boiled egg in onion gravy", bn: "প্রতি পিস, সেদ্ধ ডিম, পেঁয়াজ ঝোলে" },
+        price: { en: "৳ 40", bn: "৳ ৪০" },
+        image: "",
+        story: {
+          en: "Hard-boiled eggs lightly fried, then simmered in a simple onion-tomato gravy — the cheapest full protein on the menu.",
+          bn: "শক্ত সেদ্ধ ডিম হালকা ভেজে সাধারণ পেঁয়াজ-টমেটো ঝোলে রাঁধা — মেনুর সবচেয়ে সস্তা পূর্ণ প্রোটিন।",
+        },
+        ingredients: { en: ["Egg", "Onion", "Tomato", "Turmeric", "Chilli powder", "Cumin", "Oil"], bn: ["ডিম", "পেঁয়াজ", "টমেটো", "হলুদ", "মরিচ গুঁড়া", "জিরা", "তেল"] },
+      },
+      {
+        slug: "misti-doi",
+        section: "dessert",
+        name: { en: "Sweet Yoghurt (Misti Doi)", bn: "মিষ্টি দই" },
+        tagline: { en: "Set in clay, caramel-sweet", bn: "মাটির পাত্রে জমানো, ক্যারামেল-মিষ্টি" },
+        price: { en: "৳ 50 / 70", bn: "৳ ৫০ / ৭০" },
+        image: "",
+        featured: true,
+        story: {
+          en: "Bogra-style misti doi — milk reduced with caramelised sugar and set in a clay cup overnight, so the pot draws out the water and the doi turns thick and fudgy.",
+          bn: "বগুড়ার ঘরানার মিষ্টি দই — দুধ ক্যারামেল করা চিনি দিয়ে ঘন করে মাটির পাত্রে সারারাত জমানো, পাত্র পানি টেনে নেয়, দই হয় ঘন আর নরম।",
+        },
+        ingredients: { en: ["Full-cream milk", "Sugar (part caramelised)", "Yoghurt culture", "Clay pot"], bn: ["ফুল-ক্রিম দুধ", "চিনি (আংশিক ক্যারামেল)", "দইয়ের সাজা", "মাটির পাত্র"] },
+      },
+      {
+        slug: "firni",
+        section: "dessert",
+        name: { en: "Firni / Rice Pudding", bn: "ফিরনি" },
+        tagline: { en: "Ground-rice pudding, per bowl", bn: "গুঁড়া চালের পায়েস, প্রতি বাটি" },
+        price: { en: "৳ 70", bn: "৳ ৭০" },
+        image: "/img/halwa.jpg",
+        story: {
+          en: "Rice ground coarse and simmered slowly in milk with sugar, cardamom and a little rosewater, then chilled — served the Eid way, in a shallow clay dish.",
+          bn: "চাল মোটা করে গুঁড়া করে দুধে চিনি, এলাচ আর একটু গোলাপজল দিয়ে ধীরে জ্বাল, তারপর ঠান্ডা — ঈদের কায়দায়, অগভীর মাটির পাত্রে।",
+        },
+        ingredients: { en: ["Ground rice", "Full-cream milk", "Sugar", "Cardamom", "Rosewater", "Pistachio / almond"], bn: ["গুঁড়া চাল", "ফুল-ক্রিম দুধ", "চিনি", "এলাচ", "গোলাপজল", "পেস্তা / কাঠবাদাম"] },
+      },
+      {
+        slug: "falooda",
+        section: "dessert",
+        name: { en: "Falooda", bn: "ফালুদা" },
+        tagline: { en: "Milk, jelly, basil seed, ice cream", bn: "দুধ, জেলি, তোকমা, আইসক্রিম" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "/img/halwa.jpg",
+        story: {
+          en: "A tall glass of chilled rose milk layered with vermicelli, basil seed, jelly cubes and a scoop of ice cream — dessert and drink at once.",
+          bn: "লম্বা গ্লাসে ঠান্ডা রোজ দুধ, সেমাই, তোকমা, জেলি কিউব আর এক স্কুপ আইসক্রিম — একসঙ্গে মিষ্টি আর পানীয়।",
+        },
+        ingredients: { en: ["Milk", "Rose syrup", "Vermicelli", "Basil (tokma) seed", "Jelly", "Ice cream", "Nuts"], bn: ["দুধ", "রোজ সিরাপ", "সেমাই", "তোকমা", "জেলি", "আইসক্রিম", "বাদাম"] },
+      },
+      {
+        slug: "fruit-custard",
+        section: "dessert",
+        name: { en: "Fruit Custard", bn: "ফ্রুট কাস্টার্ড" },
+        tagline: { en: "Chilled custard, seasonal fruit", bn: "ঠান্ডা কাস্টার্ড, মৌসুমি ফল" },
+        price: { en: "৳ 100", bn: "৳ ১০০" },
+        image: "/img/halwa.jpg",
+        story: {
+          en: "Vanilla custard set cold and folded with chopped seasonal fruit — apple, banana, grape, pomegranate — a lighter close to a heavy meal.",
+          bn: "ভ্যানিলা কাস্টার্ড ঠান্ডা করে জমিয়ে কুচি মৌসুমি ফলের সঙ্গে মেশানো — আপেল, কলা, আঙুর, বেদানা — ভারী খাবারের হালকা সমাপ্তি।",
+        },
+        ingredients: { en: ["Milk", "Custard powder", "Sugar", "Apple, banana, grape", "Pomegranate", "Cream"], bn: ["দুধ", "কাস্টার্ড পাউডার", "চিনি", "আপেল, কলা, আঙুর", "বেদানা", "ক্রিম"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 11 — combined */
+  {
+    slug: "bread-salad",
+    order: 11,
+    name: { en: "Bread & Salad", bn: "রুটি ও সালাদ" },
+    blurb: {
+      en: "Paratha, naan and luchi from the tandoor and tawa, with fresh and kasundi salads.",
+      bn: "তন্দুর ও তাওয়ার পরোটা, নান আর লুচি, সঙ্গে টাটকা ও কাসুন্দি সালাদ।",
+    },
+    cover: "/img/curry-rice.jpg",
+    sections: [
+      { id: "bread", title: { en: "Bread", bn: "রুটি" } },
+      { id: "salad", title: { en: "Salad", bn: "সালাদ" } },
+    ],
+    dishes: [
+      {
+        slug: "paratha",
+        section: "bread",
+        name: { en: "Paratha", bn: "পরোটা" },
+        tagline: { en: "Per piece, hand-rolled, tawa-fried", bn: "প্রতি পিস, হাতে বেলা, তাওয়ায় ভাজা" },
+        price: { en: "৳ 30", bn: "৳ ৩০" },
+        image: "",
+        story: {
+          en: "Plain flour dough rolled thin, folded with a little oil for flakes, and shallow-fried on a hot tawa — the default bread of a Bangladeshi breakfast.",
+          bn: "ময়দার খামির পাতলা করে বেলে সামান্য তেলে ভাঁজ করে গরম তাওয়ায় ভাজা — বাঙালি নাশতার চিরাচরিত রুটি।",
+        },
+        ingredients: { en: ["Wheat flour", "Oil", "Salt", "Water"], bn: ["ময়দা", "তেল", "লবণ", "পানি"] },
+      },
+      {
+        slug: "laccha-paratha",
+        section: "bread",
+        name: { en: "Laccha Paratha", bn: "লাচ্ছা পরোটা" },
+        tagline: { en: "Per piece, coiled into flaky layers", bn: "প্রতি পিস, প্যাঁচানো স্তরে" },
+        price: { en: "৳ 50", bn: "৳ ৫০" },
+        image: "",
+        featured: true,
+        story: {
+          en: "The dough is stretched paper-thin, brushed with ghee, gathered into a rope, coiled, then rolled and fried so it opens into dozens of crisp layers.",
+          bn: "খামির কাগজের মতো পাতলা করে ঘি ব্রাশ করে দড়ির মতো পাকিয়ে প্যাঁচ দিয়ে বেলে ভাজা — খুলে যায় অসংখ্য মচমচে স্তরে।",
+        },
+        ingredients: { en: ["Wheat flour", "Ghee / oil", "Milk", "Sugar (a pinch)", "Salt"], bn: ["ময়দা", "ঘি / তেল", "দুধ", "সামান্য চিনি", "লবণ"] },
+      },
+      {
+        slug: "butter-naan",
+        section: "bread",
+        name: { en: "Butter Naan", bn: "বাটার নান" },
+        tagline: { en: "Per piece, tandoor-baked, butter-brushed", bn: "প্রতি পিস, তন্দুরে সেঁকা, মাখন মাখানো" },
+        price: { en: "৳ 50", bn: "৳ ৫০" },
+        image: "",
+        story: {
+          en: "Leavened dough slapped onto the wall of a hot tandoor, baked until it puffs and blisters, then brushed with butter as it comes off.",
+          bn: "খামিরযুক্ত ময়দা গরম তন্দুরের গায়ে লাগিয়ে ফুলে ফোস্কা পড়া পর্যন্ত সেঁকা, নামানোর সময় মাখন ব্রাশ।",
+        },
+        ingredients: { en: ["Refined flour", "Yeast / yoghurt", "Milk", "Sugar", "Butter", "Nigella seed"], bn: ["ময়দা", "ইস্ট / দই", "দুধ", "চিনি", "মাখন", "কালোজিরা"] },
+      },
+      {
+        slug: "garlic-naan",
+        section: "bread",
+        name: { en: "Garlic Naan", bn: "গার্লিক নান" },
+        tagline: { en: "Per piece, chopped garlic and coriander", bn: "প্রতি পিস, রসুন কুচি ও ধনেপাতা" },
+        price: { en: "৳ 80", bn: "৳ ৮০" },
+        image: "",
+        story: {
+          en: "The same tandoor naan, pressed with chopped raw garlic, coriander and butter before baking so the garlic toasts into the surface.",
+          bn: "একই তন্দুরি নান, সেঁকার আগে রসুন কুচি, ধনেপাতা আর মাখন চেপে দেওয়া — রসুন গায়ে সেঁকে যায়।",
+        },
+        ingredients: { en: ["Refined flour", "Yeast / yoghurt", "Garlic", "Coriander leaf", "Butter", "Milk"], bn: ["ময়দা", "ইস্ট / দই", "রসুন", "ধনেপাতা", "মাখন", "দুধ"] },
+      },
+      {
+        slug: "cashewnut-salad",
+        section: "salad",
+        name: { en: "Cashewnut Salad", bn: "কেশোনাট সালাদ" },
+        tagline: { en: "Per plate, crunchy, lightly dressed", bn: "প্রতি প্লেট, মচমচে, হালকা ড্রেসিং" },
+        price: { en: "৳ 300", bn: "৳ ৩০০" },
+        image: "",
+        story: {
+          en: "Crisp lettuce, cucumber and carrot tossed with roasted cashews and a light lemon-honey dressing — a fresh counter to the grill.",
+          bn: "মচমচে লেটুস, শসা আর গাজর ভাজা কাজু আর হালকা লেবু-মধুর ড্রেসিংয়ে — গ্রিলের পাশে টাটকা সঙ্গী।",
+        },
+        ingredients: { en: ["Lettuce", "Cucumber", "Carrot", "Roasted cashew", "Lemon", "Honey", "Olive oil", "Black pepper"], bn: ["লেটুস", "শসা", "গাজর", "ভাজা কাজু", "লেবু", "মধু", "অলিভ অয়েল", "গোলমরিচ"] },
+      },
+      {
+        slug: "raita-salad",
+        section: "salad",
+        name: { en: "Raita Salad", bn: "রাইতা সালাদ" },
+        tagline: { en: "Per plate, whisked yoghurt, cucumber, mint", bn: "প্রতি প্লেট, ফেটানো দই, শসা, পুদিনা" },
+        price: { en: "৳ 100", bn: "৳ ১০০" },
+        image: "",
+        story: {
+          en: "Cool yoghurt whisked smooth with grated cucumber, mint, roasted cumin and a little sugar — the standard partner to biryani and kacchi.",
+          bn: "ঠান্ডা দই মসৃণ করে ফেটিয়ে কোরানো শসা, পুদিনা, ভাজা জিরা আর সামান্য চিনি — বিরিয়ানি ও কাচ্চির চিরসঙ্গী।",
+        },
+        ingredients: { en: ["Yoghurt", "Cucumber", "Mint", "Roasted cumin", "Sugar", "Salt", "Green chilli"], bn: ["টক দই", "শসা", "পুদিনা", "ভাজা জিরা", "চিনি", "লবণ", "কাঁচা মরিচ"] },
+      },
+      {
+        slug: "green-papaya-salad",
+        section: "salad",
+        name: { en: "Green Papaya Salad", bn: "গ্রিন পেঁপে সালাদ" },
+        tagline: { en: "Per plate, shredded, chilli-lime", bn: "প্রতি প্লেট, ঝুরি করা, মরিচ-লেবু" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "",
+        story: {
+          en: "Shredded raw papaya tossed with lime, fish sauce, chilli, peanuts and coriander — a Southeast-Asian style crunch that works well with grilled seafood.",
+          bn: "ঝুরি কাঁচা পেঁপে লেবু, ফিশ সস, মরিচ, চিনাবাদাম আর ধনেপাতায় মাখা — দক্ষিণ-পূর্ব এশীয় ঘরানার মচমচে, গ্রিলড সি-ফুডের সঙ্গে ভালো।",
+        },
+        ingredients: { en: ["Green papaya", "Lime", "Fish sauce", "Bird's eye chilli", "Peanuts", "Cherry tomato", "Coriander", "Palm sugar"], bn: ["কাঁচা পেঁপে", "লেবু", "ফিশ সস", "ধনিয়া মরিচ", "চিনাবাদাম", "চেরি টমেটো", "ধনেপাতা", "তালমিছরি"] },
+      },
+      {
+        slug: "kasundi-mixed-salad",
+        section: "salad",
+        name: { en: "Kasundi Mixed Salad", bn: "কাসুন্দি মিক্সড সালাদ" },
+        tagline: { en: "Per plate, Bengali mustard dressing", bn: "প্রতি প্লেট, বাঙালি কাসুন্দি ড্রেসিং" },
+        price: { en: "৳ 100", bn: "৳ ১০০" },
+        image: "",
+        story: {
+          en: "Onion, cucumber, tomato and green chilli tossed with kasundi — the pungent fermented Bengali mustard — instead of a Western dressing.",
+          bn: "পেঁয়াজ, শসা, টমেটো আর কাঁচা মরিচ কাসুন্দি দিয়ে মাখা — পশ্চিমা ড্রেসিংয়ের বদলে ঝাঁঝালো বাঙালি সরষে।",
+        },
+        ingredients: { en: ["Onion", "Cucumber", "Tomato", "Green chilli", "Kasundi (mustard sauce)", "Coriander", "Salt"], bn: ["পেঁয়াজ", "শসা", "টমেটো", "কাঁচা মরিচ", "কাসুন্দি", "ধনেপাতা", "লবণ"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 12 — combined */
+  {
+    slug: "soup-fried-rice",
+    order: 12,
+    name: { en: "Soup & Fried Rice", bn: "স্যুপ ও ফ্রাইড রাইস" },
+    blurb: {
+      en: "Thai, corn and sea-food soups to start; egg, chicken and sea-food fried rice to share.",
+      bn: "শুরুতে থাই, কর্ন আর সি-ফুড স্যুপ; ভাগ করে খেতে ডিম, চিকেন আর সি-ফুড ফ্রাইড রাইস।",
+    },
+    cover: "/img/prawn-rice.jpg",
+    sections: [
+      { id: "soup", title: { en: "Soup", bn: "স্যুপ" } },
+      { id: "fried-rice", title: { en: "Fried Rice", bn: "ফ্রাইড রাইস" } },
+    ],
+    dishes: [
+      {
+        slug: "thai-soup",
+        section: "soup",
+        name: { en: "Thai Soup", bn: "থাই স্যুপ" },
+        tagline: { en: "Per plate, hot-and-sour, thickened", bn: "প্রতি প্লেট, টক-ঝাল, ঘন" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "/img/soup.jpg",
+        story: {
+          en: "The Bangladeshi restaurant reading of tom yum — a hot-and-sour broth with chicken, vegetables and egg, thickened with cornflour and sharp with vinegar and chilli.",
+          bn: "টম-ইয়ামের বাঙালি রেস্তোরাঁ রূপ — মুরগি, সবজি আর ডিমের টক-ঝাল ঝোল, কর্নফ্লাওয়ারে ঘন, ভিনেগার আর মরিচে ঝাঁঝালো।",
+        },
+        ingredients: { en: ["Chicken stock", "Chicken", "Mixed vegetable", "Egg", "Cornflour", "Vinegar", "Chilli sauce", "Soy sauce"], bn: ["চিকেন স্টক", "মুরগি", "মিক্সড সবজি", "ডিম", "কর্নফ্লাওয়ার", "ভিনেগার", "চিলি সস", "সয়া সস"] },
+      },
+      {
+        slug: "chicken-corn-soup",
+        section: "soup",
+        name: { en: "Chicken Corn Soup", bn: "চিকেন কর্ন স্যুপ" },
+        tagline: { en: "Per plate, sweetcorn, shredded chicken", bn: "প্রতি প্লেট, সুইট কর্ন, ছেঁড়া মুরগি" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "/img/soup.jpg",
+        story: {
+          en: "A mild, creamy soup of sweetcorn and finely shredded chicken bound with egg white — the one children order.",
+          bn: "সুইট কর্ন আর মিহি ছেঁড়া মুরগির নরম, ক্রিমি স্যুপ, ডিমের সাদা অংশে বাঁধা — বাচ্চারা যেটা অর্ডার করে।",
+        },
+        ingredients: { en: ["Sweetcorn", "Chicken", "Egg white", "Chicken stock", "Cornflour", "White pepper", "Sesame oil"], bn: ["সুইট কর্ন", "মুরগি", "ডিমের সাদা", "চিকেন স্টক", "কর্নফ্লাওয়ার", "সাদা গোলমরিচ", "তিলের তেল"] },
+      },
+      {
+        slug: "sea-food-soup",
+        section: "soup",
+        name: { en: "Sea-Food Soup", bn: "সি-ফুড স্যুপ" },
+        tagline: { en: "Per plate, prawn, fish, squid", bn: "প্রতি প্লেট, চিংড়ি, মাছ, স্কুইড" },
+        price: { en: "৳ 250", bn: "৳ ২৫০" },
+        image: "/img/soup.jpg",
+        featured: true,
+        story: {
+          en: "A clearer, sharper soup built on a prawn-shell stock, with prawn, white fish and squid, finished with coriander, lime and white pepper.",
+          bn: "চিংড়ির খোলসের স্টকে তৈরি স্বচ্ছ, ঝাঁঝালো স্যুপ — চিংড়ি, সাদা মাছ আর স্কুইড, শেষে ধনেপাতা, লেবু আর সাদা গোলমরিচ।",
+        },
+        ingredients: { en: ["Prawn-shell stock", "Prawn", "White fish", "Squid", "Coriander", "Lime", "White pepper", "Cornflour"], bn: ["চিংড়ির স্টক", "চিংড়ি", "সাদা মাছ", "স্কুইড", "ধনেপাতা", "লেবু", "সাদা গোলমরিচ", "কর্নফ্লাওয়ার"] },
+      },
+      {
+        slug: "veg-egg-fried-rice",
+        section: "fried-rice",
+        name: { en: "Vegetable Egg Fried Rice", bn: "ভেজিটেবল এগ ফ্রাইড রাইস" },
+        tagline: { en: "Per plate, wok-tossed, egg-fried", bn: "প্রতি প্লেট, ওক-এ ভাজা, ডিমসহ" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "/img/prawn-rice.jpg",
+        story: {
+          en: "Day-cooled rice fried hard and fast in a wok with egg, spring onion, carrot and cabbage, seasoned only with soy and white pepper.",
+          bn: "আগের রাঁধা ঠান্ডা ভাত ওক-এ কড়া আঁচে ডিম, পেঁয়াজ পাতা, গাজর আর বাঁধাকপির সঙ্গে ভাজা — শুধু সয়া আর সাদা গোলমরিচে।",
+        },
+        ingredients: { en: ["Cooked rice", "Egg", "Spring onion", "Carrot", "Cabbage", "Soy sauce", "White pepper", "Oil"], bn: ["রাঁধা ভাত", "ডিম", "পেঁয়াজ পাতা", "গাজর", "বাঁধাকপি", "সয়া সস", "সাদা গোলমরিচ", "তেল"] },
+      },
+      {
+        slug: "chicken-fried-rice",
+        section: "fried-rice",
+        name: { en: "Chicken Fried Rice", bn: "চিকেন ফ্রাইড রাইস" },
+        tagline: { en: "Per plate, diced chicken, egg", bn: "প্রতি প্লেট, মুরগির কিউব, ডিম" },
+        price: { en: "৳ 200", bn: "৳ ২০০" },
+        image: "/img/prawn-rice.jpg",
+        story: {
+          en: "The same wok-fried rice with diced chicken folded through — the default order alongside chilli chicken or a chinese vegetable.",
+          bn: "একই ওক-ফ্রাইড রাইস, সঙ্গে মুরগির কিউব মেশানো — চিলি চিকেন বা চাইনিজ সবজির সঙ্গে চিরাচরিত অর্ডার।",
+        },
+        ingredients: { en: ["Cooked rice", "Chicken", "Egg", "Spring onion", "Mixed vegetable", "Soy sauce", "White pepper", "Oil"], bn: ["রাঁধা ভাত", "মুরগি", "ডিম", "পেঁয়াজ পাতা", "মিক্সড সবজি", "সয়া সস", "সাদা গোলমরিচ", "তেল"] },
+      },
+      {
+        slug: "sea-food-fried-rice",
+        section: "fried-rice",
+        name: { en: "Sea Food Fried Rice", bn: "সি-ফুড ফ্রাইড রাইস" },
+        tagline: { en: "Per plate, prawn and squid", bn: "প্রতি প্লেট, চিংড়ি আর স্কুইড" },
+        price: { en: "৳ 250", bn: "৳ ২৫০" },
+        image: "/img/prawn-rice.jpg",
+        story: {
+          en: "Fried rice loaded with prawn and squid, a little extra garlic and a squeeze of lime at the end to lift the shellfish.",
+          bn: "চিংড়ি আর স্কুইডে ভরা ফ্রাইড রাইস, একটু বেশি রসুন আর শেষে এক চিপ লেবু — শেলফিশকে তুলে ধরতে।",
+        },
+        ingredients: { en: ["Cooked rice", "Prawn", "Squid", "Egg", "Garlic", "Spring onion", "Soy sauce", "Lime"], bn: ["রাঁধা ভাত", "চিংড়ি", "স্কুইড", "ডিম", "রসুন", "পেঁয়াজ পাতা", "সয়া সস", "লেবু"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 13 */
+  {
+    slug: "juice",
+    order: 13,
+    name: { en: "Fresh Juice", bn: "টাটকা জুস" },
+    blurb: {
+      en: "Fruit pressed to order — mango, watermelon, pomegranate, lemon and lassi.",
+      bn: "অর্ডারে নিংড়ানো ফল — আম, তরমুজ, বেদানা, লেবু আর লাচ্ছি।",
+    },
+    cover: "/img/mango-juice.jpg",
+    dishes: [
+      {
+        slug: "lassi-sweet",
+        name: { en: "Lassi (Sweet)", bn: "মিষ্টি লাচ্ছি" },
+        tagline: { en: "Per glass, whisked yoghurt", bn: "প্রতি গ্লাস, ফেটানো দই" },
+        price: { en: "৳ 120", bn: "৳ ১২০" },
+        image: "/img/mango-juice.jpg",
+        featured: true,
+        story: {
+          en: "Fresh yoghurt whisked with cold water, sugar and a touch of cardamom until frothy — the traditional coolant for a hot meal.",
+          bn: "টাটকা দই ঠান্ডা পানি, চিনি আর একটু এলাচ দিয়ে ফেনা ওঠা পর্যন্ত ফেটানো — গরম খাবারের চিরাচরিত শীতলকারী।",
+        },
+        ingredients: { en: ["Yoghurt", "Cold water", "Sugar", "Cardamom", "Ice"], bn: ["টক দই", "ঠান্ডা পানি", "চিনি", "এলাচ", "বরফ"] },
+      },
+      {
+        slug: "watermelon-juice",
+        name: { en: "Watermelon Juice", bn: "তরমুজের জুস" },
+        tagline: { en: "Per glass, pressed fresh", bn: "প্রতি গ্লাস, টাটকা নিংড়ানো" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "/img/mango-juice.jpg",
+        story: {
+          en: "Ripe watermelon blended and strained, served over ice with a little lime and black salt.",
+          bn: "পাকা তরমুজ ব্লেন্ড করে ছেঁকে, বরফের ওপর একটু লেবু আর বিট লবণ দিয়ে পরিবেশন।",
+        },
+        ingredients: { en: ["Watermelon", "Lime", "Black salt", "Ice"], bn: ["তরমুজ", "লেবু", "বিট লবণ", "বরফ"] },
+      },
+      {
+        slug: "ripe-mango-juice",
+        name: { en: "Ripe Mango Juice", bn: "পাকা আমের জুস" },
+        tagline: { en: "Per glass, in season", bn: "প্রতি গ্লাস, মৌসুমে" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "/img/mango-juice.jpg",
+        story: {
+          en: "Seasonal ripe mango — Himsagar, Langra or Amrapali when they run — blended with a little milk or water into a thick, fragrant juice.",
+          bn: "মৌসুমি পাকা আম — হিমসাগর, ল্যাংড়া বা আম্রপালি — একটু দুধ বা পানির সঙ্গে ব্লেন্ড করে ঘন, সুগন্ধি জুস।",
+        },
+        ingredients: { en: ["Ripe mango", "Milk / water", "Sugar (if needed)", "Ice"], bn: ["পাকা আম", "দুধ / পানি", "চিনি (প্রয়োজনে)", "বরফ"] },
+      },
+      {
+        slug: "green-mango-juice",
+        name: { en: "Green Mango Juice", bn: "কাঁচা আমের জুস" },
+        tagline: { en: "Per glass, tart and salted", bn: "প্রতি গ্লাস, টক ও নোনতা" },
+        price: { en: "৳ 120", bn: "৳ ১২০" },
+        image: "",
+        story: {
+          en: "Raw green mango boiled soft, then blended with mint, black salt, roasted cumin and sugar — the drink that gets Bangladeshis through summer.",
+          bn: "কাঁচা আম সেদ্ধ করে পুদিনা, বিট লবণ, ভাজা জিরা আর চিনি দিয়ে ব্লেন্ড — গ্রীষ্মে বাঙালিকে টিকিয়ে রাখা পানীয়।",
+        },
+        ingredients: { en: ["Green mango", "Mint", "Black salt", "Roasted cumin", "Sugar", "Ice"], bn: ["কাঁচা আম", "পুদিনা", "বিট লবণ", "ভাজা জিরা", "চিনি", "বরফ"] },
+      },
+      {
+        slug: "pomegranate-juice",
+        name: { en: "Pomegranate Juice", bn: "বেদানার জুস" },
+        tagline: { en: "Per glass, pressed arils", bn: "প্রতি গ্লাস, দানা নিংড়ানো" },
+        price: { en: "৳ 250", bn: "৳ ২৫০" },
+        image: "",
+        story: {
+          en: "Pomegranate arils pressed and lightly strained — deep red, tannic and barely sweetened.",
+          bn: "বেদানার দানা নিংড়ে হালকা ছেঁকে — গাঢ় লাল, কষযুক্ত আর সামান্য মিষ্টি।",
+        },
+        ingredients: { en: ["Pomegranate", "Lime (optional)", "Ice"], bn: ["বেদানা", "লেবু (ইচ্ছা)", "বরফ"] },
+      },
+      {
+        slug: "regular-lemon-juice",
+        name: { en: "Lemon Juice", bn: "লেবুর শরবত" },
+        tagline: { en: "Per glass, sweet or salted", bn: "প্রতি গ্লাস, মিষ্টি বা নোনতা" },
+        price: { en: "৳ 80", bn: "৳ ৮০" },
+        image: "",
+        story: {
+          en: "Fresh lime juice, water, sugar or salt to taste — the plainest and most-ordered drink in the house.",
+          bn: "টাটকা লেবুর রস, পানি, স্বাদমতো চিনি বা লবণ — ঘরের সবচেয়ে সাধারণ আর সবচেয়ে বেশি অর্ডার হওয়া পানীয়।",
+        },
+        ingredients: { en: ["Lime", "Water", "Sugar / salt", "Ice"], bn: ["লেবু", "পানি", "চিনি / লবণ", "বরফ"] },
+      },
+      {
+        slug: "borhani",
+        name: { en: "Borhani (Mint Yoghurt Soda)", bn: "বোরহানি" },
+        tagline: { en: "Per glass, spiced yoghurt drink", bn: "প্রতি গ্লাস, মসলাদার দইয়ের পানীয়" },
+        price: { en: "৳ 80", bn: "৳ ৮০" },
+        image: "",
+        featured: true,
+        story: {
+          en: "The savoury yoghurt drink that always sits next to kacchi biryani — thin yoghurt sharpened with mustard, mint, coriander, green chilli and black salt.",
+          bn: "কাচ্চি বিরিয়ানির পাশে সবসময় থাকা নোনতা দইয়ের পানীয় — পাতলা দই সরষে, পুদিনা, ধনেপাতা, কাঁচা মরিচ আর বিট লবণে ঝাঁঝালো।",
+        },
+        ingredients: { en: ["Yoghurt", "Mustard paste", "Mint", "Coriander", "Green chilli", "Black salt", "Roasted cumin"], bn: ["টক দই", "সরষে বাটা", "পুদিনা", "ধনেপাতা", "কাঁচা মরিচ", "বিট লবণ", "ভাজা জিরা"] },
+      },
+      {
+        slug: "orange-juice",
+        name: { en: "Orange Juice", bn: "কমলার জুস" },
+        tagline: { en: "Per glass, pressed fresh", bn: "প্রতি গ্লাস, টাটকা নিংড়ানো" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "/img/orange-juice.jpg",
+        story: {
+          en: "Whole oranges pressed to order and served over ice, nothing added.",
+          bn: "আস্ত কমলা অর্ডারে নিংড়ে বরফের ওপর পরিবেশন, কিছু যোগ না করে।",
+        },
+        ingredients: { en: ["Orange", "Ice"], bn: ["কমলা", "বরফ"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 14 */
+  {
+    slug: "shakes-beverages",
+    order: 14,
+    name: { en: "Shakes & Beverages", bn: "শেক ও পানীয়" },
+    blurb: {
+      en: "Thick milkshakes, dragon-fruit and bell juice, coffee and four kinds of tea.",
+      bn: "ঘন মিল্কশেক, ড্রাগন ফ্রুট আর বেল জুস, কফি আর চার রকম চা।",
+    },
+    cover: "/img/orange-juice.jpg",
+    dishes: [
+      {
+        slug: "chocolate-milk-shake",
+        name: { en: "Chocolate Milk Shake", bn: "চকলেট মিল্ক শেক" },
+        tagline: { en: "Per glass, cocoa and ice cream", bn: "প্রতি গ্লাস, কোকো আর আইসক্রিম" },
+        price: { en: "৳ 200", bn: "৳ ২০০" },
+        image: "",
+        featured: true,
+        story: {
+          en: "Cold milk blended thick with cocoa, chocolate syrup and a scoop of vanilla ice cream, topped with a dusting of cocoa.",
+          bn: "ঠান্ডা দুধ কোকো, চকলেট সিরাপ আর এক স্কুপ ভ্যানিলা আইসক্রিমে ঘন করে ব্লেন্ড, ওপরে কোকো ছিটিয়ে।",
+        },
+        ingredients: { en: ["Milk", "Cocoa powder", "Chocolate syrup", "Vanilla ice cream", "Sugar", "Ice"], bn: ["দুধ", "কোকো পাউডার", "চকলেট সিরাপ", "ভ্যানিলা আইসক্রিম", "চিনি", "বরফ"] },
+      },
+      {
+        slug: "oreo-milk-shake",
+        name: { en: "Oreo Milk Shake", bn: "ওরিও মিল্ক শেক" },
+        tagline: { en: "Per glass, blended cookies and cream", bn: "প্রতি গ্লাস, বিস্কুট আর ক্রিম" },
+        price: { en: "৳ 200", bn: "৳ ২০০" },
+        image: "",
+        story: {
+          en: "Whole cream-filled biscuits blended into cold milk and ice cream until speckled grey, with a few broken pieces stirred through at the end.",
+          bn: "আস্ত ক্রিম বিস্কুট ঠান্ডা দুধ আর আইসক্রিমে ব্লেন্ড করে ধূসর ছিটছিট, শেষে কয়েক টুকরো ভেঙে মেশানো।",
+        },
+        ingredients: { en: ["Milk", "Cream biscuits", "Vanilla ice cream", "Sugar", "Ice"], bn: ["দুধ", "ক্রিম বিস্কুট", "ভ্যানিলা আইসক্রিম", "চিনি", "বরফ"] },
+      },
+      {
+        slug: "banana-milk-shake",
+        name: { en: "Banana Milk Shake", bn: "বানানা মিল্ক শেক" },
+        tagline: { en: "Per glass, ripe banana, honey", bn: "প্রতি গ্লাস, পাকা কলা, মধু" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "",
+        story: {
+          en: "Ripe sagar banana blended with cold milk, a spoon of honey and a pinch of cinnamon — filling enough to be breakfast.",
+          bn: "পাকা সাগর কলা ঠান্ডা দুধ, এক চামচ মধু আর এক চিমটি দারুচিনিতে ব্লেন্ড — নাশতা হওয়ার মতো পেট ভরানো।",
+        },
+        ingredients: { en: ["Banana", "Milk", "Honey", "Cinnamon", "Ice"], bn: ["কলা", "দুধ", "মধু", "দারুচিনি", "বরফ"] },
+      },
+      {
+        slug: "dragon-fruit-juice",
+        name: { en: "Dragon Fruit Juice", bn: "ড্রাগন ফ্রুট জুস" },
+        tagline: { en: "Per glass, bright magenta", bn: "প্রতি গ্লাস, উজ্জ্বল ম্যাজেন্টা" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "",
+        story: {
+          en: "Red-flesh dragon fruit, now widely grown in Bangladesh, blended with lime and a little sugar into a vivid pink cooler.",
+          bn: "লাল শাঁসের ড্রাগন ফ্রুট, এখন বাংলাদেশে ব্যাপক চাষ হয়, লেবু আর সামান্য চিনিতে ব্লেন্ড করে উজ্জ্বল গোলাপি পানীয়।",
+        },
+        ingredients: { en: ["Dragon fruit", "Lime", "Sugar", "Ice"], bn: ["ড্রাগন ফ্রুট", "লেবু", "চিনি", "বরফ"] },
+      },
+      {
+        slug: "bell-juice",
+        name: { en: "Bell (Wood Apple) Juice", bn: "বেলের শরবত" },
+        tagline: { en: "Per glass, hand-mashed pulp", bn: "প্রতি গ্লাস, হাতে চটকানো শাঁস" },
+        price: { en: "৳ 120", bn: "৳ ১২০" },
+        image: "",
+        story: {
+          en: "Ripe wood apple cracked open, the aromatic pulp mashed by hand into cold water with sugar — a traditional stomach-cooling drink.",
+          bn: "পাকা বেল ভেঙে সুগন্ধি শাঁস হাতে চটকে ঠান্ডা পানি আর চিনিতে — পেট ঠান্ডা রাখার চিরাচরিত শরবত।",
+        },
+        ingredients: { en: ["Ripe wood apple (bel)", "Water", "Sugar", "Ice"], bn: ["পাকা বেল", "পানি", "চিনি", "বরফ"] },
+      },
+      {
+        slug: "coffee",
+        name: { en: "Coffee", bn: "কফি" },
+        tagline: { en: "Per cup, hot or iced", bn: "প্রতি কাপ, গরম বা ঠান্ডা" },
+        price: { en: "৳ 150", bn: "৳ ১৫০" },
+        image: "",
+        story: {
+          en: "A strong milk coffee, served hot in a cup or shaken with ice and sugar into a frothy cold coffee on request.",
+          bn: "কড়া দুধ কফি, কাপে গরম, অথবা চাইলে বরফ আর চিনিতে ঝাঁকিয়ে ফেনাযুক্ত কোল্ড কফি।",
+        },
+        ingredients: { en: ["Instant / ground coffee", "Milk", "Sugar", "Water", "Ice (for cold)"], bn: ["কফি", "দুধ", "চিনি", "পানি", "বরফ (ঠান্ডার জন্য)"] },
+      },
+      {
+        slug: "malta-tea",
+        name: { en: "Malta Tea", bn: "মাল্টা চা" },
+        tagline: { en: "Per glass, black tea with citrus", bn: "প্রতি গ্লাস, লেবুজাতীয় ফলের কালো চা" },
+        price: { en: "৳ 50", bn: "৳ ৫০" },
+        image: "",
+        story: {
+          en: "Strong black tea poured over fresh malta (sweet-lime) slices and a little sugar — the Cox's Bazar roadside speciality.",
+          bn: "কড়া কালো চা টাটকা মাল্টার টুকরো আর সামান্য চিনির ওপর ঢালা — কক্সবাজারের রাস্তার পাশের বিশেষত্ব।",
+        },
+        ingredients: { en: ["Black tea", "Malta (sweet lime)", "Sugar", "Hot water"], bn: ["কালো চা", "মাল্টা", "চিনি", "গরম পানি"] },
+      },
+      {
+        slug: "milk-tea",
+        name: { en: "Milk Tea", bn: "দুধ চা" },
+        tagline: { en: "Per cup, regular", bn: "প্রতি কাপ, রেগুলার" },
+        price: { en: "৳ 30", bn: "৳ ৩০" },
+        image: "",
+        story: {
+          en: "Tea leaves boiled with milk, sugar and a knob of cardamom — the cup that punctuates every Bangladeshi day.",
+          bn: "চা পাতা দুধ, চিনি আর একটু এলাচে ফুটানো — যে কাপ বাঙালির প্রতিটি দিনে যতিচিহ্ন বসায়।",
+        },
+        ingredients: { en: ["Tea leaves", "Milk", "Sugar", "Cardamom", "Water"], bn: ["চা পাতা", "দুধ", "চিনি", "এলাচ", "পানি"] },
+      },
+    ],
+  },
+
+  /* ============================================================ 15 */
+  {
+    slug: "breakfast-specials",
+    order: 15,
+    name: { en: "Breakfast Specials", bn: "নাশতার বিশেষ পদ" },
+    blurb: {
+      en: "The heavy morning plates — nihari, paya, liver bhuna and khichuri, served from dawn.",
+      bn: "সকালের ভারী পদ — নেহারি, পায়া, কলিজা ভুনা আর খিচুড়ি, ভোর থেকে।",
+    },
+    cover: "/img/curry-pot.jpg",
+    dishes: [
+      {
+        slug: "nihari",
+        name: { en: "Nihari (Beef Leg Bone Curry)", bn: "নেহারি" },
+        tagline: { en: "Per plate, overnight-simmered shank", bn: "প্রতি প্লেট, সারারাত জ্বাল দেওয়া নলা" },
+        price: { en: "৳ 450", bn: "৳ ৪৫০" },
+        image: "/img/curry-pot.jpg",
+        featured: true,
+        story: {
+          en: "Nihari — from the Arabic 'nahar', morning — was cooked overnight and eaten at dawn by labourers in Mughal Delhi and Old Dhaka. Beef shank and marrow bones are simmered eight hours or more with a dark blend of long pepper, fennel and dried ginger until the meat falls apart and the gravy turns silky. Finished with fried onion, ginger julienne, green chilli and lemon, eaten with naan.",
+          bn: "নেহারি — আরবি 'নাহার' মানে সকাল থেকে — মুঘল দিল্লি ও পুরান ঢাকায় সারারাত রেঁধে ভোরে খেত শ্রমজীবীরা। গরুর নলা আর মজ্জার হাড় আট ঘণ্টা বা তারও বেশি জ্বাল দেওয়া হয় পিপুল, মৌরি আর শুকনো আদার গাঢ় মিশ্রণে — মাংস আলগা হয়ে যায়, ঝোল হয় রেশমি। ওপরে বেরেস্তা, আদা কুচি, কাঁচা মরিচ আর লেবু, নানের সঙ্গে।",
+        },
+        ingredients: { en: ["Beef shank & marrow bone", "Wheat flour (to thicken)", "Long pepper, fennel, dried ginger", "Onion", "Ginger-garlic", "Kashmiri chilli", "Mustard oil & ghee", "Lemon, ginger julienne, green chilli"], bn: ["গরুর নলা ও মজ্জার হাড়", "আটা (ঘন করতে)", "পিপুল, মৌরি, শুকনো আদা", "পেঁয়াজ", "আদা-রসুন", "কাশ্মিরি মরিচ", "সরিষার তেল ও ঘি", "লেবু, আদা কুচি, কাঁচা মরিচ"] },
+      },
+      {
+        slug: "mutton-paya",
+        name: { en: "Mutton Leg Bone Soup (Paya)", bn: "খাসির পায়া" },
+        tagline: { en: "Per plate, gelatinous trotter broth", bn: "প্রতি প্লেট, আঠালো পায়ের ঝোল" },
+        price: { en: "৳ 200 / 400", bn: "৳ ২০০ / ৪০০" },
+        image: "/img/soup.jpg",
+        story: {
+          en: "Goat trotters simmered for hours until the broth is thick with natural gelatin and the cartilage turns soft — a restorative winter and post-illness dish, eaten with naan or paratha.",
+          bn: "খাসির পা ঘণ্টার পর ঘণ্টা জ্বাল — ঝোল প্রাকৃতিক জেলাটিনে ঘন হয়, নরম হাড়ের সংযোগ। শীতের আর অসুস্থতার পরের শক্তিদায়ক পদ, নান বা পরোটার সঙ্গে।",
+        },
+        ingredients: { en: ["Goat trotters (paya)", "Onion", "Ginger-garlic", "Turmeric", "Coriander & cumin", "Whole garam masala", "Green chilli", "Coriander leaf"], bn: ["খাসির পা", "পেঁয়াজ", "আদা-রসুন", "হলুদ", "ধনে ও জিরা", "আস্ত গরম মসলা", "কাঁচা মরিচ", "ধনেপাতা"] },
+      },
+      {
+        slug: "beef-liver-bhuna",
+        name: { en: "Beef Liver Bhuna", bn: "গরুর কলিজা ভুনা" },
+        tagline: { en: "Per plate, quick dark-fry", bn: "প্রতি প্লেট, দ্রুত ভুনা" },
+        price: { en: "৳ 200 / 400", bn: "৳ ২০০ / ৪০০" },
+        image: "/img/karahi.jpg",
+        story: {
+          en: "Beef liver cut small and bhuna-fried fast with onion, garlic and whole spice — cooked just past pink so it stays tender, a classic paratha breakfast.",
+          bn: "গরুর কলিজা ছোট করে কেটে পেঁয়াজ, রসুন আর আস্ত মসলায় দ্রুত ভুনা — সবেমাত্র গোলাপির পরে থামানো যেন নরম থাকে। পরোটার সঙ্গে ক্লাসিক নাশতা।",
+        },
+        ingredients: { en: ["Beef liver", "Onion", "Garlic", "Green chilli", "Cinnamon, cardamom, clove", "Turmeric & chilli powder", "Mustard oil"], bn: ["গরুর কলিজা", "পেঁয়াজ", "রসুন", "কাঁচা মরিচ", "দারুচিনি, এলাচ, লবঙ্গ", "হলুদ ও মরিচ গুঁড়া", "সরিষার তেল"] },
+      },
+      {
+        slug: "chicken-liver-bhuna",
+        name: { en: "Chicken Liver Bhuna", bn: "মুরগির কলিজা ভুনা" },
+        tagline: { en: "Per plate, soft, spiced, quick", bn: "প্রতি প্লেট, নরম, মসলাদার, দ্রুত" },
+        price: { en: "৳ 200 / 400", bn: "৳ ২০০ / ৪০০" },
+        image: "/img/karahi.jpg",
+        story: {
+          en: "Chicken liver and gizzard bhuna-fried with plenty of onion and green chilli — softer and milder than beef liver, ready in minutes.",
+          bn: "মুরগির কলিজা আর গিলা প্রচুর পেঁয়াজ আর কাঁচা মরিচে ভুনা — গরুর কলিজার চেয়ে নরম আর হালকা, কয়েক মিনিটেই তৈরি।",
+        },
+        ingredients: { en: ["Chicken liver & gizzard", "Onion", "Garlic", "Green chilli", "Turmeric", "Cumin", "Garam masala", "Oil"], bn: ["মুরগির কলিজা ও গিলা", "পেঁয়াজ", "রসুন", "কাঁচা মরিচ", "হলুদ", "জিরা", "গরম মসলা", "তেল"] },
+      },
+      {
+        slug: "beef-potato-curry",
+        name: { en: "Beef & Potato Curry", bn: "আলু-গোশত ভুনা" },
+        tagline: { en: "Per plate, home-style aloo gosht", bn: "প্রতি প্লেট, ঘরোয়া আলু-গোশত" },
+        price: { en: "৳ 200 / 400", bn: "৳ ২০০ / ৪০০" },
+        image: "/img/curry-pot.jpg",
+        story: {
+          en: "The plainest, most-loved beef dish of the Bangladeshi home — beef and big chunks of potato in a simple onion gravy, the potatoes half-collapsing into it.",
+          bn: "বাঙালি ঘরের সবচেয়ে সাধারণ, সবচেয়ে প্রিয় গরুর পদ — গরুর মাংস আর বড় টুকরো আলু সাধারণ পেঁয়াজ ঝোলে, আলু আধা গলে মিশে যায়।",
+        },
+        ingredients: { en: ["Beef", "Potato", "Onion", "Ginger-garlic", "Turmeric", "Chilli powder", "Cumin & coriander", "Mustard oil"], bn: ["গরুর মাংস", "আলু", "পেঁয়াজ", "আদা-রসুন", "হলুদ", "মরিচ গুঁড়া", "জিরা ও ধনে", "সরিষার তেল"] },
+      },
+      {
+        slug: "chicken-soup-breakfast",
+        name: { en: "Chicken Soup", bn: "মুরগির স্যুপ" },
+        tagline: { en: "Per plate, clear restorative broth", bn: "প্রতি প্লেট, স্বচ্ছ শক্তিদায়ক ঝোল" },
+        price: { en: "৳ 200 / 400", bn: "৳ ২০০ / ৪০০" },
+        image: "/img/soup.jpg",
+        story: {
+          en: "A clear chicken broth simmered with ginger, whole pepper and coriander root — served plain as a morning pick-me-up or for someone unwell.",
+          bn: "স্বচ্ছ মুরগির ঝোল আদা, আস্ত গোলমরিচ আর ধনের শিকড়ে জ্বাল — সকালে চাঙা হতে বা অসুস্থ কারও জন্য সাদা পরিবেশন।",
+        },
+        ingredients: { en: ["Chicken", "Ginger", "Whole black pepper", "Coriander root", "Onion", "Garlic", "Salt", "Lime"], bn: ["মুরগি", "আদা", "আস্ত গোলমরিচ", "ধনের শিকড়", "পেঁয়াজ", "রসুন", "লবণ", "লেবু"] },
+      },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ *
+ *  Helpers
+ * ------------------------------------------------------------------ */
+
+export function getCategory(slug: string): MenuCategory | undefined {
+  return MENU.find((c) => c.slug === slug);
+}
+
+export function getDish(categorySlug: string, dishSlug: string) {
+  const category = getCategory(categorySlug);
+  const dish = category?.dishes.find((d) => d.slug === dishSlug);
+  if (!category || !dish) return undefined;
+  return { category, dish };
+}
+
+export function allDishPaths(): { category: string; item: string }[] {
+  return MENU.flatMap((c) => c.dishes.map((d) => ({ category: c.slug, item: d.slug })));
+}
+
+export function featuredDishes(limit = 6) {
+  const picks = MENU.flatMap((c) =>
+    c.dishes
+      .filter((d) => d.featured)
+      .map((d) => ({ category: c, dish: d })),
+  );
+  return picks.slice(0, limit);
+}
