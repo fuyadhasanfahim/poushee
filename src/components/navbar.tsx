@@ -11,7 +11,7 @@ import { useLanguage } from "@/lib/i18n/language-provider";
 const NAV = [
   { key: "nav.home", href: "/" },
   { key: "nav.menu", href: "/menu" },
-  { key: "nav.about", href: "/#about" },
+  { key: "nav.about", href: "/about" },
   { key: "nav.contact", href: "/#contact" },
 ] as const;
 
@@ -25,7 +25,9 @@ export function Navbar() {
       ? pathname === "/"
       : href === "/menu"
         ? pathname.startsWith("/menu")
-        : false;
+        : href === "/about"
+          ? pathname === "/about"
+          : false;
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -62,12 +64,11 @@ export function Navbar() {
       }`}
     >
       <nav className="relative z-50 mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-6 lg:px-8">
-        <Logo tone={tone} sub={false} height={26} />
+        <Logo tone={tone} sub={false} height={28} />
 
         <div className="hidden items-center gap-1 lg:flex">
           {NAV.map((item) => {
-            const active =
-              item.href === "/menu" && pathname.startsWith("/menu");
+            const active = isActive(item.href);
             return (
               <Link
                 key={item.key}

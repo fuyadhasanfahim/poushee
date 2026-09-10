@@ -74,7 +74,11 @@ html.lang-bn {
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  /* Single source of anchor offset — the fixed navbar height plus a little
+     breathing room. Sections must NOT also set scroll-margin-top or the two
+     stack and push the target down the page. Keep in sync with the Lenis
+     `offset` in smooth-scroll.tsx. */
+  scroll-padding-top: 6rem;
   overflow-x: hidden;
 }
 

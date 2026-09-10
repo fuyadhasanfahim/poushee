@@ -168,7 +168,7 @@ export function HomeView() {
       {/* ============================================ FEATURED */}
       <section
         id="featured"
-        className="section-tint relative scroll-mt-24 overflow-hidden py-24 sm:py-28"
+        className="section-tint relative overflow-hidden py-24 sm:py-28"
       >
         <span className="seam absolute inset-x-0 top-0" />
         <SectionMark
@@ -231,7 +231,7 @@ export function HomeView() {
       {/* ============================================ KITCHEN / CRAFT BAND */}
       <section
         id="kitchen"
-        className="relative scroll-mt-24 overflow-hidden bg-navy-950 py-28 text-cream-50"
+        className="relative overflow-hidden bg-navy-950 py-28 text-cream-50"
       >
         <div className="absolute inset-0">
           <Parallax speed={50} className="h-[120%] w-full">
@@ -283,7 +283,7 @@ export function HomeView() {
       {/* ============================================ CHAPTERS */}
       <section
         id="chapters"
-        className="relative scroll-mt-24 overflow-hidden py-24 sm:py-28"
+        className="relative overflow-hidden py-24 sm:py-28"
       >
         <SectionMark
           index={2}
@@ -336,7 +336,7 @@ export function HomeView() {
       {/* ============================================ ABOUT */}
       <section
         id="about"
-        className="section-tint relative scroll-mt-24 overflow-hidden py-24 sm:py-28"
+        className="section-tint relative overflow-hidden py-24 sm:py-28"
       >
         <span className="seam absolute inset-x-0 top-0" />
         <SectionMark
@@ -401,6 +401,14 @@ export function HomeView() {
                     </Reveal>
                   ))}
                 </ul>
+
+                <Reveal delay={0.16}>
+                  <div className="mt-9">
+                    <ButtonLink href="/about" variant="ghost">
+                      {t("about.readMore")}
+                    </ButtonLink>
+                  </div>
+                </Reveal>
               </div>
             </Reveal>
           </div>
@@ -410,7 +418,7 @@ export function HomeView() {
       {/* ============================================ CONTACT */}
       <section
         id="contact"
-        className="relative scroll-mt-24 overflow-hidden pb-10 pt-24 sm:pt-28"
+        className="relative overflow-hidden pb-10 pt-24 sm:pt-28"
       >
         <SectionMark
           index={4}

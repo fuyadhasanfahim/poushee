@@ -8,6 +8,15 @@ import { useEffect } from "react";
  * users, and paused while the tab is hidden so it never fights a
  * background render. Anchor clicks (#about, #contact) glide via Lenis.
  */
+
+/**
+ * The single anchor offset for the whole app: the fixed navbar height plus a
+ * little breathing room. Must stay in sync with `scroll-padding-top` in
+ * globals.css (6rem). Sections must NOT also carry `scroll-margin-top`, or the
+ * two offsets stack and the target lands pushed down the page.
+ */
+const ANCHOR_OFFSET = 96;
+
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (
@@ -20,6 +29,21 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     let lenis: import("lenis").default | undefined;
     let frame = 0;
     let cancelled = false;
+
+    const scrollToHash = (hash: string, immediate = false) => {
+      if (!lenis || !hash || hash === "#") return;
+      let target: Element | null = null;
+      try {
+        target = document.querySelector(hash);
+      } catch {
+        return;
+      }
+      if (!target) return;
+      lenis.scrollTo(target as HTMLElement, {
+        offset: -ANCHOR_OFFSET,
+        duration: immediate ? 0 : 1.2,
+      });
+    };
 
     (async () => {
       const { default: Lenis } = await import("lenis");
@@ -37,9 +61,25 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
         frame = requestAnimationFrame(raf);
       };
       frame = requestAnimationFrame(raf);
+
+      // Re-align a deep-link (`/#contact`, `/#about`) once everything below the
+      // fold has loaded — the browser's own jump on load happens before web
+      // fonts and images settle, which is what leaves the section sitting low.
+      const hash = window.location.hash;
+      if (hash.length > 1) {
+        const settle = () => scrollToHash(hash, true);
+        if (document.readyState === "complete") {
+          setTimeout(settle, 200);
+        } else {
+          window.addEventListener("load", () => setTimeout(settle, 200), {
+            once: true,
+          });
+        }
+      }
     })();
 
     const onAnchorClick = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey) return;
       const a = (e.target as HTMLElement)?.closest?.(
         'a[href*="#"]',
       ) as HTMLAnchorElement | null;
@@ -49,7 +89,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       const target = document.querySelector(url.hash);
       if (!target) return;
       e.preventDefault();
-      lenis.scrollTo(target as HTMLElement, { offset: -88, duration: 1.2 });
+      scrollToHash(url.hash);
       history.pushState(null, "", url.hash);
     };
     document.addEventListener("click", onAnchorClick);

@@ -35,7 +35,7 @@ export function Footer() {
               {[
                 { href: "/", k: "nav.home" as const },
                 { href: "/menu", k: "nav.menu" as const },
-                { href: "/#about", k: "nav.about" as const },
+                { href: "/about", k: "nav.about" as const },
                 { href: "/#contact", k: "nav.contact" as const },
               ].map((l) => (
                 <li key={l.href}>

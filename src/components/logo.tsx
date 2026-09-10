@@ -32,8 +32,8 @@ export function Logo({
   /* Tightened lockup — the big P, the small OUSHE and the big E now sit
      as one word "POUSHEE", with পউষী nested directly above OUSHE, exactly
      like the printed mark. */
-  const vbH = sub ? 120 : 92;
-  const vbW = 268;
+  const vbH = sub ? 122 : 94;
+  const vbW = 300;
   const w = (height / vbH) * vbW;
 
   return (
@@ -62,49 +62,49 @@ export function Logo({
           className="shrink-0"
         >
           <text
-            x="-2"
-            y="80"
+            x="-3"
+            y="83"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="800"
-            fontSize="96"
+            fontSize="104"
             letterSpacing="-4"
           >
             P
           </text>
           <text
-            x="139"
-            y="36"
+            x="150"
+            y="37"
             textAnchor="middle"
             fontFamily="var(--font-heading-bn), var(--font-body-bn), serif"
             fontWeight="600"
-            fontSize="41"
+            fontSize="43"
           >
             পউষী
           </text>
           <text
-            x="139"
-            y="80"
+            x="150"
+            y="83"
             textAnchor="middle"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="800"
-            fontSize="46"
+            fontSize="49"
             letterSpacing="0.5"
           >
             OUSHE
           </text>
           <text
-            x="210"
-            y="80"
+            x="238"
+            y="83"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="800"
-            fontSize="96"
+            fontSize="104"
             letterSpacing="-4"
           >
             E
           </text>
           <text
-            x="256"
-            y="30"
+            x="292"
+            y="31"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="600"
             fontSize="15"
@@ -113,12 +113,12 @@ export function Logo({
           </text>
           {sub && (
             <text
-              x="136"
-              y="110"
+              x="150"
+              y="113"
               textAnchor="middle"
               fontFamily="var(--font-body-en), sans-serif"
               fontWeight="700"
-              fontSize="18.5"
+              fontSize="19"
               letterSpacing="3"
             >
               HOTEL &amp; RESTAURANT

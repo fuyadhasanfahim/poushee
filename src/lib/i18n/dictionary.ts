@@ -75,6 +75,45 @@ const en = {
   "about.value2.body": "Seafood chosen from the day's landing at the coast.",
   "about.value3.title": "A room with the view",
   "about.value3.body": "Dining beside the world's longest natural sea beach.",
+  "about.readMore": "Read our full story",
+
+  "aboutPage.eyebrow": "Our story",
+  "aboutPage.title": "A table by the sea, set the Cox's Bazar way",
+  "aboutPage.intro":
+    "Poushee is a hotel and restaurant at Dolphin Mor, Kolatoli — a few steps from the tide, inside World Beach Resort. It was built on one plain idea: a meal beside the world's longest beach should taste of the coast it sits on.",
+
+  "aboutPage.origin.eyebrow": "How it began",
+  "aboutPage.origin.title": "Born from a family table",
+  "aboutPage.origin.p1":
+    "Poushee started the way most good kitchens do — around a family table in Chattogram, where mezbani beef simmered for half a day and nobody was allowed to rush it. When the family moved to the coast, the recipes came along, written in nobody's notebook but cooked from memory.",
+  "aboutPage.origin.p2":
+    "Opening beside Kolatoli beach meant those household dishes could finally sit next to the sea they were always meant for. The name is a registered mark, written Poushee®, but the promise behind it is older than the signboard: your trust, our triumph.",
+  "aboutPage.origin.p3":
+    "Today the dining room seats guests from morning breakfast through a late dinner, and the kitchen still cooks the way the family always has — slowly, by hand, and in season.",
+
+  "aboutPage.kitchen.eyebrow": "The kitchen",
+  "aboutPage.kitchen.title": "Slow fire, ground spice, and time",
+  "aboutPage.kitchen.p1":
+    "Our mezbani beef is cooked down for hours in mustard oil and ghee with a paste of roasted chickpea, coconut and peanut — the way it has been served at Chattogram feasts for generations. Kala bhuna gets the same patience, until the spice turns almost black and clings to the meat.",
+  "aboutPage.kitchen.p2":
+    "Spices are roasted and ground in-house, not scooped from a packet. Bhortas are pounded to order. The biryani rice is layered and sealed, never stirred together on a plate. Nothing here is built to be fast — it is built to taste like home.",
+
+  "aboutPage.sea.eyebrow": "The setting",
+  "aboutPage.sea.title": "A few steps from the tide",
+  "aboutPage.sea.p1":
+    "The restaurant sits inside World Beach Resort at Dolphin Mor, close enough to Kolatoli beach that you can hear the water over dinner. Wide windows, sea air, and a room that stays calm even when the town outside is busy.",
+  "aboutPage.sea.p2":
+    "Seafood is chosen from the day's landing at the coast — reef fish, prawn and crab that were in the water that morning, grilled over coal or folded into a light curry. What isn't fresh that day simply isn't on the table.",
+
+  "aboutPage.values.eyebrow": "What we hold to",
+  "aboutPage.values.title": "Three things we don't compromise on",
+
+  "aboutPage.cta.eyebrow": "Come sit with us",
+  "aboutPage.cta.title": "Your table is by the sea",
+  "aboutPage.cta.body":
+    "Browse the full menu before you arrive, or find us at Kolatoli and reserve a seat beside the water.",
+  "aboutPage.cta.menu": "Explore the menu",
+  "aboutPage.cta.contact": "Find us & reserve",
 
   "contact.eyebrow": "Visit us",
   "contact.title": "Come find your table",
@@ -165,6 +204,45 @@ const bn: Record<UIKey, string> = {
   "about.value2.body": "উপকূলে দিনের ধরা মাছ থেকে বেছে নেওয়া।",
   "about.value3.title": "জানালায় সমুদ্র",
   "about.value3.body": "বিশ্বের দীর্ঘতম প্রাকৃতিক সৈকতের পাশে খাওয়া।",
+  "about.readMore": "আমাদের পুরো গল্প পড়ুন",
+
+  "aboutPage.eyebrow": "আমাদের কথা",
+  "aboutPage.title": "সমুদ্রের পাশে এক টেবিল, কক্সবাজারের ঢঙে",
+  "aboutPage.intro":
+    "পউষী কলাতলীর ডলফিন মোড়ে একটি হোটেল ও রেস্টুরেন্ট — ঢেউ থেকে কয়েক কদম দূরে, ওয়ার্ল্ড বিচ রিসোর্টের ভেতরে। জন্ম একটি সরল ভাবনা থেকে: বিশ্বের দীর্ঘতম সৈকতের পাশের খাবারে থাকবে এই উপকূলেরই স্বাদ।",
+
+  "aboutPage.origin.eyebrow": "যেভাবে শুরু",
+  "aboutPage.origin.title": "একটি পারিবারিক টেবিল থেকে",
+  "aboutPage.origin.p1":
+    "পউষীর শুরু ভালো রান্নাঘরের চেনা পথেই — চট্টগ্রামের এক পারিবারিক টেবিলকে ঘিরে, যেখানে মেজবানি গরু আধা দিন ধরে কষানো হতো আর তাড়াহুড়ো করার অনুমতি কারও ছিল না। পরিবার উপকূলে এলে রেসিপিগুলোও সঙ্গে এলো — কোনো খাতায় লেখা নয়, রান্না হতো স্মৃতি থেকে।",
+  "aboutPage.origin.p2":
+    "কলাতলী সৈকতের পাশে যাত্রা শুরু মানে সেই ঘরোয়া পদগুলো অবশেষে বসতে পারল সেই সমুদ্রের পাশে, যার জন্যই সেগুলো তৈরি। নামটি একটি নিবন্ধিত ট্রেডমার্ক, লেখা হয় Poushee® — কিন্তু এর পেছনের প্রতিশ্রুতি সাইনবোর্ডের চেয়েও পুরনো: আপনাদের আস্থা, আমরা করব জয়।",
+  "aboutPage.origin.p3":
+    "আজ ডাইনিং রুমে সকালের নাশতা থেকে রাতের খাবার পর্যন্ত অতিথিরা বসেন, আর রান্নাঘর এখনও রাঁধে সেই পুরনো ঢঙেই — ধীরে, হাতে, আর মৌসুম বুঝে।",
+
+  "aboutPage.kitchen.eyebrow": "রান্নাঘর",
+  "aboutPage.kitchen.title": "ধীর আঁচ, বাটা মসলা, আর সময়",
+  "aboutPage.kitchen.p1":
+    "আমাদের মেজবানি গরু ঘণ্টার পর ঘণ্টা সরিষার তেল আর ঘিয়ে কষানো হয় — ভাজা বুট, নারকেল আর চিনাবাদাম বাটা দিয়ে, যেভাবে প্রজন্মের পর প্রজন্ম চট্টগ্রামের ভোজে পরিবেশিত হয়েছে। কালা ভুনাতেও একই ধৈর্য, যতক্ষণ না মসলা প্রায় কালো হয়ে মাংসে জড়িয়ে যায়।",
+  "aboutPage.kitchen.p2":
+    "মসলা ঘরেই ভেজে বাটা হয়, প্যাকেট থেকে নয়। ভর্তা বানানো হয় অর্ডার পেয়ে। বিরিয়ানির ভাত স্তরে সাজিয়ে দমে বসানো হয়, পাতে মেখে নয়। এখানে কিছুই দ্রুত করার জন্য নয় — সবকিছু ঘরের স্বাদ পাওয়ার জন্য।",
+
+  "aboutPage.sea.eyebrow": "পরিবেশ",
+  "aboutPage.sea.title": "ঢেউ থেকে কয়েক কদম",
+  "aboutPage.sea.p1":
+    "রেস্টুরেন্টটি ডলফিন মোড়ে ওয়ার্ল্ড বিচ রিসোর্টের ভেতরে, কলাতলী সৈকতের এত কাছে যে খাওয়ার সময় ঢেউয়ের শব্দ শোনা যায়। বড় জানালা, সমুদ্রের হাওয়া, আর বাইরে শহর ব্যস্ত থাকলেও ভেতরে শান্ত একটি ঘর।",
+  "aboutPage.sea.p2":
+    "সামুদ্রিক খাবার বেছে নেওয়া হয় উপকূলে দিনের ধরা থেকে — সেই সকালে জলে থাকা মাছ, চিংড়ি আর কাঁকড়া, কয়লায় ঝলসানো বা হালকা ঝোলে। যেদিন যা তাজা নয়, সেদিন তা টেবিলেই ওঠে না।",
+
+  "aboutPage.values.eyebrow": "যা আমরা ধরে রাখি",
+  "aboutPage.values.title": "তিনটি বিষয়ে আমরা আপস করি না",
+
+  "aboutPage.cta.eyebrow": "আমাদের সঙ্গে বসুন",
+  "aboutPage.cta.title": "আপনার টেবিল সমুদ্রের পাশে",
+  "aboutPage.cta.body":
+    "আসার আগে সম্পূর্ণ মেনু দেখে নিন, অথবা কলাতলীতে আমাদের খুঁজে নিয়ে জলের পাশে একটি আসন সংরক্ষণ করুন।",
+  "aboutPage.cta.menu": "মেনু দেখুন",
+  "aboutPage.cta.contact": "ঠিকানা ও রিজার্ভেশন",
 
   "contact.eyebrow": "আসুন আমাদের কাছে",
   "contact.title": "আপনার টেবিল খুঁজে নিন",
