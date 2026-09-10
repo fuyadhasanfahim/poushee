@@ -6,7 +6,13 @@ import { useLanguage } from "@/lib/i18n/language-provider";
 import type { MenuCategory } from "@/content/types";
 import { Reveal, Parallax } from "@/components/motion";
 import { DishCard } from "@/components/menu/dish-card";
-import { Sprig, PlateRings } from "@/components/decor/vectors";
+import {
+  Sprig,
+  PlateRings,
+  WaterLily,
+  FloralSpray,
+  Lotus,
+} from "@/components/decor/vectors";
 
 export function CategoryView({ category }: { category: MenuCategory }) {
   const { t, tf } = useLanguage();
@@ -79,6 +85,9 @@ export function CategoryView({ category }: { category: MenuCategory }) {
       <section className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <span className="deco-glow -right-32 top-24 h-96 w-96" />
         <Sprig className="pointer-events-none absolute -left-6 top-8 hidden h-40 w-28 text-gold-600/10 lg:block" />
+        <FloralSpray className="pointer-events-none absolute -right-10 top-2 hidden h-72 w-60 [transform:scaleX(-1)] text-gold-600/10 lg:block" />
+        <WaterLily className="pointer-events-none absolute -left-8 bottom-16 h-36 w-36 text-sky-400/20" />
+        <Lotus className="pointer-events-none absolute right-10 bottom-4 hidden h-32 w-44 text-sky-400/20 md:block" />
         <div className="space-y-16">
           {sections.map(({ section, dishes }) => {
             if (dishes.length === 0) return null;

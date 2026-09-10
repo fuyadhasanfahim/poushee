@@ -12,7 +12,7 @@ export function NotFoundView() {
       <Sprig className="pointer-events-none absolute right-6 top-16 h-28 w-20 text-gold-600/15" />
       <p className="font-display text-7xl italic text-gold-gradient">404</p>
       <h1 className="mt-4 text-3xl sm:text-4xl">{t("notFound.title")}</h1>
-      <p className="mt-3 leading-relaxed text-ink-soft">{t("notFound.body")}</p>
+      <p className="font-body mt-3 leading-relaxed text-ink-soft">{t("notFound.body")}</p>
       <div className="mt-8">
         <ButtonLink href="/" variant="primary" size="lg">
           {t("notFound.cta")}

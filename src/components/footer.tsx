@@ -11,8 +11,13 @@ export function Footer() {
   const { t, tf, lang } = useLanguage();
   const year = new Date().getFullYear();
 
+  const waHref = `https://wa.me/${SITE.whatsapp}`;
+
   return (
-    <footer className="content-layer relative mt-12 overflow-hidden bg-navy-950 text-cream-50/78">
+    <footer
+      id="contact"
+      className="content-layer relative mt-12 scroll-mt-24 overflow-hidden bg-navy-950 text-cream-50/78"
+    >
       <div className="absolute inset-0 text-cream-50 bg-dots opacity-[0.05]" />
       <Sprig className="pointer-events-none absolute -left-6 top-10 h-40 w-28 text-gold-300/12" />
       <DottedArc className="pointer-events-none absolute -right-4 bottom-10 h-40 w-40 text-gold-300/16" />
@@ -35,8 +40,7 @@ export function Footer() {
               {[
                 { href: "/", k: "nav.home" as const },
                 { href: "/menu", k: "nav.menu" as const },
-                { href: "/about", k: "nav.about" as const },
-                { href: "/#contact", k: "nav.contact" as const },
+                { href: "/#about", k: "nav.about" as const },
               ].map((l) => (
                 <li key={l.href}>
                   <Link
@@ -88,7 +92,43 @@ export function Footer() {
                 </a>
               </p>
               <p className="text-cream-50/50">{tf(SITE.hours)}</p>
+              <p className="text-cream-50/50">{tf(SITE.pricePerPerson)}</p>
             </address>
+
+            <h2 className="eyebrow mt-8 !text-gold-400">{t("footer.reach")}</h2>
+            <ul className="mt-4 flex flex-wrap gap-2.5 text-sm">
+              {[
+                { label: "Facebook", href: SITE.social.facebook, ext: true },
+                { label: "WhatsApp", href: waHref, ext: true },
+                {
+                  label: t("nav.callNow"),
+                  href: `tel:${SITE.callNumber}`,
+                  ext: false,
+                },
+                {
+                  label: "Foodpanda",
+                  href: SITE.social.foodpanda,
+                  ext: true,
+                },
+                {
+                  label: t("contact.email"),
+                  href: `mailto:${SITE.emails[0]}`,
+                  ext: false,
+                },
+              ].map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    {...(l.ext
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="inline-flex rounded-full border border-cream-50/15 bg-cream-50/5 px-3.5 py-1.5 text-[0.82rem] text-cream-50/75 transition-colors hover:border-gold-400/50 hover:text-cream-50"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -96,7 +136,15 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-3 text-xs text-cream-50/45 sm:flex-row">
           <p lang={lang}>
-            © {year} {SITE.wordmark}
+            © {year} {SITE.wordmark}{" "}
+            <span
+              lang="bn"
+              style={{
+                fontFamily: "var(--font-heading-bn), var(--font-body-bn), serif",
+              }}
+            >
+              পউষী
+            </span>
             {SITE.registered ? "®" : ""} · {t("footer.rights")}
           </p>
           <p>{t("footer.trademark")}</p>

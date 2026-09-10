@@ -21,6 +21,7 @@ const en = {
   "nav.about": "About",
   "nav.contact": "Contact",
   "nav.orderNow": "Order Now",
+  "nav.callNow": "Call Now",
   "nav.language": "Language",
   "nav.openMenu": "Open menu",
   "nav.closeMenu": "Close menu",
@@ -32,6 +33,23 @@ const en = {
   "hero.ctaMenu": "Explore the Menu",
   "hero.ctaContact": "Find Us",
   "hero.scroll": "Scroll to discover",
+
+  "home.about.eyebrow": "About the restaurant",
+  "home.about.title": "A fair plate, served with care",
+  "home.about.p1":
+    "Poushee runs on one promise to everyone who loves to eat well: food that is wholesome and clean, served quickly, at a fair price. Nothing about that has changed since the first family kitchen.",
+  "home.about.p2":
+    "The kitchen leans on Chattogram home cooking — slow mezbani beef, kala bhuna, reef fish over coal — beside the biryani, bhorta and breakfast a Bangladeshi table expects. A meal runs roughly ৳300–600 a person.",
+  "home.about.hours": "Open every day, 7:00 AM – 12:30 AM",
+
+  "home.story.eyebrow": "Our story",
+  "home.story.title": "The founder's table",
+  "home.story.p1":
+    "Poushee was built by a far-sighted restaurateur whose life's aim was simple: to serve people who love to eat well — food that is wholesome, clean and quick, at a fair price.",
+  "home.story.p2":
+    "Born in Chakaria, Cox's Bazar, he began in his father's restaurant as a teenager in the old town. Across some forty-five years in the trade, one wish has stayed constant — that every visitor to Cox's Bazar is welcomed with the hospitality of home.",
+
+  "home.callCta": "Call to reserve",
 
   "featured.eyebrow": "Signature dishes",
   "featured.title": "Cooked the way it has always been",
@@ -127,6 +145,7 @@ const en = {
     "Hotel & Restaurant at World Beach Resort, Kolatoli, Cox's Bazar. Traditional Bangladeshi cuisine beside the sea.",
   "footer.explore": "Explore",
   "footer.contact": "Contact",
+  "footer.reach": "Reach us",
   "footer.rights": "All rights reserved.",
   "footer.trademark": "Poushee® is a registered trademark.",
 
@@ -149,6 +168,7 @@ const bn: Record<UIKey, string> = {
   "nav.about": "পরিচিতি",
   "nav.contact": "যোগাযোগ",
   "nav.orderNow": "অর্ডার করুন",
+  "nav.callNow": "কল করুন",
   "nav.language": "ভাষা",
   "nav.openMenu": "মেনু খুলুন",
   "nav.closeMenu": "মেনু বন্ধ করুন",
@@ -160,6 +180,23 @@ const bn: Record<UIKey, string> = {
   "hero.ctaMenu": "মেনু দেখুন",
   "hero.ctaContact": "আমাদের ঠিকানা",
   "hero.scroll": "নিচে স্ক্রল করুন",
+
+  "home.about.eyebrow": "আমাদের রেস্তোরাঁ",
+  "home.about.title": "যত্নে পরিবেশিত, ন্যায্য মূল্যে",
+  "home.about.p1":
+    "ভোজন রসিকদের জন্য একটাই প্রতিশ্রুতি নিয়ে পউষী চলে — স্বাস্থ্যসম্মত ও পরিচ্ছন্ন খাবার, দ্রুততার সঙ্গে, ন্যায্য মূল্যে পরিবেশন করা। প্রথম পারিবারিক রান্নাঘর থেকে আজ পর্যন্ত এই কথাটি বদলায়নি।",
+  "home.about.p2":
+    "রান্নাঘর নির্ভর করে চট্টগ্রামের ঘরোয়া রান্নার উপর — ধীরে রাঁধা মেজবানি গরু, কালা ভুনা, কয়লায় ঝলসানো তাজা মাছ — সঙ্গে বিরিয়ানি, ভর্তা আর বাঙালি নাশতা। জনপ্রতি খরচ আনুমানিক ৳৩০০–৬০০।",
+  "home.about.hours": "প্রতিদিন খোলা, সকাল ৭:০০ – রাত ১২:৩০",
+
+  "home.story.eyebrow": "আমাদের গল্প",
+  "home.story.title": "প্রতিষ্ঠাতার কথা",
+  "home.story.p1":
+    "একজন দূরদর্শী রেস্তোরাঁ ব্যবসায়ী পউষী গড়ে তোলেন, যাঁর জীবনের মূল উদ্দেশ্য ছিল সরল — ভোজন রসিকদের জন্য স্বাস্থ্যসম্মত, পরিচ্ছন্ন ও দ্রুত পরিবেশন, ন্যায্য মূল্যে।",
+  "home.story.p2":
+    "কক্সবাজারের চকরিয়ায় জন্ম হলেও কৈশোরেই তিনি কক্সবাজার শহরে পিতার রেস্তোরাঁ ব্যবসায় হাত পাকান। প্রায় ৪৫ বছরের অভিজ্ঞতায় তাঁর একটাই চাওয়া — কক্সবাজারে আসা প্রতিটি অতিথি যেন ঘরের আতিথেয়তায় আপ্যায়িত হন।",
+
+  "home.callCta": "রিজার্ভেশনে কল করুন",
 
   "featured.eyebrow": "সিগনেচার পদ",
   "featured.title": "যেভাবে চিরকাল রান্না হয়ে এসেছে",
@@ -256,6 +293,7 @@ const bn: Record<UIKey, string> = {
     "ওয়ার্ল্ড বিচ রিসোর্ট, কলাতলী, কক্সবাজারে হোটেল ও রেস্টুরেন্ট। সমুদ্রের পাশে ঐতিহ্যবাহী বাংলা রান্না।",
   "footer.explore": "ঘুরে দেখুন",
   "footer.contact": "যোগাযোগ",
+  "footer.reach": "যোগাযোগ করুন",
   "footer.rights": "সর্বস্বত্ব সংরক্ষিত।",
   "footer.trademark": "Poushee® একটি নিবন্ধিত ট্রেডমার্ক।",
 

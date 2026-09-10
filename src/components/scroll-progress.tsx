@@ -26,16 +26,17 @@ export function ScrollProgress() {
   const rail: RailItem[] = isHome
     ? [
         { id: "hero", label: tf({ en: "Top", bn: "শুরু" }) },
+        { id: "about", label: tf({ en: "Restaurant", bn: "রেস্তোরাঁ" }) },
+        { id: "story", label: tf({ en: "Story", bn: "গল্প" }) },
         { id: "featured", label: tf({ en: "Signature", bn: "সিগনেচার" }) },
-        { id: "kitchen", label: tf({ en: "Kitchen", bn: "রান্নাঘর" }) },
-        { id: "chapters", label: tf({ en: "The menu", bn: "মেনু" }) },
-        { id: "about", label: tf({ en: "Story", bn: "আমাদের কথা" }) },
-        { id: "contact", label: tf({ en: "Visit", bn: "যোগাযোগ" }) },
+        { id: "visit", label: tf({ en: "Visit", bn: "যোগাযোগ" }) },
       ]
     : [];
 
   const [active, setActive] = useState<string>(rail[0]?.id ?? "");
-  const overDark = active === "hero" || active === "kitchen";
+  // hero photo, the signature band and the closing CTA are the dark planes.
+  const overDark =
+    active === "hero" || active === "featured" || active === "visit";
 
   /* progress bar — JS fallback only where CSS scroll timelines are absent */
   useEffect(() => {

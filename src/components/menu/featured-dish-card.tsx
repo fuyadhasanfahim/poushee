@@ -6,11 +6,11 @@ import { DishMedia } from "./dish-media";
 import type { Dish } from "@/content/types";
 
 /**
- * Menu dish card — photo fills the card, the name / tagline / price sit
- * over a dark scrim in light type, matching the home "Signature dishes"
- * treatment.
+ * Home "Signature dishes" card — the photo fills the card and the name /
+ * tagline sit over a dark scrim in light type. No price (the menu pages
+ * carry that). Name in Lobster Two, tagline in Dancing Script.
  */
-export function DishCard({
+export function FeaturedDishCard({
   dish,
   categorySlug,
   priority = false,
@@ -24,7 +24,7 @@ export function DishCard({
   return (
     <Link
       href={`/menu/${categorySlug}/${dish.slug}`}
-      className="card-sheen group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-[1.4rem] border border-navy-900/10 bg-navy-900 shadow-card transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:border-gold-400/50 hover:shadow-float"
+      className="card-sheen group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-[1.4rem] border border-cream-50/12 bg-navy-900 shadow-float transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:border-gold-300/45"
     >
       <DishMedia
         src={dish.image}
@@ -35,17 +35,13 @@ export function DishCard({
         className="!absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
       />
 
-      {/* scrims */}
+      {/* hero-style scrims */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/45 to-navy-950/5" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-transparent" />
       <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.05]" />
 
-      <span className="font-script absolute left-4 top-4 z-10 rounded-full border border-cream-50/20 bg-navy-950/55 px-3 py-1 text-[0.9rem] font-bold text-cream-50 shadow-sm backdrop-blur-sm">
-        {tf(dish.price)}
-      </span>
-
       <div className="relative z-10 flex flex-col gap-1.5 p-5 sm:p-6">
-        <h3 className="font-title text-[1.35rem] leading-tight text-cream-50 [text-shadow:0_2px_16px_rgba(6,12,34,0.6)]">
+        <h3 className="font-title text-[1.4rem] leading-tight text-cream-50 [text-shadow:0_2px_16px_rgba(6,12,34,0.6)]">
           {tf(dish.name)}
         </h3>
         <p className="font-script text-[1rem] leading-snug text-cream-50/80">

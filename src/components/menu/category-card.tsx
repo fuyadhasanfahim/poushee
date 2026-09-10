@@ -26,7 +26,7 @@ export function CategoryCard({
   return (
     <Link
       href={`/menu/${category.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-navy-800/10 bg-cream-50 shadow-card transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:border-gold-500/50 hover:shadow-float"
+      className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-navy-800/10 bg-white shadow-card transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:border-gold-500/50 hover:shadow-float"
     >
       <div className="card-sheen relative aspect-[16/11] w-full overflow-hidden bg-navy-900">
         <DishMedia
@@ -55,16 +55,16 @@ export function CategoryCard({
       <div className="relative flex flex-1 flex-col gap-2 p-5">
         <Sprig className="pointer-events-none absolute -right-2 -top-8 h-16 w-12 text-gold-600/15 transition-transform duration-500 group-hover:-translate-y-1" />
         <div className="flex items-baseline justify-between gap-3">
-          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-700">
+          <span className="text-[0.9rem] font-semibold tracking-[0.04em] text-gold-700">
             {t("menuIndex.explore")}
           </span>
-          <span className="shrink-0 text-xs font-semibold text-ink-faint">
+          <span className="font-body shrink-0 text-xs font-semibold text-ink-faint">
             {count === 1
               ? t("category.count.one")
               : t("category.count.other", { n: num(count, lang) })}
           </span>
         </div>
-        <p className="text-[0.87rem] leading-relaxed text-ink-soft">
+        <p className="font-body text-[0.87rem] leading-relaxed text-ink-soft">
           {tf(category.blurb)}
         </p>
         <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-navy-900">

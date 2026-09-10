@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${base}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
     { url: `${base}/menu`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     ...MENU.map((c) => ({
       url: `${base}/menu/${c.slug}`,
       lastModified: now,

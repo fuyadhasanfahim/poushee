@@ -11,21 +11,28 @@ export function SectionMark({
   index,
   label,
   className = "",
+  tone = "dark",
 }: {
   index: number;
   label: string;
   className?: string;
+  /** "light" when the mark sits on a dark / navy band */
+  tone?: "dark" | "light";
 }) {
   const { lang } = useLanguage();
   return (
     <div
       aria-hidden
-      className={`watermark select-none ${className}`}
+      className={`watermark select-none ${tone === "light" ? "is-light" : ""} ${className}`}
     >
       <span className="block text-[7rem] sm:text-[10rem] lg:text-[13rem]">
         {num(index, lang).padStart(2, lang === "bn" ? "০" : "0")}
       </span>
-      <span className="mt-1 block pl-2 text-[0.7rem] font-semibold uppercase not-italic tracking-[0.4em] text-navy-800/15 sm:text-xs">
+      <span
+        className={`font-script mt-1 block pl-2 text-[0.9rem] font-semibold not-italic tracking-[0.2em] sm:text-base ${
+          tone === "light" ? "text-cream-50/30" : "text-navy-800/25"
+        }`}
+      >
         {label}
       </span>
     </div>

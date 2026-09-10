@@ -5,14 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./logo";
 import { LanguageToggle } from "./language-toggle";
-import { OrderNowButton } from "./order-now-button";
+import { CallNowButton } from "./call-now-button";
 import { useLanguage } from "@/lib/i18n/language-provider";
 
 const NAV = [
   { key: "nav.home", href: "/" },
   { key: "nav.menu", href: "/menu" },
-  { key: "nav.about", href: "/about" },
-  { key: "nav.contact", href: "/#contact" },
+  { key: "nav.about", href: "/#about" },
 ] as const;
 
 export function Navbar() {
@@ -25,9 +24,7 @@ export function Navbar() {
       ? pathname === "/"
       : href === "/menu"
         ? pathname.startsWith("/menu")
-        : href === "/about"
-          ? pathname === "/about"
-          : false;
+        : false;
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -59,7 +56,7 @@ export function Navbar() {
     <header
       className={`nav-in fixed inset-x-0 top-0 z-50 transition-[background,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         solid
-          ? "border-b border-navy-800/10 bg-cream-50/75 shadow-[0_10px_40px_-24px_rgba(12,22,54,0.4)] backdrop-blur-xl"
+          ? "border-b border-navy-800/10 bg-white/80 shadow-[0_10px_40px_-24px_rgba(12,22,54,0.4)] backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -73,7 +70,7 @@ export function Navbar() {
               <Link
                 key={item.key}
                 href={item.href}
-                className={`group relative rounded-full px-4 py-2 text-[0.83rem] font-medium tracking-tight transition-colors duration-300 ${
+                className={`font-script group relative rounded-full px-4 py-2 text-[1rem] font-medium tracking-tight transition-colors duration-300 ${
                   tone === "light"
                     ? "text-cream-50/85 hover:text-cream-50"
                     : "text-navy-900/72 hover:text-navy-900"
@@ -93,7 +90,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageToggle tone={tone} className="hidden sm:inline-flex" />
           <div className="hidden sm:block">
-            <OrderNowButton tone={tone === "light" ? "light" : "gold"} />
+            <CallNowButton tone="gold" />
           </div>
 
           <button
@@ -176,7 +173,7 @@ export function Navbar() {
           </ul>
           <div className="navsheet-foot">
             <LanguageToggle tone="dark" />
-            <OrderNowButton tone="gold" />
+            <CallNowButton tone="gold" />
           </div>
         </div>
       </div>

@@ -3,30 +3,25 @@
 import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/language-provider";
 import { SITE } from "@/lib/site";
-import { MENU, featuredDishes } from "@/content/menu";
-import {
-  Reveal,
-  Parallax,
-  Floaty,
-  AnimatedHeading,
-} from "@/components/motion";
+import { featuredDishes } from "@/content/menu";
+import { Reveal, Parallax, Floaty, AnimatedHeading } from "@/components/motion";
 import { ButtonLink } from "@/components/ui/button";
-import { OrderNowButton } from "@/components/order-now-button";
-import { DishCard } from "@/components/menu/dish-card";
-import { CategoryCard } from "@/components/menu/category-card";
+import { CallNowButton } from "@/components/call-now-button";
+import { FeaturedDishCard } from "@/components/menu/featured-dish-card";
 import { SectionMark, SeamDivider } from "@/components/decor/section-frame";
 import {
   Sprig,
   BayLeaf,
   SpiceStar,
   DottedArc,
-  PlateRings,
-  SteamCurls,
+  WaterLily,
+  Rose,
+  Lotus,
+  FloralSpray,
+  PalmFrond,
 } from "@/components/decor/vectors";
 
-const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  SITE.mapQuery,
-)}`;
+const mapsHref = SITE.mapsUrl;
 
 function Marquee() {
   const { lang } = useLanguage();
@@ -56,7 +51,7 @@ function Marquee() {
 
 export function HomeView() {
   const { t, tf } = useLanguage();
-  const featured = featuredDishes(6);
+  const featured = featuredDishes(3);
 
   return (
     <>
@@ -65,7 +60,6 @@ export function HomeView() {
         id="hero"
         className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-950 pt-24 sm:pt-28"
       >
-        {/* photo */}
         <div className="absolute inset-0">
           <Parallax speed={60} className="h-[116%] w-full">
             <Image
@@ -82,15 +76,18 @@ export function HomeView() {
           <div className="absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
         </div>
 
-        {/* floating decor */}
-        <Floaty className="pointer-events-none absolute -left-10 top-24 hidden sm:block" dur={11} dist={20}>
-          <Sprig className="h-52 w-36 text-gold-300/20" />
+        {/* floating botanicals */}
+        <Floaty className="pointer-events-none absolute -left-10 top-20 hidden sm:block" dur={12} dist={20}>
+          <FloralSpray className="h-64 w-56 text-gold-300/20" />
         </Floaty>
-        <Floaty className="pointer-events-none absolute right-10 top-1/3" dur={9} dist={16} delay={1}>
-          <SpiceStar className="h-20 w-20 text-gold-300/25 sm:h-28 sm:w-28" />
+        <Floaty className="pointer-events-none absolute right-8 top-1/4" dur={9} dist={16} delay={1}>
+          <WaterLily className="h-24 w-24 text-gold-300/25 sm:h-32 sm:w-32" />
         </Floaty>
-        <Floaty className="pointer-events-none absolute bottom-8 right-6 hidden lg:block" dur={13} dist={22} delay={0.6}>
-          <DottedArc className="h-40 w-40 text-gold-300/30" />
+        <Floaty className="pointer-events-none absolute bottom-10 right-10 hidden lg:block" dur={13} dist={22} delay={0.6}>
+          <PalmFrond className="h-44 w-52 text-gold-300/18" />
+        </Floaty>
+        <Floaty className="pointer-events-none absolute bottom-24 left-6 hidden md:block" dur={10} dist={14} delay={0.3}>
+          <SpiceStar className="h-16 w-16 text-gold-300/20" />
         </Floaty>
         <span className="deco-glow -left-24 bottom-0 h-96 w-96 opacity-90" />
 
@@ -111,7 +108,7 @@ export function HomeView() {
                   delay={0.3}
                 />
               </span>
-              <span className="mt-1 block italic text-gold-gradient">
+              <span className="font-script mt-1 block text-[1.15em] leading-[1.1] text-gold-gradient">
                 <AnimatedHeading
                   text={tf({ en: "Cox's Bazar sea", bn: "কক্সবাজারের সৈকতে" })}
                   delay={0.45}
@@ -130,9 +127,7 @@ export function HomeView() {
                 <ButtonLink href="/menu" variant="gold" size="lg">
                   {t("hero.ctaMenu")}
                 </ButtonLink>
-                <ButtonLink href="#contact" variant="ghost-light" size="lg">
-                  {t("hero.ctaContact")}
-                </ButtonLink>
+                <CallNowButton tone="light" size="lg" />
               </div>
             </Reveal>
 
@@ -165,28 +160,171 @@ export function HomeView() {
 
       <Marquee />
 
-      {/* ============================================ FEATURED */}
+      {/* ============================================ ABOUT THE RESTAURANT */}
       <section
-        id="featured"
+        id="about"
         className="section-tint relative overflow-hidden py-24 sm:py-28"
       >
         <span className="seam absolute inset-x-0 top-0" />
         <SectionMark
           index={1}
-          label={t("featured.eyebrow")}
+          label={t("home.about.eyebrow")}
           className="left-2 top-8 sm:left-6 sm:top-10"
         />
-        <span className="deco-glow -left-24 top-10 h-80 w-80" />
-        <PlateRings className="pointer-events-none absolute -right-24 top-24 h-72 w-72 text-navy-800/[0.06]" />
-        <BayLeaf className="pointer-events-none absolute -right-6 top-40 hidden h-64 w-28 rotate-12 text-gold-600/12 lg:block" />
+        <span className="deco-glow left-[-4rem] bottom-10 h-80 w-80" />
+        <FloralSpray className="pointer-events-none absolute -right-10 top-10 hidden h-72 w-64 rotate-6 text-gold-600/12 lg:block" />
+        <WaterLily className="pointer-events-none absolute -left-8 bottom-8 h-40 w-40 text-sky-400/25" />
+        <Sprig className="pointer-events-none absolute right-8 bottom-24 hidden h-40 w-28 text-gold-600/10 md:block" />
+
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <Reveal delay={0.08}>
+              <div>
+                <p className="eyebrow">{t("home.about.eyebrow")}</p>
+                <h2 className="font-title mt-4 text-[2.1rem] sm:text-[2.7rem]">
+                  {t("home.about.title")}
+                </h2>
+                <span className="rule-draw mt-5 block" />
+                <div className="font-body mt-6 space-y-4 leading-relaxed text-ink-soft">
+                  <p>{t("home.about.p1")}</p>
+                  <p>{t("home.about.p2")}</p>
+                </div>
+
+                <dl className="mt-8 grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-navy-800/10 bg-white/70 p-4 shadow-card backdrop-blur-sm">
+                    <dt className="font-script text-[1rem] font-semibold text-gold-700">
+                      {t("contact.hours")}
+                    </dt>
+                    <dd className="font-body mt-1 text-[0.9rem] text-ink-soft">
+                      {t("home.about.hours")}
+                    </dd>
+                  </div>
+                  <div className="rounded-2xl border border-navy-800/10 bg-white/70 p-4 shadow-card backdrop-blur-sm">
+                    <dt className="font-script text-[1rem] font-semibold text-gold-700">
+                      {tf({ en: "Per person", bn: "জনপ্রতি" })}
+                    </dt>
+                    <dd className="font-body mt-1 text-[0.9rem] text-ink-soft">
+                      {tf(SITE.pricePerPerson)}
+                    </dd>
+                  </div>
+                </dl>
+
+                <div className="mt-9">
+                  <CallNowButton tone="gold" />
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal y={40} scale={0.96} blur>
+              <div className="relative">
+                <div className="absolute -right-4 -top-4 h-full w-full rounded-[1.6rem] border border-gold-500/40" />
+                <Parallax speed={24}>
+                  <div className="card-sheen group relative aspect-[4/5] overflow-hidden rounded-[1.6rem] shadow-float">
+                    <Image
+                      src="/img/dining-room.jpg"
+                      alt={tf({
+                        en: "The dining room at Poushee",
+                        bn: "পউষীর ডাইনিং রুম",
+                      })}
+                      fill
+                      sizes="(min-width: 1024px) 42vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </Parallax>
+                <Rose className="pointer-events-none absolute -bottom-8 -left-8 h-28 w-24 text-gold-600/40" />
+                <DottedArc className="pointer-events-none absolute -right-5 -top-5 h-20 w-20 text-gold-600/40" />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <SeamDivider className="py-2" />
+
+      {/* ============================================ OUR STORY */}
+      <section
+        id="story"
+        className="relative overflow-hidden py-24 sm:py-28"
+      >
+        <SectionMark
+          index={2}
+          label={t("home.story.eyebrow")}
+          className="right-2 top-8 text-right sm:right-6 sm:top-10"
+        />
+        <span className="deco-glow right-[-6rem] top-24 h-80 w-80" />
+        <Lotus className="pointer-events-none absolute -left-10 top-16 h-40 w-56 text-sky-400/25" />
+        <Rose className="pointer-events-none absolute right-6 bottom-10 hidden h-44 w-32 text-gold-600/14 lg:block" />
+        <BayLeaf className="pointer-events-none absolute left-1/2 -top-4 hidden h-40 w-20 -translate-x-1/2 rotate-6 text-gold-600/10 md:block" />
+
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <Reveal y={40} scale={0.96} blur>
+              <div className="relative">
+                <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-[1.6rem] border border-gold-500/40 sm:block" />
+                <Parallax speed={24}>
+                  <div className="card-sheen relative aspect-[4/5] overflow-hidden rounded-[1.6rem] shadow-float">
+                    <Image
+                      src="/img/fine-dining.jpg"
+                      alt={tf({
+                        en: "A laid table in the Poushee dining room",
+                        bn: "পউষীর ডাইনিং রুমে সাজানো টেবিল",
+                      })}
+                      fill
+                      sizes="(min-width: 1024px) 42vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </Parallax>
+                <WaterLily className="pointer-events-none absolute -bottom-9 -right-9 h-28 w-28 text-gold-600/40" />
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <div>
+                <p className="eyebrow">{t("home.story.eyebrow")}</p>
+                <h2 className="font-title mt-4 text-[2.1rem] sm:text-[2.7rem]">
+                  {t("home.story.title")}
+                </h2>
+                <span className="rule-draw mt-5 block" />
+                <div className="font-body mt-6 space-y-4 leading-relaxed text-ink-soft">
+                  <p>{t("home.story.p1")}</p>
+                  <p>{t("home.story.p2")}</p>
+                </div>
+                <p className="mt-6 font-script text-2xl text-gold-700">
+                  {tf(SITE.motto)}
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================ SIGNATURE DISHES */}
+      <section
+        id="featured"
+        className="section-blue relative overflow-hidden py-24 text-cream-50 sm:py-28"
+      >
+        <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
+        <SectionMark
+          index={3}
+          label={t("featured.eyebrow")}
+          tone="light"
+          className="left-2 top-8 sm:left-6 sm:top-10"
+        />
+        <span className="deco-glow -left-24 top-10 h-80 w-80 opacity-70" />
+        <FloralSpray className="pointer-events-none absolute -right-8 top-6 hidden h-72 w-64 text-gold-300/16 lg:block" />
+        <WaterLily className="pointer-events-none absolute left-8 bottom-6 hidden h-32 w-32 text-cream-50/12 md:block" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
-              <p className="eyebrow justify-center">{t("featured.eyebrow")}</p>
+              <p className="eyebrow justify-center !text-gold-300">
+                {t("featured.eyebrow")}
+              </p>
             </Reveal>
             <Reveal delay={0.06}>
-              <h2 className="mt-4 text-[2.1rem] sm:text-[2.8rem]">
+              <h2 className="font-title mt-4 text-[2.1rem] text-cream-50 sm:text-[2.8rem]">
                 {t("featured.title")}
               </h2>
             </Reveal>
@@ -194,7 +332,7 @@ export function HomeView() {
               <span className="rule-draw mx-auto mt-5 block" />
             </Reveal>
             <Reveal delay={0.14}>
-              <p className="mt-5 leading-relaxed text-ink-soft">
+              <p className="font-body mt-5 leading-relaxed text-cream-50/72">
                 {t("featured.subtitle")}
               </p>
             </Reveal>
@@ -209,7 +347,7 @@ export function HomeView() {
                 scale={0.96}
                 blur
               >
-                <DishCard
+                <FeaturedDishCard
                   dish={dish}
                   categorySlug={category.slug}
                   priority={i < 3}
@@ -220,7 +358,7 @@ export function HomeView() {
 
           <Reveal delay={0.1}>
             <div className="mt-14 text-center">
-              <ButtonLink href="/menu" variant="primary" size="lg">
+              <ButtonLink href="/menu" variant="gold" size="lg">
                 {t("featured.viewAll")}
               </ButtonLink>
             </div>
@@ -228,315 +366,68 @@ export function HomeView() {
         </div>
       </section>
 
-      {/* ============================================ KITCHEN / CRAFT BAND */}
+      {/* ============================================ VISIT / CLOSING CTA */}
       <section
-        id="kitchen"
-        className="relative overflow-hidden bg-navy-950 py-28 text-cream-50"
+        id="visit"
+        className="relative overflow-hidden bg-navy-950 py-24 text-cream-50 sm:py-28"
       >
-        <div className="absolute inset-0">
-          <Parallax speed={50} className="h-[120%] w-full">
-            <Image
-              src="/img/curry-pot.jpg"
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover opacity-40"
-            />
-          </Parallax>
-          <div className="absolute inset-0 bg-navy-950/70" />
-          <div className="absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
-        </div>
-        <SteamCurls className="pointer-events-none absolute right-10 top-10 z-10 h-40 w-28 text-gold-300/25" />
+        <span className="seam absolute inset-x-0 top-0 opacity-60" />
+        <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
+        <SectionMark
+          index={4}
+          label={t("aboutPage.cta.eyebrow")}
+          tone="light"
+          className="left-2 top-8 sm:left-6 sm:top-10"
+        />
+        <span className="deco-glow -left-24 top-10 h-80 w-80 opacity-70" />
+        <FloralSpray className="pointer-events-none absolute -right-8 top-6 hidden h-72 w-64 [transform:scaleX(-1)] text-gold-300/16 lg:block" />
+        <WaterLily className="pointer-events-none absolute left-10 bottom-6 hidden h-32 w-32 text-cream-50/12 md:block" />
+        <PalmFrond className="pointer-events-none absolute right-6 bottom-4 h-36 w-44 text-gold-300/16" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center sm:px-6">
           <Reveal>
             <p className="eyebrow justify-center !text-gold-300">
-              {tf({ en: "The kitchen", bn: "রান্নাঘর" })}
+              {t("aboutPage.cta.eyebrow")}
             </p>
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="mt-4 text-[2rem] text-cream-50 sm:text-[2.7rem]">
-              {tf({
-                en: "Slow fire, ground spice, and time",
-                bn: "ধীর আঁচ, বাটা মসলা, আর সময়",
-              })}
+            <h2 className="font-title mt-4 text-[2.1rem] text-cream-50 sm:text-[2.8rem]">
+              {t("aboutPage.cta.title")}
             </h2>
           </Reveal>
-          <Reveal delay={0.12}>
-            <p className="mt-5 leading-relaxed text-cream-50/72">
-              {tf({
-                en: "Our mezbani beef is cooked down for hours in mustard oil and ghee with a paste of roasted chickpea, coconut and peanut — the way it has been served at Chattogram feasts for generations. Nothing is rushed.",
-                bn: "আমাদের মেজবানি গরু ঘণ্টার পর ঘণ্টা সরিষার তেল আর ঘিয়ে কষানো হয় — ভাজা বুট, নারকেল আর চিনাবাদাম বাটা দিয়ে, যেভাবে প্রজন্মের পর প্রজন্ম চট্টগ্রামের ভোজে পরিবেশিত হয়ে এসেছে। কিছুই তাড়াহুড়ো নয়।",
-              })}
+          <Reveal delay={0.1}>
+            <span className="rule-draw mx-auto mt-5 block" />
+          </Reveal>
+          <Reveal delay={0.14}>
+            <p className="font-body mx-auto mt-5 max-w-xl leading-relaxed text-cream-50/75">
+              {t("aboutPage.cta.body")}
             </p>
           </Reveal>
-          <Reveal delay={0.18}>
-            <div className="mt-9">
-              <ButtonLink href="/menu/beef-mutton" variant="gold" size="lg">
-                {tf({ en: "See the house kitchen", bn: "ঘরের রান্না দেখুন" })}
+
+          <Reveal delay={0.2}>
+            <div className="mt-9 flex flex-wrap justify-center gap-3">
+              <ButtonLink href="/menu" variant="gold" size="lg">
+                {t("aboutPage.cta.menu")}
               </ButtonLink>
+              <CallNowButton tone="light" size="lg" />
             </div>
           </Reveal>
-        </div>
-      </section>
 
-      {/* ============================================ CHAPTERS */}
-      <section
-        id="chapters"
-        className="relative overflow-hidden py-24 sm:py-28"
-      >
-        <SectionMark
-          index={2}
-          label={t("menuIndex.eyebrow")}
-          className="right-2 top-8 text-right sm:right-6 sm:top-10"
-        />
-        <span className="deco-glow right-[-6rem] top-24 h-80 w-80" />
-        <Sprig className="pointer-events-none absolute -left-6 top-16 h-44 w-28 text-gold-600/12" />
-
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div className="max-w-xl">
-              <Reveal>
-                <p className="eyebrow">{t("menuIndex.eyebrow")}</p>
-              </Reveal>
-              <Reveal delay={0.06}>
-                <h2 className="mt-4 text-[2.1rem] sm:text-[2.8rem]">
-                  {t("menuIndex.title")}
-                </h2>
-              </Reveal>
-              <Reveal delay={0.1}>
-                <span className="rule-draw mt-5 block" />
-              </Reveal>
-            </div>
-            <Reveal delay={0.12}>
-              <ButtonLink href="/menu" variant="ghost">
-                {t("featured.viewAll")}
-              </ButtonLink>
-            </Reveal>
-          </div>
-
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {MENU.slice(0, 6).map((category, i) => (
-              <Reveal
-                key={category.slug}
-                delay={(i % 3) * 0.09}
-                y={34}
-                scale={0.96}
-                blur
+          <Reveal delay={0.26}>
+            <div className="mt-10 flex flex-col items-center gap-2 text-sm text-cream-50/70">
+              <p className="font-body">{tf(SITE.address)}</p>
+              <p className="font-body">{tf(SITE.hours)}</p>
+              <a
+                href={mapsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body mt-1 inline-flex items-center gap-1.5 text-gold-300 transition-colors hover:text-gold-200"
               >
-                <CategoryCard category={category} index={i} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <SeamDivider className="py-2" />
-
-      {/* ============================================ ABOUT */}
-      <section
-        id="about"
-        className="section-tint relative overflow-hidden py-24 sm:py-28"
-      >
-        <span className="seam absolute inset-x-0 top-0" />
-        <SectionMark
-          index={3}
-          label={t("about.eyebrow")}
-          className="left-2 top-8 sm:left-6 sm:top-10"
-        />
-        <span className="deco-glow left-[-4rem] bottom-10 h-80 w-80" />
-
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-            <Reveal>
-              <div className="relative">
-                <div className="absolute -left-4 -top-4 h-full w-full rounded-[1.6rem] border border-gold-500/40" />
-                <Parallax speed={26}>
-                  <div className="card-sheen group relative aspect-[4/5] overflow-hidden rounded-[1.6rem] shadow-float">
-                    <Image
-                      src="/img/dining-room.jpg"
-                      alt={tf({
-                        en: "The dining room at Poushee",
-                        bn: "পউষীর ডাইনিং রুম",
-                      })}
-                      fill
-                      sizes="(min-width: 1024px) 42vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </Parallax>
-                <DottedArc className="absolute -bottom-6 -right-6 h-24 w-24 text-gold-600/40" />
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <div>
-                <p className="eyebrow">{t("about.eyebrow")}</p>
-                <h2 className="mt-4 text-[2.1rem] sm:text-[2.7rem]">
-                  {t("about.title")}
-                </h2>
-                <span className="rule-draw mt-5 block" />
-                <div className="mt-6 space-y-4 leading-relaxed text-ink-soft">
-                  <p>{t("about.p1")}</p>
-                  <p>{t("about.p2")}</p>
-                  <p>{t("about.p3")}</p>
-                </div>
-
-                <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-                  {[
-                    { n: 1, Icon: Sprig },
-                    { n: 2, Icon: BayLeaf },
-                    { n: 3, Icon: PlateRings },
-                  ].map(({ n, Icon }, i) => (
-                    <Reveal as="li" key={n} delay={0.1 + i * 0.08} y={20}>
-                      <div className="group h-full rounded-2xl border border-navy-800/10 bg-cream-50/90 p-4 shadow-card backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-gold-500/45 hover:shadow-float">
-                        <Icon className="h-7 w-7 text-gold-600 transition-transform duration-500 group-hover:-rotate-6" />
-                        <h3 className="mt-3 font-display text-[1.02rem] leading-tight text-navy-900">
-                          {t(`about.value${n}.title` as "about.value1.title")}
-                        </h3>
-                        <p className="mt-1.5 text-[0.85rem] leading-relaxed text-ink-soft">
-                          {t(`about.value${n}.body` as "about.value1.body")}
-                        </p>
-                      </div>
-                    </Reveal>
-                  ))}
-                </ul>
-
-                <Reveal delay={0.16}>
-                  <div className="mt-9">
-                    <ButtonLink href="/about" variant="ghost">
-                      {t("about.readMore")}
-                    </ButtonLink>
-                  </div>
-                </Reveal>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================ CONTACT */}
-      <section
-        id="contact"
-        className="relative overflow-hidden pb-10 pt-24 sm:pt-28"
-      >
-        <SectionMark
-          index={4}
-          label={t("contact.eyebrow")}
-          className="right-2 top-6 text-right sm:right-6"
-        />
-        <span className="deco-glow right-[-4rem] top-0 h-80 w-80" />
-
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Reveal scale={0.97}>
-            <div className="relative overflow-hidden rounded-[2rem] shadow-float">
-              <div className="absolute inset-0">
-                <Parallax speed={30} className="relative h-[118%] w-full">
-                  <Image
-                    src="/img/beach.jpg"
-                    alt=""
-                    fill
-                    sizes="(min-width: 1024px) 1100px, 100vw"
-                    className="object-cover"
-                  />
-                </Parallax>
-                <div className="absolute inset-0 bg-navy-950/78" />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-navy-950/40" />
-                <div className="absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
-              </div>
-
-              <div className="relative z-10 grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-                <div className="p-8 text-cream-50 sm:p-12">
-                  <p className="eyebrow !text-gold-300">{t("contact.eyebrow")}</p>
-                  <h2 className="mt-4 text-[2rem] text-cream-50 sm:text-[2.6rem]">
-                    {t("contact.title")}
-                  </h2>
-
-                  <dl className="mt-8 space-y-6 text-sm">
-                    <div>
-                      <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold-300">
-                        {t("contact.address")}
-                      </dt>
-                      <dd className="mt-1.5 leading-relaxed text-cream-50/78">
-                        {tf(SITE.address)}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold-300">
-                        {t("contact.phone")}
-                      </dt>
-                      <dd className="mt-1.5 space-y-0.5 text-cream-50/78">
-                        {SITE.phonesDisplay.map((p, i) => (
-                          <a
-                            key={p}
-                            href={`tel:${SITE.phones[i]}`}
-                            className="block transition-colors hover:text-cream-50"
-                          >
-                            {p}
-                          </a>
-                        ))}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold-300">
-                        {t("contact.email")}
-                      </dt>
-                      <dd className="mt-1.5 space-y-0.5 text-cream-50/78">
-                        {SITE.emails.map((e) => (
-                          <a
-                            key={e}
-                            href={`mailto:${e}`}
-                            className="block break-all transition-colors hover:text-cream-50"
-                          >
-                            {e}
-                          </a>
-                        ))}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold-300">
-                        {t("contact.hours")}
-                      </dt>
-                      <dd className="mt-1.5 text-cream-50/78">{tf(SITE.hours)}</dd>
-                    </div>
-                  </dl>
-
-                  <div className="mt-9 flex flex-wrap gap-3">
-                    <a
-                      href={mapsHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-cream-50 px-5 py-2.5 text-sm font-medium text-navy-900 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(252,249,243,0.5)]"
-                    >
-                      {t("contact.directions")}
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </a>
-                    <OrderNowButton tone="gold" />
-                  </div>
-                </div>
-
-                <div className="relative flex min-h-[16rem] items-center justify-center border-t border-cream-50/10 p-10 text-center lg:border-l lg:border-t-0">
-                  <Floaty dur={10} dist={14}>
-                    <div className="flex flex-col items-center gap-3">
-                      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-gold-300">
-                        <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z" stroke="currentColor" strokeWidth="1.6" />
-                        <circle cx="12" cy="10" r="2.6" stroke="currentColor" strokeWidth="1.6" />
-                      </svg>
-                      <p className="font-display text-2xl text-cream-50">
-                        {tf({ en: "Kolatoli Beach", bn: "কলাতলী সৈকত" })}
-                      </p>
-                      <p className="max-w-xs text-sm leading-relaxed text-cream-50/65">
-                        {tf({
-                          en: "Dolphin Mor, inside World Beach Resort — a few steps from the tide.",
-                          bn: "ডলফিন মোড়, ওয়ার্ল্ড বিচ রিসোর্টের ভেতরে — ঢেউ থেকে কয়েক কদম দূরে।",
-                        })}
-                      </p>
-                    </div>
-                  </Floaty>
-                </div>
-              </div>
+                {t("contact.directions")}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
             </div>
           </Reveal>
         </div>

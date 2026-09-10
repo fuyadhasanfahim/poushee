@@ -5,7 +5,14 @@ import { MENU } from "@/content/menu";
 import { Reveal } from "@/components/motion";
 import { CategoryCard } from "@/components/menu/category-card";
 import { SectionMark } from "@/components/decor/section-frame";
-import { Sprig, PlateRings, DottedArc } from "@/components/decor/vectors";
+import {
+  Sprig,
+  PlateRings,
+  DottedArc,
+  WaterLily,
+  FloralSpray,
+  Rose,
+} from "@/components/decor/vectors";
 
 export function MenuIndexView() {
   const { t } = useLanguage();
@@ -46,6 +53,9 @@ export function MenuIndexView() {
         />
         <span className="deco-glow -left-24 top-10 h-80 w-80" />
         <Sprig className="pointer-events-none absolute -right-6 top-24 h-44 w-28 text-gold-600/12" />
+        <FloralSpray className="pointer-events-none absolute -left-10 top-4 hidden h-72 w-64 text-gold-600/10 lg:block" />
+        <WaterLily className="pointer-events-none absolute right-4 bottom-10 h-36 w-36 text-sky-400/22" />
+        <Rose className="pointer-events-none absolute left-8 bottom-28 hidden h-40 w-28 text-gold-600/12 md:block" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

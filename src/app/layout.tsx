@@ -1,5 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter, Hind_Siliguri, Tiro_Bangla } from "next/font/google";
+import {
+  Inter,
+  Lobster_Two,
+  Dancing_Script,
+  Hind_Siliguri,
+  Tiro_Bangla,
+} from "next/font/google";
 import "./globals.css";
 import {
   LanguageProvider,
@@ -8,6 +14,7 @@ import {
 import { SITE } from "@/lib/site";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { FloatingActions } from "@/components/floating-actions";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { ScrollProgress } from "@/components/scroll-progress";
 
@@ -18,12 +25,20 @@ const inter = Inter({
   variable: "--font-body-en",
 });
 
-/* Editorial display serif — headlines */
-const fraunces = Fraunces({
+/* Primary display / titles — Lobster Two */
+const lobsterTwo = Lobster_Two({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-display-en",
-  axes: ["opsz"],
+  variable: "--font-title-en",
+});
+
+/* Secondary / accent headings — Dancing Script (variable weight) */
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-script-en",
 });
 
 /* Bengali body — not preloaded: English visitors never pay for it, it
@@ -36,7 +51,8 @@ const hindSiliguri = Hind_Siliguri({
   variable: "--font-body-bn",
 });
 
-/* Bengali display — elegant serif to pair with Fraunces (also on demand) */
+/* Bengali display — elegant serif to stand in for the Latin display faces
+   (also on demand) */
 const tiroBangla = Tiro_Bangla({
   weight: "400",
   subsets: ["bengali"],
@@ -90,9 +106,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${fraunces.variable} ${hindSiliguri.variable} ${tiroBangla.variable} antialiased`}
+      className={`${inter.variable} ${lobsterTwo.variable} ${dancingScript.variable} ${hindSiliguri.variable} ${tiroBangla.variable} antialiased`}
     >
-      <body className="flex min-h-dvh flex-col bg-cream-50">
+      <body className="flex min-h-dvh flex-col">
         <script dangerouslySetInnerHTML={{ __html: LANG_BOOTSTRAP_SCRIPT }} />
         <script
           type="application/ld+json"
@@ -104,11 +120,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               description: SITE.description.en,
               servesCuisine: ["Bangladeshi", "Chattogram", "Seafood"],
               priceRange: "৳৳",
-              telephone: SITE.phonesDisplay[0],
+              telephone: SITE.callNumberDisplay,
               email: SITE.emails[0],
               url: SITE.url,
               image: `${SITE.url}/img/hero-thali.jpg`,
               hasMenu: `${SITE.url}/menu`,
+              sameAs: [SITE.social.facebook],
               acceptsReservations: true,
               address: {
                 "@type": "PostalAddress",
@@ -132,8 +149,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   "Saturday",
                   "Sunday",
                 ],
-                opens: "08:00",
-                closes: "23:30",
+                opens: "07:00",
+                closes: "00:30",
               },
             }),
           }}
@@ -144,6 +161,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Navbar />
             <main className="content-layer flex-1">{children}</main>
             <Footer />
+            <FloatingActions />
           </SmoothScroll>
         </LanguageProvider>
       </body>

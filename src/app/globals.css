@@ -24,40 +24,72 @@
   --color-gold-600: #a67f30;
   --color-gold-700: #7f6023;
 
-  /* Neutrals — ivory */
+  /* Neutrals — ivory (kept for warm accents / dark-section text) */
   --color-cream-50: #fcf9f3;
   --color-cream-100: #f6efe0;
   --color-cream-200: #ece0c8;
   --color-cream-300: #dccbaa;
+
+  /* Pure white — the dominant page ground */
+  --color-white: #ffffff;
+
+  /* Secondary — light blue, lifted from the deep hero navy.
+     Chips, hairlines, hover washes, watermark tints. */
+  --color-sky-50: #f4f8fd;
+  --color-sky-100: #e7f0fa;
+  --color-sky-200: #cfe0f4;
+  --color-sky-300: #a9c6e8;
+  --color-sky-400: #7ba3d6;
+  --color-sky-500: #5480bf;
 
   --color-ink: #16171c;
   --color-ink-soft: #474a54;
   /* darkened to clear WCAG AA (4.5:1) on the ivory ground */
   --color-ink-faint: #696c75;
 
-  /* Logo-only royal blue (matches the printed poushee mark) */
-  --color-brand-blue: #1c2bb5;
+  /* Logo-only royal blue (echoes the printed poushee mark). A lifted,
+     de-purpled cousin of the midnight navy — same hue family, more vivid —
+     so it sits warmly on the ivory ground and reads next to the gold. */
+  --color-brand-blue: #233a97;
 
   /* Semantic */
-  --color-background: var(--color-cream-50);
+  --color-background: var(--color-white);
   --color-foreground: var(--color-ink);
   --color-primary: var(--color-navy-850);
   --color-accent: var(--color-gold-500);
 
-  /* Type */
+  /* Type
+     - body / UI (nav, eyebrows, buttons, "view details", prices): Inter
+     - titles (h1, big statements): Lobster Two   -> --font-title
+     - secondary / accent (h2–h6, card titles, mottos): Dancing Script -> --font-script
+     `--font-display` is kept as a legacy alias of the script face. */
   --font-body: var(--font-body-en), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-body-en), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display-en), ui-serif, "Iowan Old Style", Georgia,
-    serif;
+  --font-title: var(--font-title-en), "Lobster Two", "Brush Script MT", cursive;
+  --font-script: var(--font-script-en), "Dancing Script", "Segoe Script", cursive;
+  --font-display: var(--font-script);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* The deep midnight plane used by the dark accent bands (hero echo, the
+   closing CTA, the footer). Light sections sit on pure white. */
+:root {
+  --blue-plane: radial-gradient(
+    130% 120% at 12% 0%,
+    var(--color-navy-700) 0%,
+    var(--color-navy-900) 44%,
+    var(--color-navy-950) 100%
+  );
 }
 
 /* Bengali — swap the whole type system when <html class="lang-bn"> */
 html.lang-bn {
   --font-body: var(--font-body-bn), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-heading-bn), ui-serif, Georgia, serif;
+  --font-title: var(--font-heading-bn), ui-serif, Georgia, serif;
+  --font-script: var(--font-heading-bn), ui-serif, Georgia, serif;
   --font-display: var(--font-heading-bn), ui-serif, Georgia, serif;
 }
 
@@ -98,7 +130,7 @@ html.lenis body {
 }
 
 body {
-  background: var(--color-background);
+  background: var(--color-white);
   color: var(--color-foreground);
   font-family: var(--font-body);
   font-feature-settings: "kern", "liga", "clig";
@@ -115,14 +147,15 @@ body::before {
   z-index: -2;
   pointer-events: none;
   background-image: radial-gradient(
-    color-mix(in srgb, var(--color-navy-800) 60%, transparent) 0.6px,
+    color-mix(in srgb, var(--color-navy-800) 55%, transparent) 0.6px,
     transparent 0.7px
   );
-  background-size: 22px 22px;
-  opacity: 0.09;
+  background-size: 24px 24px;
+  opacity: 0.06;
 }
 
-/* Fixed warm glow so the ground is never flat */
+/* Fixed soft glow so the white ground is never flat — a cool sky wash at
+   the top-left, a whisper of champagne at the right. */
 body::after {
   content: "";
   position: fixed;
@@ -131,14 +164,14 @@ body::after {
   pointer-events: none;
   background:
     radial-gradient(
-      60% 45% at 12% 0%,
-      color-mix(in srgb, var(--color-gold-300) 45%, transparent),
-      transparent 70%
+      58% 44% at 10% 0%,
+      color-mix(in srgb, var(--color-sky-300) 40%, transparent),
+      transparent 72%
     ),
     radial-gradient(
-      55% 40% at 100% 30%,
-      color-mix(in srgb, var(--color-cream-200) 70%, transparent),
-      transparent 75%
+      50% 38% at 100% 26%,
+      color-mix(in srgb, var(--color-gold-300) 34%, transparent),
+      transparent 76%
     );
   opacity: 0.5;
 }
@@ -163,13 +196,21 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display);
-  font-weight: 480;
+  /* secondary / accent tier — Dancing Script */
+  font-family: var(--font-script);
+  font-weight: 600;
   font-optical-sizing: auto;
-  letter-spacing: -0.018em;
-  line-height: 1.08;
+  letter-spacing: 0;
+  line-height: 1.12;
   text-wrap: balance;
   color: var(--color-navy-900);
+}
+/* primary title tier — Lobster Two */
+h1 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.05;
 }
 html.lang-bn h1,
 html.lang-bn h2,
@@ -190,8 +231,16 @@ p {
 
 /* ------------------------------------------------------------------ */
 @layer utilities {
+  /* primary title face — Lobster Two */
+  .font-title {
+    font-family: var(--font-title);
+    font-optical-sizing: auto;
+  }
+  /* secondary / accent face — Dancing Script.
+     `.font-display` is kept as an alias so existing markup keeps working. */
+  .font-script,
   .font-display {
-    font-family: var(--font-display);
+    font-family: var(--font-script);
     font-optical-sizing: auto;
   }
   .font-body {
@@ -220,10 +269,11 @@ p {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    font-family: var(--font-body);
-    text-transform: uppercase;
-    letter-spacing: 0.26em;
-    font-size: 0.7rem;
+    /* secondary / accent face — Dancing Script */
+    font-family: var(--font-script);
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--color-gold-700);
   }
@@ -316,19 +366,30 @@ p {
 
   /* ---- depth for the light sections ------------------------------- */
 
-  /* A softly tinted panel so consecutive ivory sections read as
-     distinct planes instead of one endless sheet. */
+  /* A whisper-quiet cool tint so two consecutive white sections still read
+     as distinct planes. Barely-there sky over white. */
   .section-tint {
     background:
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--color-cream-100) 92%, transparent) 0%,
-        color-mix(in srgb, var(--color-cream-200) 55%, transparent) 100%
+        var(--color-white) 0%,
+        color-mix(in srgb, var(--color-sky-200) 40%, var(--color-white)) 100%
       );
     box-shadow:
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.7),
-      inset 0 40px 60px -60px rgba(12, 22, 54, 0.25),
-      inset 0 -40px 60px -60px rgba(12, 22, 54, 0.18);
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.9),
+      inset 0 44px 60px -60px color-mix(in srgb, var(--color-navy-800) 22%, transparent),
+      inset 0 -44px 60px -60px color-mix(in srgb, var(--color-navy-800) 16%, transparent);
+  }
+
+  /* Deep midnight plane — the primary brand colour, lifted to carry a whole
+     section (hero echo, the closing CTA). Pairs with white text + gold. */
+  .section-blue {
+    background: var(--blue-plane);
+    color: var(--color-white);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+      inset 0 44px 70px -60px rgba(0, 0, 0, 0.5),
+      inset 0 -44px 70px -60px rgba(0, 0, 0, 0.45);
   }
 
   /* Hairline rule that fades at both ends. */
@@ -347,14 +408,18 @@ p {
   /* Oversized ghost numeral / word behind a section. */
   .watermark {
     position: absolute;
-    font-family: var(--font-display);
-    font-weight: 500;
+    font-family: var(--font-title);
+    font-weight: 700;
     line-height: 0.8;
     letter-spacing: -0.04em;
     color: color-mix(in srgb, var(--color-navy-800) 6%, transparent);
     user-select: none;
     pointer-events: none;
     z-index: 0;
+  }
+  /* ghost numeral over a dark / blue plane */
+  .watermark.is-light {
+    color: color-mix(in srgb, var(--color-cream-50) 9%, transparent);
   }
 
   /* Warm radial lift, drop behind content. Painted as a gradient — no
@@ -598,7 +663,7 @@ p {
     overscroll-behavior: contain;
     border-radius: 1.6rem;
     border: 1px solid color-mix(in srgb, var(--color-navy-800) 10%, transparent);
-    background: color-mix(in srgb, var(--color-cream-50) 92%, transparent);
+    background: color-mix(in srgb, var(--color-white) 94%, transparent);
     -webkit-backdrop-filter: blur(24px) saturate(150%);
     backdrop-filter: blur(24px) saturate(150%);
     box-shadow:
@@ -701,9 +766,11 @@ p {
   }
   .navsheet-label {
     flex: 1;
-    font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-family: var(--font-script);
+    font-size: 1.35rem;
+    font-weight: 600;
     line-height: 1.15;
+    color: var(--color-navy-900);
   }
   .navsheet-link.is-active .navsheet-label {
     color: var(--color-gold-700);
@@ -732,7 +799,7 @@ p {
     padding: 0.9rem 1.15rem 1.15rem;
     border-top: 1px solid
       color-mix(in srgb, var(--color-navy-800) 8%, transparent);
-    background: color-mix(in srgb, var(--color-cream-100) 55%, transparent);
+    background: color-mix(in srgb, var(--color-sky-100) 60%, transparent);
   }
 
   /* one-shot header drop-in */
@@ -886,11 +953,11 @@ p {
     height: 11px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-cream-100);
+    background: var(--color-sky-100);
   }
   ::-webkit-scrollbar-thumb {
     background: var(--color-navy-700);
-    border: 3px solid var(--color-cream-100);
+    border: 3px solid var(--color-sky-100);
     border-radius: 999px;
   }
 }

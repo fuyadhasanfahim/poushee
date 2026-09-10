@@ -6,8 +6,15 @@ import type { Dish, MenuCategory } from "@/content/types";
 import { Reveal, Parallax, Floaty, AnimatedHeading } from "@/components/motion";
 import { DishMedia } from "@/components/menu/dish-media";
 import { DishCard } from "@/components/menu/dish-card";
-import { OrderNowButton } from "@/components/order-now-button";
-import { Sprig, PlateRings, SpiceStar, DottedArc } from "@/components/decor/vectors";
+import { CallNowButton } from "@/components/call-now-button";
+import {
+  Sprig,
+  PlateRings,
+  SpiceStar,
+  DottedArc,
+  WaterLily,
+  FloralSpray,
+} from "@/components/decor/vectors";
 
 export function DishView({
   category,
@@ -24,6 +31,8 @@ export function DishView({
     <article className="relative overflow-hidden pt-28 pb-10 sm:pt-36">
       <span className="deco-glow -left-32 top-16 h-96 w-96" />
       <PlateRings className="pointer-events-none absolute -left-24 top-24 h-80 w-80 text-navy-800/[0.05]" />
+      <FloralSpray className="pointer-events-none absolute -right-10 top-4 hidden h-72 w-60 [transform:scaleX(-1)] text-gold-600/10 lg:block" />
+      <WaterLily className="pointer-events-none absolute left-4 bottom-10 hidden h-32 w-32 text-sky-400/20 md:block" />
       <Floaty
         className="pointer-events-none absolute -right-8 top-40 hidden lg:block"
         dur={12}
@@ -84,7 +93,7 @@ export function DishView({
               <AnimatedHeading text={tf(dish.name)} delay={0.1} />
             </h1>
             <Reveal delay={0.15} y={16}>
-              <p className="mt-3 text-lg leading-relaxed text-ink-soft">
+              <p className="font-body mt-3 text-lg leading-relaxed text-ink-soft">
                 {tf(dish.tagline)}
               </p>
             </Reveal>
@@ -94,13 +103,13 @@ export function DishView({
                 <span className="rounded-full bg-navy-850 px-4 py-2 text-sm font-bold text-cream-50 shadow-[0_12px_28px_-14px_rgba(12,22,54,0.7)]">
                   {tf(dish.price)}
                 </span>
-                <span className="text-xs text-ink-faint">{t("item.priceNote")}</span>
+                <span className="font-body text-xs text-ink-faint">{t("item.priceNote")}</span>
               </div>
             </Reveal>
 
             <Reveal delay={0.28} y={16}>
               <div className="mt-7">
-                <OrderNowButton tone="gold" size="lg" />
+                <CallNowButton tone="gold" size="lg" />
               </div>
             </Reveal>
 
@@ -108,7 +117,7 @@ export function DishView({
               <div className="mt-10 border-t border-navy-800/10 pt-8">
                 <p className="eyebrow">{t("item.story")}</p>
                 <span className="rule-draw mt-3 block" />
-                <p className="mt-4 leading-[1.8] text-ink">{tf(dish.story)}</p>
+                <p className="font-body mt-4 leading-[1.8] text-ink">{tf(dish.story)}</p>
               </div>
             </Reveal>
 
@@ -123,7 +132,7 @@ export function DishView({
                       delay={0.05 + i * 0.04}
                       y={10}
                     >
-                      <span className="inline-block rounded-full border border-navy-800/12 bg-cream-50 px-3.5 py-1.5 text-[0.85rem] text-navy-900 transition-colors duration-300 hover:border-gold-500/50 hover:bg-gold-500/5">
+                      <span className="font-script inline-block rounded-full border border-navy-800/12 bg-sky-50 px-3.5 py-1.5 text-[0.95rem] text-navy-900 transition-colors duration-300 hover:border-gold-500/50 hover:bg-gold-500/5">
                         {item}
                       </span>
                     </Reveal>
@@ -133,7 +142,7 @@ export function DishView({
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="mt-8 text-xs leading-relaxed text-ink-faint">
+              <p className="font-body mt-8 text-xs leading-relaxed text-ink-faint">
                 {t("item.disclaimer")}
               </p>
             </Reveal>
