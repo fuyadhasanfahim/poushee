@@ -77,6 +77,21 @@ html {
   overflow-x: hidden;
 }
 
+/* Lenis owns the scroll on capable devices */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);
@@ -289,6 +304,102 @@ p {
     border-top: 1px solid color-mix(in srgb, var(--color-navy-800) 12%, transparent);
     border-bottom: 1px solid
       color-mix(in srgb, var(--color-navy-800) 12%, transparent);
+  }
+
+  /* ---- depth for the light sections ------------------------------- */
+
+  /* A softly tinted panel so consecutive ivory sections read as
+     distinct planes instead of one endless sheet. */
+  .section-tint {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--color-cream-100) 92%, transparent) 0%,
+        color-mix(in srgb, var(--color-cream-200) 55%, transparent) 100%
+      );
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.7),
+      inset 0 40px 60px -60px rgba(12, 22, 54, 0.25),
+      inset 0 -40px 60px -60px rgba(12, 22, 54, 0.18);
+  }
+
+  /* Hairline rule that fades at both ends. */
+  .seam {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--color-navy-800) 22%, transparent) 18%,
+      color-mix(in srgb, var(--color-gold-500) 55%, transparent) 50%,
+      color-mix(in srgb, var(--color-navy-800) 22%, transparent) 82%,
+      transparent
+    );
+  }
+
+  /* Oversized ghost numeral / word behind a section. */
+  .watermark {
+    position: absolute;
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 0.8;
+    letter-spacing: -0.04em;
+    color: color-mix(in srgb, var(--color-navy-800) 6%, transparent);
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Warm radial lift, drop behind content. */
+  .deco-glow {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Moving sheen that sweeps a card on hover. */
+  .card-sheen {
+    position: relative;
+    isolation: isolate;
+  }
+  .card-sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    background: linear-gradient(
+      105deg,
+      transparent 38%,
+      rgba(255, 255, 255, 0.55) 48%,
+      transparent 58%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    opacity: 0.7;
+  }
+  .group:hover .card-sheen::after,
+  .card-sheen:hover::after {
+    transform: translateX(120%);
+  }
+
+  /* Draw-in gold rule for headings. */
+  .rule-draw {
+    height: 2px;
+    width: 3rem;
+    background: linear-gradient(
+      90deg,
+      var(--color-gold-500),
+      var(--color-gold-300)
+    );
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+  }
+  .is-in .rule-draw {
+    transform: scaleX(1);
   }
 }
 

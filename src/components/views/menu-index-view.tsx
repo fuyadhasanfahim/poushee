@@ -4,6 +4,7 @@ import { useLanguage } from "@/lib/i18n/language-provider";
 import { MENU } from "@/content/menu";
 import { Reveal } from "@/components/motion";
 import { CategoryCard } from "@/components/menu/category-card";
+import { SectionMark } from "@/components/decor/section-frame";
 import { Sprig, PlateRings, DottedArc } from "@/components/decor/vectors";
 
 export function MenuIndexView() {
@@ -36,13 +37,30 @@ export function MenuIndexView() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {MENU.map((category, i) => (
-            <Reveal key={category.slug} delay={(i % 3) * 0.07}>
-              <CategoryCard category={category} index={i} priority={i < 3} />
-            </Reveal>
-          ))}
+      <section className="section-tint relative overflow-hidden py-16 sm:py-20">
+        <span className="seam absolute inset-x-0 top-0" />
+        <SectionMark
+          index={1}
+          label={t("menuIndex.eyebrow")}
+          className="left-2 top-6 sm:left-6 sm:top-8"
+        />
+        <span className="deco-glow -left-24 top-10 h-80 w-80 bg-gold-400/15" />
+        <Sprig className="pointer-events-none absolute -right-6 top-24 h-44 w-28 text-gold-600/12" />
+
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {MENU.map((category, i) => (
+              <Reveal
+                key={category.slug}
+                delay={(i % 3) * 0.08}
+                y={34}
+                scale={0.96}
+                blur
+              >
+                <CategoryCard category={category} index={i} priority={i < 3} />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </>

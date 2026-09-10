@@ -29,10 +29,11 @@ export function Reveal({
   children,
   delay = 0,
   y = 26,
+  scale = 1,
   blur = false,
   as = "div",
   className,
-}: RevealProps) {
+}: RevealProps & { scale?: number }) {
   const ref = useRef<HTMLElement | null>(null);
   const reduce = useReducedMotion();
   const [shown, setShown] = useState(false);
@@ -93,13 +94,20 @@ export function Reveal({
   return (
     <MotionTag
       ref={ref}
-      className={className}
+      className={`${className ?? ""}${shown ? " is-in" : ""}`}
       initial={
         reduce
           ? false
-          : { opacity: 0, y, filter: blur ? "blur(8px)" : "blur(0px)" }
+          : {
+              opacity: 0,
+              y,
+              scale,
+              filter: blur ? "blur(8px)" : "blur(0px)",
+            }
       }
-      animate={shown ? { opacity: 1, y: 0, filter: "blur(0px)" } : undefined}
+      animate={
+        shown ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" } : undefined
+      }
       transition={{ duration: 0.75, ease: EASE, delay }}
     >
       {children}

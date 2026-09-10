@@ -25,7 +25,7 @@ export function DishCard({
       href={`/menu/${categorySlug}/${dish.slug}`}
       className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-navy-800/10 bg-cream-50 shadow-card transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:border-gold-500/50 hover:shadow-float"
     >
-      <div className="relative aspect-[5/4] w-full overflow-hidden bg-navy-900">
+      <div className="card-sheen relative aspect-[5/4] w-full overflow-hidden bg-navy-900">
         <DishMedia
           src={dish.image}
           alt={tf(dish.name)}

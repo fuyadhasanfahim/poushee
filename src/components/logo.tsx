@@ -29,15 +29,18 @@ export function Logo({
   const fill =
     tone === "light" ? "var(--color-cream-50)" : "var(--color-brand-blue)";
 
-  const vbH = sub ? 118 : 92;
-  const vbW = 344;
+  /* Tightened lockup — the big P, the small OUSHE and the big E now sit
+     as one word "POUSHEE", with পউষী nested directly above OUSHE, exactly
+     like the printed mark. */
+  const vbH = sub ? 120 : 92;
+  const vbW = 268;
   const w = (height / vbH) * vbW;
 
   return (
     <Link
       href="/"
       aria-label="poushee — Hotel & Restaurant, home"
-      className={`group inline-flex items-center gap-2.5 ${className}`}
+      className={`group inline-flex items-center gap-2 ${className}`}
     >
       <Image
         src="/favicon.png"
@@ -59,63 +62,63 @@ export function Logo({
           className="shrink-0"
         >
           <text
-            x="0"
-            y="82"
+            x="-2"
+            y="80"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="800"
-            fontSize="98"
-            letterSpacing="-3"
+            fontSize="96"
+            letterSpacing="-4"
           >
             P
           </text>
           <text
-            x="160"
-            y="40"
+            x="139"
+            y="36"
             textAnchor="middle"
             fontFamily="var(--font-heading-bn), var(--font-body-bn), serif"
             fontWeight="600"
-            fontSize="44"
+            fontSize="41"
           >
             পউষী
           </text>
           <text
-            x="160"
-            y="84"
+            x="139"
+            y="80"
             textAnchor="middle"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="800"
-            fontSize="47"
+            fontSize="46"
             letterSpacing="0.5"
           >
             OUSHE
           </text>
           <text
-            x="238"
-            y="82"
+            x="210"
+            y="80"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="800"
-            fontSize="98"
-            letterSpacing="-3"
+            fontSize="96"
+            letterSpacing="-4"
           >
             E
           </text>
           <text
-            x="318"
-            y="32"
+            x="256"
+            y="30"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="600"
-            fontSize="17"
+            fontSize="15"
           >
             ®
           </text>
           {sub && (
             <text
-              x="172"
-              y="112"
+              x="136"
+              y="110"
               textAnchor="middle"
               fontFamily="var(--font-body-en), sans-serif"
               fontWeight="700"
-              fontSize="20"
+              fontSize="18.5"
               letterSpacing="3"
             >
               HOTEL &amp; RESTAURANT

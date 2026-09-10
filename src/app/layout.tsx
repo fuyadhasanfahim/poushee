@@ -8,6 +8,8 @@ import {
 import { SITE } from "@/lib/site";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
+import { ScrollProgress } from "@/components/scroll-progress";
 
 /* Body + logo — Inter */
 const inter = Inter({
@@ -118,9 +120,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         <LanguageProvider>
-          <Navbar />
-          <main className="content-layer flex-1">{children}</main>
-          <Footer />
+          <SmoothScroll>
+            <ScrollProgress />
+            <Navbar />
+            <main className="content-layer flex-1">{children}</main>
+            <Footer />
+          </SmoothScroll>
         </LanguageProvider>
       </body>
     </html>

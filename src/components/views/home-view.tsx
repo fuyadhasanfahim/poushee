@@ -14,6 +14,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { OrderNowButton } from "@/components/order-now-button";
 import { DishCard } from "@/components/menu/dish-card";
 import { CategoryCard } from "@/components/menu/category-card";
+import { SectionMark, SeamDivider } from "@/components/decor/section-frame";
 import {
   Sprig,
   BayLeaf,
@@ -57,7 +58,10 @@ export function HomeView() {
   return (
     <>
       {/* ============================================ HERO */}
-      <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-950 pt-24 sm:pt-28">
+      <section
+        id="hero"
+        className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-950 pt-24 sm:pt-28"
+      >
         {/* photo */}
         <div className="absolute inset-0">
           <Parallax speed={60} className="h-[116%] w-full">
@@ -159,11 +163,21 @@ export function HomeView() {
       <Marquee />
 
       {/* ============================================ FEATURED */}
-      <section className="relative overflow-hidden py-24 sm:py-28">
-        <PlateRings className="pointer-events-none absolute -left-24 top-16 h-72 w-72 text-navy-800/[0.06]" />
-        <BayLeaf className="pointer-events-none absolute -right-6 top-40 hidden h-64 w-28 rotate-12 text-gold-600/10 lg:block" />
+      <section
+        id="featured"
+        className="section-tint relative scroll-mt-24 overflow-hidden py-24 sm:py-28"
+      >
+        <span className="seam absolute inset-x-0 top-0" />
+        <SectionMark
+          index={1}
+          label={t("featured.eyebrow")}
+          className="left-2 top-8 sm:left-6 sm:top-10"
+        />
+        <span className="deco-glow -left-24 top-10 h-80 w-80 bg-gold-400/20" />
+        <PlateRings className="pointer-events-none absolute -right-24 top-24 h-72 w-72 text-navy-800/[0.06]" />
+        <BayLeaf className="pointer-events-none absolute -right-6 top-40 hidden h-64 w-28 rotate-12 text-gold-600/12 lg:block" />
 
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <p className="eyebrow justify-center">{t("featured.eyebrow")}</p>
@@ -173,8 +187,11 @@ export function HomeView() {
                 {t("featured.title")}
               </h2>
             </Reveal>
-            <Reveal delay={0.12}>
-              <p className="mt-4 leading-relaxed text-ink-soft">
+            <Reveal delay={0.1}>
+              <span className="rule-draw mx-auto mt-5 block" />
+            </Reveal>
+            <Reveal delay={0.14}>
+              <p className="mt-5 leading-relaxed text-ink-soft">
                 {t("featured.subtitle")}
               </p>
             </Reveal>
@@ -182,7 +199,13 @@ export function HomeView() {
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map(({ category, dish }, i) => (
-              <Reveal key={`${category.slug}-${dish.slug}`} delay={(i % 3) * 0.08}>
+              <Reveal
+                key={`${category.slug}-${dish.slug}`}
+                delay={(i % 3) * 0.09}
+                y={34}
+                scale={0.96}
+                blur
+              >
                 <DishCard
                   dish={dish}
                   categorySlug={category.slug}
@@ -202,8 +225,11 @@ export function HomeView() {
         </div>
       </section>
 
-      {/* ============================================ CRAFT BAND */}
-      <section className="relative overflow-hidden bg-navy-950 py-28 text-cream-50">
+      {/* ============================================ KITCHEN / CRAFT BAND */}
+      <section
+        id="kitchen"
+        className="relative scroll-mt-24 overflow-hidden bg-navy-950 py-28 text-cream-50"
+      >
         <div className="absolute inset-0">
           <Parallax speed={50} className="h-[120%] w-full">
             <Image
@@ -252,9 +278,19 @@ export function HomeView() {
       </section>
 
       {/* ============================================ CHAPTERS */}
-      <section className="relative overflow-hidden py-24 sm:py-28">
-        <Sprig className="pointer-events-none absolute -right-6 top-10 h-40 w-28 text-gold-600/10" />
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <section
+        id="chapters"
+        className="relative scroll-mt-24 overflow-hidden py-24 sm:py-28"
+      >
+        <SectionMark
+          index={2}
+          label={t("menuIndex.eyebrow")}
+          className="right-2 top-8 text-right sm:right-6 sm:top-10"
+        />
+        <span className="deco-glow right-[-6rem] top-24 h-80 w-80 bg-gold-400/15" />
+        <Sprig className="pointer-events-none absolute -left-6 top-16 h-44 w-28 text-gold-600/12" />
+
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-xl">
               <Reveal>
@@ -265,8 +301,11 @@ export function HomeView() {
                   {t("menuIndex.title")}
                 </h2>
               </Reveal>
+              <Reveal delay={0.1}>
+                <span className="rule-draw mt-5 block" />
+              </Reveal>
             </div>
-            <Reveal delay={0.1}>
+            <Reveal delay={0.12}>
               <ButtonLink href="/menu" variant="ghost">
                 {t("featured.viewAll")}
               </ButtonLink>
@@ -275,7 +314,13 @@ export function HomeView() {
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {MENU.slice(0, 6).map((category, i) => (
-              <Reveal key={category.slug} delay={(i % 3) * 0.08}>
+              <Reveal
+                key={category.slug}
+                delay={(i % 3) * 0.09}
+                y={34}
+                scale={0.96}
+                blur
+              >
                 <CategoryCard category={category} index={i} />
               </Reveal>
             ))}
@@ -283,25 +328,40 @@ export function HomeView() {
         </div>
       </section>
 
+      <SeamDivider className="py-2" />
+
       {/* ============================================ ABOUT */}
-      <section id="about" className="scroll-mt-24 py-24 sm:py-28">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <section
+        id="about"
+        className="section-tint relative scroll-mt-24 overflow-hidden py-24 sm:py-28"
+      >
+        <span className="seam absolute inset-x-0 top-0" />
+        <SectionMark
+          index={3}
+          label={t("about.eyebrow")}
+          className="left-2 top-8 sm:left-6 sm:top-10"
+        />
+        <span className="deco-glow left-[-4rem] bottom-10 h-80 w-80 bg-gold-400/18" />
+
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <Reveal>
               <div className="relative">
                 <div className="absolute -left-4 -top-4 h-full w-full rounded-[1.6rem] border border-gold-500/40" />
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem] shadow-float">
-                  <Image
-                    src="/img/dining-room.jpg"
-                    alt={tf({
-                      en: "The dining room at poushee",
-                      bn: "পউষীর ডাইনিং রুম",
-                    })}
-                    fill
-                    sizes="(min-width: 1024px) 42vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
+                <Parallax speed={26}>
+                  <div className="card-sheen group relative aspect-[4/5] overflow-hidden rounded-[1.6rem] shadow-float">
+                    <Image
+                      src="/img/dining-room.jpg"
+                      alt={tf({
+                        en: "The dining room at poushee",
+                        bn: "পউষীর ডাইনিং রুম",
+                      })}
+                      fill
+                      sizes="(min-width: 1024px) 42vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </Parallax>
                 <DottedArc className="absolute -bottom-6 -right-6 h-24 w-24 text-gold-600/40" />
               </div>
             </Reveal>
@@ -312,6 +372,7 @@ export function HomeView() {
                 <h2 className="mt-4 text-[2.1rem] sm:text-[2.7rem]">
                   {t("about.title")}
                 </h2>
+                <span className="rule-draw mt-5 block" />
                 <div className="mt-6 space-y-4 leading-relaxed text-ink-soft">
                   <p>{t("about.p1")}</p>
                   <p>{t("about.p2")}</p>
@@ -323,19 +384,18 @@ export function HomeView() {
                     { n: 1, Icon: Sprig },
                     { n: 2, Icon: BayLeaf },
                     { n: 3, Icon: PlateRings },
-                  ].map(({ n, Icon }) => (
-                    <li
-                      key={n}
-                      className="rounded-2xl border border-navy-800/10 bg-cream-50 p-4 shadow-card"
-                    >
-                      <Icon className="h-7 w-7 text-gold-600" />
-                      <h3 className="mt-3 font-display text-[1.02rem] leading-tight text-navy-900">
-                        {t(`about.value${n}.title` as "about.value1.title")}
-                      </h3>
-                      <p className="mt-1.5 text-[0.85rem] leading-relaxed text-ink-soft">
-                        {t(`about.value${n}.body` as "about.value1.body")}
-                      </p>
-                    </li>
+                  ].map(({ n, Icon }, i) => (
+                    <Reveal as="li" key={n} delay={0.1 + i * 0.08} y={20}>
+                      <div className="group h-full rounded-2xl border border-navy-800/10 bg-cream-50/90 p-4 shadow-card backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-gold-500/45 hover:shadow-float">
+                        <Icon className="h-7 w-7 text-gold-600 transition-transform duration-500 group-hover:-rotate-6" />
+                        <h3 className="mt-3 font-display text-[1.02rem] leading-tight text-navy-900">
+                          {t(`about.value${n}.title` as "about.value1.title")}
+                        </h3>
+                        <p className="mt-1.5 text-[0.85rem] leading-relaxed text-ink-soft">
+                          {t(`about.value${n}.body` as "about.value1.body")}
+                        </p>
+                      </div>
+                    </Reveal>
                   ))}
                 </ul>
               </div>
@@ -345,19 +405,34 @@ export function HomeView() {
       </section>
 
       {/* ============================================ CONTACT */}
-      <section id="contact" className="scroll-mt-24 pb-10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <div className="relative overflow-hidden rounded-[2rem] shadow-float">
+      <section
+        id="contact"
+        className="relative scroll-mt-24 overflow-hidden pb-10 pt-24 sm:pt-28"
+      >
+        <SectionMark
+          index={4}
+          label={t("contact.eyebrow")}
+          className="right-2 top-6 text-right sm:right-6"
+        />
+        <span className="deco-glow right-[-4rem] top-0 h-80 w-80 bg-gold-400/15" />
+
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <Reveal scale={0.97}>
+            <div className="relative overflow-hidden rounded-[2rem] shadow-float ring-1 ring-navy-950/10">
+              <div className="pointer-events-none absolute -left-3 -top-3 z-20 h-16 w-16 rounded-tl-[2rem] border-l-2 border-t-2 border-gold-400/50" />
+              <div className="pointer-events-none absolute -bottom-3 -right-3 z-20 h-16 w-16 rounded-br-[2rem] border-b-2 border-r-2 border-gold-400/50" />
               <div className="absolute inset-0">
-                <Image
-                  src="/img/beach.jpg"
-                  alt=""
-                  fill
-                  sizes="(min-width: 1024px) 1100px, 100vw"
-                  className="object-cover"
-                />
+                <Parallax speed={30} className="relative h-[118%] w-full">
+                  <Image
+                    src="/img/beach.jpg"
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 1100px, 100vw"
+                    className="object-cover"
+                  />
+                </Parallax>
                 <div className="absolute inset-0 bg-navy-950/78" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-navy-950/40" />
                 <div className="absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
               </div>
 
@@ -422,7 +497,7 @@ export function HomeView() {
                       href={mapsHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-cream-50 px-5 py-2.5 text-sm font-medium text-navy-900 transition-all hover:-translate-y-0.5"
+                      className="inline-flex items-center gap-2 rounded-full bg-cream-50 px-5 py-2.5 text-sm font-medium text-navy-900 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(252,249,243,0.5)]"
                     >
                       {t("contact.directions")}
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
