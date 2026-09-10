@@ -51,7 +51,7 @@ export function DishMedia({
       <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.14]" />
       <PlateRings className="pointer-events-none absolute -right-14 -top-14 h-56 w-56 text-gold-300/25" />
       <Sprig className="pointer-events-none absolute -bottom-6 left-4 h-28 w-20 text-gold-300/25" />
-      <div className="pointer-events-none absolute -left-16 bottom-0 h-44 w-44 rounded-full bg-gold-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute -left-16 bottom-0 h-44 w-44 rounded-full bg-[radial-gradient(closest-side,rgba(200,162,78,0.22),transparent_75%)]" />
       {label && (
         <span className="content-layer max-w-[78%] text-center font-display text-xl leading-tight text-cream-50/90">
           {label}

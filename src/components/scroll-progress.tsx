@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useSpring } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/language-provider";
 
 type RailItem = { id: string; label: string };
@@ -10,19 +9,18 @@ type RailItem = { id: string; label: string };
 /**
  * Two things at once:
  *  1. a hairline reading-progress bar pinned under the navbar, and
- *  2. a right-edge section rail (desktop) that tracks which section is in
- *     view and lets you jump between them — so the page always tells you
- *     where you are.
+ *  2. a right-edge section rail (desktop) that tracks which section is
+ *     in view and lets you jump between them.
+ *
+ * The bar is a CSS scroll-driven animation (zero JS) on modern browsers;
+ * a tiny passive rAF listener fills in for the rest. The rail uses one
+ * IntersectionObserver.
  */
 export function ScrollProgress() {
   const pathname = usePathname();
   const { tf } = useLanguage();
-  const { scrollYProgress } = useScroll();
-  const bar = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 30,
-    mass: 0.4,
-  });
+
+  const barRef = useRef<HTMLDivElement>(null);
 
   const isHome = pathname === "/";
   const rail: RailItem[] = isHome
@@ -37,9 +35,39 @@ export function ScrollProgress() {
     : [];
 
   const [active, setActive] = useState<string>(rail[0]?.id ?? "");
-  /* full-bleed navy sections — the rail must go light over these */
   const overDark = active === "hero" || active === "kitchen";
 
+  /* progress bar — JS fallback only where CSS scroll timelines are absent */
+  useEffect(() => {
+    const el = barRef.current;
+    if (!el) return;
+    const supported =
+      typeof CSS !== "undefined" &&
+      CSS.supports?.("animation-timeline: scroll()");
+    if (supported) return;
+
+    el.dataset.js = "";
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      el.style.setProperty("--sp", max > 0 ? String(h.scrollTop / max) : "0");
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  /* active-section tracking */
   useEffect(() => {
     if (!rail.length) return;
     const els = rail
@@ -65,10 +93,10 @@ export function ScrollProgress() {
   return (
     <>
       {/* progress hairline */}
-      <motion.div
+      <div
+        ref={barRef}
         aria-hidden
-        style={{ scaleX: bar }}
-        className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-gradient-to-r from-gold-400 via-gold-500 to-gold-300"
+        className="scroll-progress fixed inset-x-0 top-0 z-[60] h-[3px] bg-gradient-to-r from-gold-400 via-gold-500 to-gold-300"
       />
 
       {/* section rail — desktop only */}
@@ -84,6 +112,8 @@ export function ScrollProgress() {
                 <li key={item.id} className="pointer-events-auto">
                   <a
                     href={`#${item.id}`}
+                    aria-label={item.label}
+                    aria-current={on ? "true" : undefined}
                     className="group flex items-center justify-end gap-2.5"
                   >
                     <span

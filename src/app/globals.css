@@ -32,7 +32,8 @@
 
   --color-ink: #16171c;
   --color-ink-soft: #474a54;
-  --color-ink-faint: #878a93;
+  /* darkened to clear WCAG AA (4.5:1) on the ivory ground */
+  --color-ink-faint: #696c75;
 
   /* Logo-only royal blue (matches the printed poushee mark) */
   --color-brand-blue: #1c2bb5;
@@ -203,8 +204,11 @@ p {
   }
   .ah-inner {
     display: inline-block;
-    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: transform;
+    transform: translateY(115%);
+    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--w-d, 0s);
+  }
+  .is-in .ah-inner {
+    transform: none;
   }
 
   /* Kicker / eyebrow */
@@ -349,11 +353,17 @@ p {
     z-index: 0;
   }
 
-  /* Warm radial lift, drop behind content. */
+  /* Warm radial lift, drop behind content. Painted as a gradient — no
+     `filter: blur()` — so it costs nothing on scroll. */
   .deco-glow {
     position: absolute;
     border-radius: 999px;
-    filter: blur(120px);
+    background: radial-gradient(
+      closest-side,
+      color-mix(in srgb, var(--color-gold-400) 30%, transparent),
+      color-mix(in srgb, var(--color-gold-400) 8%, transparent) 55%,
+      transparent 78%
+    );
     pointer-events: none;
     z-index: 0;
   }
@@ -400,6 +410,158 @@ p {
   }
   .is-in .rule-draw {
     transform: scaleX(1);
+  }
+
+  /* ================================================================ *
+   *  Motion engine — CSS only. No animation library ships to the
+   *  browser; JS just toggles classes / reads scroll offsets.
+   *  Everything here animates `opacity` / `transform` so it stays on
+   *  the compositor at 60fps on mid-range phones.
+   * ================================================================ */
+
+  /* Reveal-on-scroll. JS adds `.is-in` via IntersectionObserver (with a
+     timeout + scroll fallback so content can never stay hidden). The
+     `.js` gate keeps everything visible when JS is off. */
+  .js [data-reveal]:not(.is-in) {
+    opacity: 0;
+    transform: translate3d(0, var(--rv-y, 26px), 0) scale(var(--rv-s, 1));
+  }
+  [data-reveal] {
+    transition:
+      opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1) var(--rv-d, 0s),
+      transform 0.72s cubic-bezier(0.22, 1, 0.36, 1) var(--rv-d, 0s);
+  }
+  [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Gentle infinite float for decorative shapes (compositor-only). */
+  @keyframes floaty {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate3d(0, calc(var(--ft-dist, 16px) * -1), 0)
+        rotate(var(--ft-rot, 0deg));
+    }
+  }
+  [data-floaty] {
+    animation: floaty var(--ft-dur, 8s) ease-in-out infinite;
+    animation-delay: var(--ft-delay, 0s);
+  }
+  /* paused by JS while off-screen */
+  [data-floaty].is-rest {
+    animation-play-state: paused;
+  }
+
+  /* Scroll-linked parallax — zero JS where the browser supports
+     scroll-driven animations; a harmless static offset otherwise. */
+  @supports (animation-timeline: view()) {
+    @keyframes px-drift {
+      from {
+        transform: translate3d(0, var(--px-from, 40px), 0);
+      }
+      to {
+        transform: translate3d(0, var(--px-to, -40px), 0);
+      }
+    }
+    [data-parallax] {
+      animation: px-drift linear both;
+      animation-timeline: view();
+      animation-range: cover;
+      will-change: transform;
+    }
+  }
+
+  /* Reading-progress bar — scroll-driven, zero JS. */
+  @keyframes progress-grow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  .scroll-progress {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      animation: progress-grow linear both;
+      animation-timeline: scroll(root block);
+      will-change: transform;
+    }
+  }
+  /* JS fallback for browsers without scroll-driven animations */
+  .scroll-progress[data-js] {
+    transform: scaleX(var(--sp, 0));
+  }
+
+  /* Mobile nav sheet — CSS enter/exit, stays mounted. */
+  .navsheet {
+    transition:
+      opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+  }
+  .navsheet[data-open="true"] {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  .navsheet-item {
+    transition:
+      opacity 0.3s ease var(--ni-d, 0s),
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1) var(--ni-d, 0s);
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  .navsheet[data-open="true"] .navsheet-item {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* one-shot header drop-in */
+  @keyframes nav-in {
+    from {
+      opacity: 0;
+      transform: translateY(-24px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .nav-in {
+    animation: nav-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+/* Motion-off: honour the OS setting for every engine above. */
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal]:not(.is-in) {
+    opacity: 1;
+    transform: none;
+  }
+  .ah-inner,
+  .is-in .ah-inner {
+    transform: none;
+  }
+  [data-floaty],
+  [data-parallax],
+  .nav-in {
+    animation: none !important;
+  }
+  [data-parallax] {
+    transform: none !important;
+  }
+  .scroll-progress {
+    display: none;
   }
 }
 

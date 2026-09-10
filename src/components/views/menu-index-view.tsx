@@ -44,7 +44,7 @@ export function MenuIndexView() {
           label={t("menuIndex.eyebrow")}
           className="left-2 top-6 sm:left-6 sm:top-8"
         />
-        <span className="deco-glow -left-24 top-10 h-80 w-80 bg-gold-400/15" />
+        <span className="deco-glow -left-24 top-10 h-80 w-80" />
         <Sprig className="pointer-events-none absolute -right-6 top-24 h-44 w-28 text-gold-600/12" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

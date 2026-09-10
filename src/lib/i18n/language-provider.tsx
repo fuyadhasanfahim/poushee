@@ -118,4 +118,4 @@ export function useLanguage(): LanguageContextValue {
  * Blocking snippet injected before paint so a returning Bengali visitor
  * never sees an English flash. Keep it tiny and dependency-free.
  */
-export const LANG_BOOTSTRAP_SCRIPT = `(function(){try{var l=localStorage.getItem('${STORAGE_KEY}');if(l==='bn'){document.documentElement.classList.add('lang-bn');document.documentElement.lang='bn';}}catch(e){}})();`;
+export const LANG_BOOTSTRAP_SCRIPT = `(function(){var d=document.documentElement;d.classList.add('js');try{var l=localStorage.getItem('${STORAGE_KEY}');if(l==='bn'){d.classList.add('lang-bn');d.lang='bn';}}catch(e){}})();`;

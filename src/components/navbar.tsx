@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
 import { Logo } from "./logo";
 import { LanguageToggle } from "./language-toggle";
 import { OrderNowButton } from "./order-now-button";
@@ -47,11 +46,8 @@ export function Navbar() {
   const tone: "light" | "dark" = solid ? "dark" : "light";
 
   return (
-    <motion.header
-      initial={{ y: -24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed inset-x-0 top-0 z-50 transition-[background,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+    <header
+      className={`nav-in fixed inset-x-0 top-0 z-50 transition-[background,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         solid
           ? "border-b border-navy-800/10 bg-cream-50/75 shadow-[0_10px_40px_-24px_rgba(12,22,54,0.4)] backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
@@ -113,41 +109,35 @@ export function Navbar() {
         </div>
       </nav>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden"
-          >
-            <div className="mx-3 mb-3 overflow-hidden rounded-3xl border border-navy-800/10 bg-cream-50/95 shadow-float backdrop-blur-2xl">
-              <div className="flex flex-col gap-1 p-4">
-                {NAV.map((item, i) => (
-                  <motion.div
-                    key={item.key}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 + i * 0.05, duration: 0.3 }}
-                  >
-                    <Link
-                      href={item.href}
-                      className="block rounded-xl px-4 py-3 font-display text-lg text-navy-900 transition-colors hover:bg-navy-800/5"
-                    >
-                      {t(item.key)}
-                    </Link>
-                  </motion.div>
-                ))}
-                <div className="mt-2 flex items-center justify-between gap-3 border-t border-navy-800/10 pt-4">
-                  <LanguageToggle tone="dark" />
-                  <OrderNowButton tone="gold" />
-                </div>
+      <div
+        className="navsheet lg:hidden"
+        data-open={menuOpen}
+        aria-hidden={!menuOpen}
+      >
+        <div className="mx-3 mb-3 overflow-hidden rounded-3xl border border-navy-800/10 bg-cream-50/95 shadow-float backdrop-blur-2xl">
+          <div className="flex flex-col gap-1 p-4">
+            {NAV.map((item, i) => (
+              <div
+                key={item.key}
+                className="navsheet-item"
+                style={{ "--ni-d": `${0.05 + i * 0.05}s` } as React.CSSProperties}
+              >
+                <Link
+                  href={item.href}
+                  tabIndex={menuOpen ? undefined : -1}
+                  className="block rounded-xl px-4 py-3 font-display text-lg text-navy-900 transition-colors hover:bg-navy-800/5"
+                >
+                  {t(item.key)}
+                </Link>
               </div>
+            ))}
+            <div className="mt-2 flex items-center justify-between gap-3 border-t border-navy-800/10 pt-4">
+              <LanguageToggle tone="dark" />
+              <OrderNowButton tone="gold" />
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }

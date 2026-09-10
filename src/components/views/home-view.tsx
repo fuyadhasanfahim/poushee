@@ -36,7 +36,10 @@ function Marquee() {
       : ["Mezbani", "Kala Bhuna", "Sorshe Ilish", "Kacchi Biryani", "Fresh Seafood", "Coal BBQ", "Bhorta", "Nihari"];
   const run = [...words, ...words];
   return (
-    <div className="marquee-mask relative flex overflow-hidden border-y border-cream-50/10 bg-navy-950 py-4 select-none">
+    <div
+      aria-hidden="true"
+      className="marquee-mask relative flex overflow-hidden border-y border-cream-50/10 bg-navy-950 py-4 select-none"
+    >
       <div className="marquee-track">
         {run.map((w, i) => (
           <span key={i} className="flex items-center whitespace-nowrap">
@@ -89,7 +92,7 @@ export function HomeView() {
         <Floaty className="pointer-events-none absolute bottom-8 right-6 hidden lg:block" dur={13} dist={22} delay={0.6}>
           <DottedArc className="h-40 w-40 text-gold-300/30" />
         </Floaty>
-        <div className="pointer-events-none absolute -left-24 bottom-0 h-96 w-96 rounded-full bg-gold-500/15 blur-[130px]" />
+        <span className="deco-glow -left-24 bottom-0 h-96 w-96 opacity-90" />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
@@ -150,7 +153,7 @@ export function HomeView() {
           </div>
         </div>
 
-        <div className="pointer-events-none absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-cream-50/40">
+        <div className="pointer-events-none absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-cream-50/55">
           <span className="text-[0.62rem] uppercase tracking-[0.3em]">
             {t("hero.scroll")}
           </span>
@@ -173,7 +176,7 @@ export function HomeView() {
           label={t("featured.eyebrow")}
           className="left-2 top-8 sm:left-6 sm:top-10"
         />
-        <span className="deco-glow -left-24 top-10 h-80 w-80 bg-gold-400/20" />
+        <span className="deco-glow -left-24 top-10 h-80 w-80" />
         <PlateRings className="pointer-events-none absolute -right-24 top-24 h-72 w-72 text-navy-800/[0.06]" />
         <BayLeaf className="pointer-events-none absolute -right-6 top-40 hidden h-64 w-28 rotate-12 text-gold-600/12 lg:block" />
 
@@ -287,7 +290,7 @@ export function HomeView() {
           label={t("menuIndex.eyebrow")}
           className="right-2 top-8 text-right sm:right-6 sm:top-10"
         />
-        <span className="deco-glow right-[-6rem] top-24 h-80 w-80 bg-gold-400/15" />
+        <span className="deco-glow right-[-6rem] top-24 h-80 w-80" />
         <Sprig className="pointer-events-none absolute -left-6 top-16 h-44 w-28 text-gold-600/12" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -341,7 +344,7 @@ export function HomeView() {
           label={t("about.eyebrow")}
           className="left-2 top-8 sm:left-6 sm:top-10"
         />
-        <span className="deco-glow left-[-4rem] bottom-10 h-80 w-80 bg-gold-400/18" />
+        <span className="deco-glow left-[-4rem] bottom-10 h-80 w-80" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -414,7 +417,7 @@ export function HomeView() {
           label={t("contact.eyebrow")}
           className="right-2 top-6 text-right sm:right-6"
         />
-        <span className="deco-glow right-[-4rem] top-0 h-80 w-80 bg-gold-400/15" />
+        <span className="deco-glow right-[-4rem] top-0 h-80 w-80" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal scale={0.97}>

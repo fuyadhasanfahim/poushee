@@ -11,7 +11,7 @@ import { Footer } from "@/components/footer";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { ScrollProgress } from "@/components/scroll-progress";
 
-/* Body + logo — Inter */
+/* Body + logo — Inter (the LCP font, so keep it preloaded) */
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -23,22 +23,25 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display-en",
-  axes: ["opsz", "SOFT"],
+  axes: ["opsz"],
 });
 
-/* Bengali body */
+/* Bengali body — not preloaded: English visitors never pay for it, it
+   loads on demand when the visitor switches to Bengali. */
 const hindSiliguri = Hind_Siliguri({
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["bengali", "latin"],
+  weight: ["400", "600", "700"],
+  subsets: ["bengali"],
   display: "swap",
+  preload: false,
   variable: "--font-body-bn",
 });
 
-/* Bengali display — elegant serif to pair with Fraunces */
+/* Bengali display — elegant serif to pair with Fraunces (also on demand) */
 const tiroBangla = Tiro_Bangla({
   weight: "400",
-  subsets: ["bengali", "latin"],
+  subsets: ["bengali"],
   display: "swap",
+  preload: false,
   variable: "--font-heading-bn",
 });
 
@@ -104,7 +107,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               telephone: SITE.phonesDisplay[0],
               email: SITE.emails[0],
               url: SITE.url,
+              image: `${SITE.url}/img/hero-thali.jpg`,
               hasMenu: `${SITE.url}/menu`,
+              acceptsReservations: true,
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "World Beach Resort, Dolphin Mor, Kolatoli",
@@ -115,6 +120,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 "@type": "GeoCoordinates",
                 latitude: 21.4127,
                 longitude: 92.0058,
+              },
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                opens: "08:00",
+                closes: "23:30",
               },
             }),
           }}

@@ -1,30 +1,44 @@
 "use client";
 
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-  type MotionProps,
-} from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 /* ------------------------------------------------------------------ *
- *  Reveal — fade + lift into view, once. IntersectionObserver +
- *  scroll fallback + timeout, so content can never stay invisible.
+ *  Motion primitives — CSS-driven. No animation library is shipped;
+ *  these components only toggle classes / set CSS custom properties.
+ *  The animation itself lives in globals.css and runs on the
+ *  compositor (opacity + transform only) — 60fps on mid-range phones.
  * ------------------------------------------------------------------ */
+
+function usePrefersReducedMotion() {
+  const [reduce, setReduce] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const on = () => setReduce(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  return reduce;
+}
+
+type Tag = "div" | "section" | "li" | "article" | "span" | "ul";
+
 type RevealProps = {
   children: React.ReactNode;
   delay?: number;
   y?: number;
+  scale?: number;
+  /** kept for call-site compatibility — adds a touch more travel */
   blur?: boolean;
-  as?: "div" | "section" | "li" | "article" | "span" | "ul";
+  as?: Tag;
   className?: string;
+  style?: CSSProperties;
 };
 
+/**
+ * Fade + lift into view, once. IntersectionObserver drives it, with a
+ * scroll fallback and a hard timeout so content can never stay hidden.
+ */
 export function Reveal({
   children,
   delay = 0,
@@ -32,10 +46,11 @@ export function Reveal({
   scale = 1,
   blur = false,
   as = "div",
-  className,
-}: RevealProps & { scale?: number }) {
+  className = "",
+  style,
+}: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
@@ -82,75 +97,65 @@ export function Reveal({
     return cleanup;
   }, [reduce]);
 
-  const MotionTag = (
-    motion as unknown as Record<
-      string,
-      React.ComponentType<
-        MotionProps & { ref?: React.Ref<HTMLElement>; className?: string }
-      >
-    >
-  )[as];
+  const travel = blur ? y + 10 : y;
+  const s = blur ? Math.min(scale, 0.965) : scale;
+  const Tag = as as "div";
 
   return (
-    <MotionTag
-      ref={ref}
-      className={`${className ?? ""}${shown ? " is-in" : ""}`}
-      initial={
-        reduce
-          ? false
-          : {
-              opacity: 0,
-              y,
-              scale,
-              filter: blur ? "blur(8px)" : "blur(0px)",
-            }
+    <Tag
+      ref={ref as React.Ref<HTMLDivElement>}
+      data-reveal=""
+      className={`${className}${shown ? " is-in" : ""}`}
+      style={
+        {
+          "--rv-y": `${travel}px`,
+          "--rv-s": s,
+          "--rv-d": `${delay}s`,
+          ...style,
+        } as CSSProperties
       }
-      animate={
-        shown ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" } : undefined
-      }
-      transition={{ duration: 0.75, ease: EASE, delay }}
     >
       {children}
-    </MotionTag>
+    </Tag>
   );
 }
 
-/* ------------------------------------------------------------------ *
- *  Parallax — vertical drift as the element scrolls through view.
- * ------------------------------------------------------------------ */
+/**
+ * Scroll-linked vertical drift. Pure CSS via scroll-driven animations
+ * where supported; a harmless static offset (or nothing) elsewhere.
+ */
 export function Parallax({
   children,
   speed = 40,
-  className,
+  className = "",
 }: {
   children: React.ReactNode;
   speed?: number;
   className?: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    reduce ? [0, 0] : [speed, -speed],
-  );
   return (
-    <motion.div ref={ref} style={{ y }} className={className}>
+    <div
+      data-parallax=""
+      className={className}
+      style={
+        {
+          "--px-from": `${speed}px`,
+          "--px-to": `${-speed}px`,
+        } as CSSProperties
+      }
+    >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
-/* ------------------------------------------------------------------ *
- *  Floaty — gentle infinite float for decorative shapes.
- * ------------------------------------------------------------------ */
+/**
+ * Gentle infinite float for decorative shapes. Compositor-only, and
+ * paused by an observer whenever it scrolls out of view.
+ */
 export function Floaty({
   children,
-  className,
+  className = "",
   dur = 8,
   dist = 16,
   delay = 0,
@@ -163,70 +168,52 @@ export function Floaty({
   delay?: number;
   rotate?: number;
 }) {
-  const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      ([e]) => el.classList.toggle("is-rest", !e.isIntersecting),
+      { rootMargin: "120px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <motion.div
+    <div
+      ref={ref}
+      data-floaty=""
       className={className}
-      animate={{ y: [0, -dist, 0], rotate: [0, rotate, 0] }}
-      transition={{ duration: dur, repeat: Infinity, ease: "easeInOut", delay }}
+      style={
+        {
+          "--ft-dur": `${dur}s`,
+          "--ft-dist": `${dist}px`,
+          "--ft-delay": `${delay}s`,
+          "--ft-rot": `${rotate}deg`,
+        } as CSSProperties
+      }
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
-/* ------------------------------------------------------------------ *
- *  TiltCard — subtle pointer-driven 3D tilt.
- * ------------------------------------------------------------------ */
-export function TiltCard({
-  children,
-  className,
-  max = 5,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  max?: number;
-}) {
-  const reduce = useReducedMotion();
-  const rx = useSpring(0, { stiffness: 220, damping: 22 });
-  const ry = useSpring(0, { stiffness: 220, damping: 22 });
-
-  if (reduce) return <div className={className}>{children}</div>;
-
-  return (
-    <motion.div
-      className={className}
-      style={{ rotateX: rx, rotateY: ry, transformPerspective: 1000 }}
-      onMouseMove={(e) => {
-        const r = e.currentTarget.getBoundingClientRect();
-        ry.set(((e.clientX - r.left) / r.width - 0.5) * max * 2);
-        rx.set(-((e.clientY - r.top) / r.height - 0.5) * max * 2);
-      }}
-      onMouseLeave={() => {
-        rx.set(0);
-        ry.set(0);
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-/* ------------------------------------------------------------------ *
- *  Word-by-word display heading — CSS transform + class toggle, so it
- *  always ends visible even if animation frames were suppressed.
- * ------------------------------------------------------------------ */
+/**
+ * Word-by-word display heading. CSS transform + a single class toggle,
+ * so it always ends visible even if frames were dropped.
+ */
 export function AnimatedHeading({
   text,
-  className,
+  className = "",
   delay = 0,
 }: {
   text: string;
   className?: string;
   delay?: number;
 }) {
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
@@ -238,18 +225,18 @@ export function AnimatedHeading({
   const words = text.split(" ");
 
   return (
-    <span className={className}>
+    <span className={`${className}${shown ? " is-in" : ""}`}>
       {words.map((w, i) => (
-        <span key={i} className="ah-word">
-          <span
-            className="ah-inner"
-            style={{
-              transitionDelay: delay + i * 0.08 + "s",
-              transform: shown ? "none" : "translateY(115%)",
-            }}
-          >
-            {i + 1 < words.length ? w + " " : w}
+        <span key={i}>
+          <span className="ah-word">
+            <span
+              className="ah-inner"
+              style={{ "--w-d": `${delay + i * 0.08}s` } as CSSProperties}
+            >
+              {w}
+            </span>
           </span>
+          {i + 1 < words.length ? " " : ""}
         </span>
       ))}
     </span>

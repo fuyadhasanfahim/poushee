@@ -22,7 +22,7 @@ export function DishView({
 
   return (
     <article className="relative overflow-hidden pt-28 pb-10 sm:pt-36">
-      <span className="deco-glow -left-32 top-16 h-96 w-96 bg-gold-400/15" />
+      <span className="deco-glow -left-32 top-16 h-96 w-96" />
       <PlateRings className="pointer-events-none absolute -left-24 top-24 h-80 w-80 text-navy-800/[0.05]" />
       <Floaty
         className="pointer-events-none absolute -right-8 top-40 hidden lg:block"
