@@ -3,9 +3,9 @@
  * Sourced from the client's official business card.
  */
 export const SITE = {
-  name: "PousheE",
-  /** lowercase trademark form for body copy */
-  wordmark: "poushee",
+  name: "Poushee",
+  /** plain-text brand name for body copy (the stylised "PousheE" lives only in the logo) */
+  wordmark: "Poushee",
   registered: true,
   url: "https://poushee.vercel.app",
 

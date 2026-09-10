@@ -24,7 +24,7 @@ export async function generateMetadata({
     description: desc,
     alternates: { canonical: `/menu/${cat.slug}/${dish.slug}` },
     openGraph: {
-      title: `${dish.name.en} · PousheE`,
+      title: `${dish.name.en} · Poushee`,
       description: desc,
       type: "article",
     },

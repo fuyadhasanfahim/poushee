@@ -28,7 +28,7 @@ const en = {
   "hero.eyebrow": "Kolatoli · Cox's Bazar",
   "hero.title": "A seat by the sea, a table of tradition",
   "hero.subtitle":
-    "From Chattogram mezbani to the day's fresh catch — poushee serves the flavours of Bangladesh beside the world's longest beach.",
+    "From Chattogram mezbani to the day's fresh catch — Poushee serves the flavours of Bangladesh beside the world's longest beach.",
   "hero.ctaMenu": "Explore the Menu",
   "hero.ctaContact": "Find Us",
   "hero.scroll": "Scroll to discover",
@@ -64,11 +64,11 @@ const en = {
   "about.eyebrow": "Our story",
   "about.title": "Hospitality, the Cox's Bazar way",
   "about.p1":
-    "poushee grew out of a simple idea: that a meal by the sea should taste of the land it belongs to. We sit at Dolphin Mor in Kolatoli, a few steps from the tide, inside World Beach Resort.",
+    "Poushee grew out of a simple idea: that a meal by the sea should taste of the land it belongs to. We sit at Dolphin Mor in Kolatoli, a few steps from the tide, inside World Beach Resort.",
   "about.p2":
     "Our kitchen leans on Chattogram's home cooking — slow mezbani beef, kala bhuna, fresh reef fish grilled over coal — alongside the biryani, bhorta and breakfast a Bangladeshi table expects.",
   "about.p3":
-    "The name is a registered mark, written poushee®. The promise behind it is older than the sign: your trust, our triumph.",
+    "The name is a registered mark, written Poushee®. The promise behind it is older than the sign: your trust, our triumph.",
   "about.value1.title": "Rooted in Chattogram",
   "about.value1.body": "Recipes from the region's households, not a generic menu.",
   "about.value2.title": "Caught, not stored",
@@ -89,7 +89,7 @@ const en = {
   "footer.explore": "Explore",
   "footer.contact": "Contact",
   "footer.rights": "All rights reserved.",
-  "footer.trademark": "poushee® is a registered trademark.",
+  "footer.trademark": "Poushee® is a registered trademark.",
 
   "notFound.title": "This page has left the table",
   "notFound.body": "The page you were looking for could not be found.",
@@ -158,7 +158,7 @@ const bn: Record<UIKey, string> = {
   "about.p2":
     "আমাদের রান্নাঘর চট্টগ্রামের ঘরোয়া রান্নার উপর নির্ভর করে — ধীরে রাঁধা মেজবানি গরু, কালা ভুনা, কয়লায় ঝলসানো তাজা মাছ — সঙ্গে বিরিয়ানি, ভর্তা আর বাঙালি নাশতা।",
   "about.p3":
-    "নামটি একটি নিবন্ধিত ট্রেডমার্ক, লেখা হয় poushee®। এর পেছনের প্রতিশ্রুতি সাইনবোর্ডের চেয়েও পুরনো: আপনাদের আস্থা, আমরা করব জয়।",
+    "নামটি একটি নিবন্ধিত ট্রেডমার্ক, লেখা হয় Poushee®। এর পেছনের প্রতিশ্রুতি সাইনবোর্ডের চেয়েও পুরনো: আপনাদের আস্থা, আমরা করব জয়।",
   "about.value1.title": "চট্টগ্রামের শিকড়",
   "about.value1.body": "অঞ্চলের ঘরে ঘরে রাঁধা রেসিপি, গৎবাঁধা মেনু নয়।",
   "about.value2.title": "তাজা, জমানো নয়",
@@ -179,7 +179,7 @@ const bn: Record<UIKey, string> = {
   "footer.explore": "ঘুরে দেখুন",
   "footer.contact": "যোগাযোগ",
   "footer.rights": "সর্বস্বত্ব সংরক্ষিত।",
-  "footer.trademark": "poushee® একটি নিবন্ধিত ট্রেডমার্ক।",
+  "footer.trademark": "Poushee® একটি নিবন্ধিত ট্রেডমার্ক।",
 
   "notFound.title": "পাতাটি টেবিল ছেড়ে চলে গেছে",
   "notFound.body": "আপনি যে পাতাটি খুঁজছিলেন তা পাওয়া যায়নি।",

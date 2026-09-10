@@ -353,7 +353,7 @@ export function HomeView() {
                     <Image
                       src="/img/dining-room.jpg"
                       alt={tf({
-                        en: "The dining room at poushee",
+                        en: "The dining room at Poushee",
                         bn: "পউষীর ডাইনিং রুম",
                       })}
                       fill

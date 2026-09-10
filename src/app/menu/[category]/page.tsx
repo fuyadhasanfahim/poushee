@@ -22,7 +22,7 @@ export async function generateMetadata({
     description: category.blurb.en,
     alternates: { canonical: `/menu/${category.slug}` },
     openGraph: {
-      title: `${category.name.en} · PousheE`,
+      title: `${category.name.en} · Poushee`,
       description: category.blurb.en,
     },
   };
