@@ -77,6 +77,7 @@ export function CategoryView({ category }: { category: MenuCategory }) {
 
       {/* dishes */}
       <section className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <span className="deco-glow -right-32 top-24 h-96 w-96 bg-gold-400/12" />
         <Sprig className="pointer-events-none absolute -left-6 top-8 hidden h-40 w-28 text-gold-600/10 lg:block" />
         <div className="space-y-16">
           {sections.map(({ section, dishes }) => {
@@ -95,7 +96,13 @@ export function CategoryView({ category }: { category: MenuCategory }) {
                 )}
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {dishes.map((dish, i) => (
-                    <Reveal key={dish.slug} delay={(i % 3) * 0.07}>
+                    <Reveal
+                      key={dish.slug}
+                      delay={(i % 3) * 0.09}
+                      y={32}
+                      scale={0.96}
+                      blur
+                    >
                       <DishCard
                         dish={dish}
                         categorySlug={category.slug}

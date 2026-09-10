@@ -37,6 +37,8 @@ export function ScrollProgress() {
     : [];
 
   const [active, setActive] = useState<string>(rail[0]?.id ?? "");
+  /* full-bleed navy sections — the rail must go light over these */
+  const overDark = active === "hero" || active === "kitchen";
 
   useEffect(() => {
     if (!rail.length) return;
@@ -85,23 +87,35 @@ export function ScrollProgress() {
                     className="group flex items-center justify-end gap-2.5"
                   >
                     <span
-                      className={`font-body text-[0.7rem] font-medium uppercase tracking-[0.16em] transition-all duration-300 ${
+                      className={`font-body text-[0.7rem] font-medium uppercase tracking-[0.16em] transition-all duration-500 ${
+                        on ? "opacity-100" : "opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
+                      } ${
                         on
-                          ? "text-navy-900 opacity-100"
-                          : "text-ink-faint opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
+                          ? overDark
+                            ? "text-cream-50 [text-shadow:0_1px_10px_rgba(6,12,34,0.6)]"
+                            : "text-navy-900"
+                          : overDark
+                            ? "text-cream-50/70"
+                            : "text-ink-faint"
                       }`}
                     >
                       {item.label}
                     </span>
                     <span
-                      className={`relative block rounded-full transition-all duration-300 ${
+                      className={`relative block rounded-full transition-all duration-500 ${
                         on
-                          ? "h-2.5 w-2.5 bg-gold-500"
-                          : "h-1.5 w-1.5 bg-navy-800/25 group-hover:bg-navy-800/50"
+                          ? "h-2.5 w-2.5 bg-gold-500 shadow-[0_0_0_4px_rgba(200,162,78,0.18)]"
+                          : overDark
+                            ? "h-1.5 w-1.5 bg-cream-50/45 group-hover:bg-cream-50/80"
+                            : "h-1.5 w-1.5 bg-navy-800/25 group-hover:bg-navy-800/55"
                       }`}
                     >
                       {on && (
-                        <span className="absolute -inset-1.5 rounded-full border border-gold-500/40" />
+                        <span
+                          className={`absolute -inset-1.5 rounded-full border ${
+                            overDark ? "border-gold-300/60" : "border-gold-500/45"
+                          }`}
+                        />
                       )}
                     </span>
                   </a>

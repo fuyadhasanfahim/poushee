@@ -12,7 +12,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="content-layer relative mt-24 overflow-hidden bg-navy-950 text-cream-50/78">
+    <footer className="content-layer relative mt-12 overflow-hidden bg-navy-950 text-cream-50/78">
       <div className="absolute inset-0 text-cream-50 bg-dots opacity-[0.05]" />
       <Sprig className="pointer-events-none absolute -left-6 top-10 h-40 w-28 text-gold-300/12" />
       <DottedArc className="pointer-events-none absolute -right-4 bottom-10 h-40 w-40 text-gold-300/16" />

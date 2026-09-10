@@ -418,9 +418,7 @@ export function HomeView() {
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal scale={0.97}>
-            <div className="relative overflow-hidden rounded-[2rem] shadow-float ring-1 ring-navy-950/10">
-              <div className="pointer-events-none absolute -left-3 -top-3 z-20 h-16 w-16 rounded-tl-[2rem] border-l-2 border-t-2 border-gold-400/50" />
-              <div className="pointer-events-none absolute -bottom-3 -right-3 z-20 h-16 w-16 rounded-br-[2rem] border-b-2 border-r-2 border-gold-400/50" />
+            <div className="relative overflow-hidden rounded-[2rem] shadow-float">
               <div className="absolute inset-0">
                 <Parallax speed={30} className="relative h-[118%] w-full">
                   <Image
