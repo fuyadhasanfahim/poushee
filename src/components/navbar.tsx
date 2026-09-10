@@ -17,8 +17,15 @@ const NAV = [
 
 export function Navbar() {
   const pathname = usePathname();
-  const { t } = useLanguage();
+  const { t, tf } = useLanguage();
   const isHome = pathname === "/";
+
+  const isActive = (href: string) =>
+    href === "/"
+      ? pathname === "/"
+      : href === "/menu"
+        ? pathname.startsWith("/menu")
+        : false;
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -46,6 +53,7 @@ export function Navbar() {
   const tone: "light" | "dark" = solid ? "dark" : "light";
 
   return (
+    <>
     <header
       className={`nav-in fixed inset-x-0 top-0 z-50 transition-[background,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         solid
@@ -53,7 +61,7 @@ export function Navbar() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-6 lg:px-8">
+      <nav className="relative z-50 mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-6 lg:px-8">
         <Logo tone={tone} sub={false} height={26} />
 
         <div className="hidden items-center gap-1 lg:flex">
@@ -91,53 +99,86 @@ export function Navbar() {
             type="button"
             aria-label={menuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
             aria-expanded={menuOpen}
+            data-open={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
-            className={`relative grid h-10 w-10 place-items-center rounded-full border transition-colors lg:hidden ${
-              tone === "light"
-                ? "border-white/25 bg-white/10 text-cream-50"
-                : "border-navy-800/15 bg-white/60 text-navy-900"
+            className={`menu-btn relative grid h-11 w-11 shrink-0 place-items-center rounded-full border transition-colors duration-300 lg:hidden ${
+              menuOpen
+                ? "border-gold-500/40 bg-gold-500/15 text-navy-900"
+                : tone === "light"
+                  ? "border-white/25 bg-white/10 text-cream-50"
+                  : "border-navy-800/15 bg-white/60 text-navy-900"
             }`}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              {menuOpen ? (
-                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              ) : (
-                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              )}
-            </svg>
+            <span className="menu-bars" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
           </button>
         </div>
       </nav>
+    </header>
 
       <div
         className="navsheet lg:hidden"
         data-open={menuOpen}
         aria-hidden={!menuOpen}
       >
-        <div className="mx-3 mb-3 overflow-hidden rounded-3xl border border-navy-800/10 bg-cream-50/95 shadow-float backdrop-blur-2xl">
-          <div className="flex flex-col gap-1 p-4">
-            {NAV.map((item, i) => (
-              <div
-                key={item.key}
-                className="navsheet-item"
-                style={{ "--ni-d": `${0.05 + i * 0.05}s` } as React.CSSProperties}
-              >
-                <Link
-                  href={item.href}
-                  tabIndex={menuOpen ? undefined : -1}
-                  className="block rounded-xl px-4 py-3 font-display text-lg text-navy-900 transition-colors hover:bg-navy-800/5"
+        <button
+          type="button"
+          className="navsheet-scrim"
+          aria-label={t("nav.closeMenu")}
+          tabIndex={menuOpen ? undefined : -1}
+          onClick={() => setMenuOpen(false)}
+        />
+        <div className="navsheet-panel" role="dialog" aria-modal="true" aria-label={t("nav.menu")}>
+          <p className="navsheet-eyebrow">
+            {tf({ en: "Navigate", bn: "কোথায় যাবেন" })}
+          </p>
+          <ul className="navsheet-list">
+            {NAV.map((item, i) => {
+              const active = isActive(item.href);
+              return (
+                <li
+                  key={item.key}
+                  className="navsheet-item"
+                  style={
+                    { "--ni-d": `${0.07 + i * 0.055}s` } as React.CSSProperties
+                  }
                 >
-                  {t(item.key)}
-                </Link>
-              </div>
-            ))}
-            <div className="mt-2 flex items-center justify-between gap-3 border-t border-navy-800/10 pt-4">
-              <LanguageToggle tone="dark" />
-              <OrderNowButton tone="gold" />
-            </div>
+                  <Link
+                    href={item.href}
+                    tabIndex={menuOpen ? undefined : -1}
+                    aria-current={active ? "page" : undefined}
+                    className={`navsheet-link${active ? " is-active" : ""}`}
+                  >
+                    <span className="navsheet-bar" aria-hidden="true" />
+                    <span className="navsheet-label">{t(item.key)}</span>
+                    <svg
+                      className="navsheet-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M5 12h14M13 6l6 6-6 6"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="navsheet-foot">
+            <LanguageToggle tone="dark" />
+            <OrderNowButton tone="gold" />
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }
