@@ -163,47 +163,49 @@ export function HomeView() {
       {/* ============================================ ABOUT THE RESTAURANT */}
       <section
         id="about"
-        className="section-tint relative overflow-hidden py-24 sm:py-28"
+        className="section-blue relative overflow-hidden py-24 sm:py-28"
       >
-        <span className="seam absolute inset-x-0 top-0" />
+        <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
+        <span className="seam absolute inset-x-0 top-0 opacity-60" />
         <SectionMark
           index={1}
           label={t("home.about.eyebrow")}
+          tone="light"
           className="left-2 top-8 sm:left-6 sm:top-10"
         />
-        <span className="deco-glow left-[-4rem] bottom-10 h-80 w-80" />
-        <FloralSpray className="pointer-events-none absolute -right-10 top-10 hidden h-72 w-64 rotate-6 text-gold-600/12 lg:block" />
-        <WaterLily className="pointer-events-none absolute -left-8 bottom-8 h-40 w-40 text-sky-400/25" />
-        <Sprig className="pointer-events-none absolute right-8 bottom-24 hidden h-40 w-28 text-gold-600/10 md:block" />
+        <span className="deco-glow left-[-4rem] bottom-10 h-80 w-80 opacity-70" />
+        <FloralSpray className="pointer-events-none absolute -right-10 top-10 hidden h-72 w-64 rotate-6 text-gold-300/16 lg:block" />
+        <WaterLily className="pointer-events-none absolute -left-8 bottom-8 h-40 w-40 text-cream-50/12" />
+        <Sprig className="pointer-events-none absolute right-8 bottom-24 hidden h-40 w-28 text-gold-300/12 md:block" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <Reveal delay={0.08}>
               <div>
-                <p className="eyebrow">{t("home.about.eyebrow")}</p>
-                <h2 className="font-title mt-4 text-[2.1rem] sm:text-[2.7rem]">
+                <p className="eyebrow !text-gold-300">{t("home.about.eyebrow")}</p>
+                <h2 className="font-title mt-4 text-[2.1rem] text-cream-50 sm:text-[2.7rem]">
                   {t("home.about.title")}
                 </h2>
                 <span className="rule-draw mt-5 block" />
-                <div className="font-body mt-6 space-y-4 leading-relaxed text-ink-soft">
+                <div className="font-body mt-6 space-y-4 leading-relaxed text-cream-50/75">
                   <p>{t("home.about.p1")}</p>
                   <p>{t("home.about.p2")}</p>
                 </div>
 
                 <dl className="mt-8 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-navy-800/10 bg-white/70 p-4 shadow-card backdrop-blur-sm">
-                    <dt className="font-script text-[1rem] font-semibold text-gold-700">
+                  <div className="rounded-2xl border border-cream-50/15 bg-cream-50/5 p-4 shadow-card backdrop-blur-sm">
+                    <dt className="font-script text-[1rem] font-semibold text-gold-300">
                       {t("contact.hours")}
                     </dt>
-                    <dd className="font-body mt-1 text-[0.9rem] text-ink-soft">
+                    <dd className="font-body mt-1 text-[0.9rem] text-cream-50/72">
                       {t("home.about.hours")}
                     </dd>
                   </div>
-                  <div className="rounded-2xl border border-navy-800/10 bg-white/70 p-4 shadow-card backdrop-blur-sm">
-                    <dt className="font-script text-[1rem] font-semibold text-gold-700">
+                  <div className="rounded-2xl border border-cream-50/15 bg-cream-50/5 p-4 shadow-card backdrop-blur-sm">
+                    <dt className="font-script text-[1rem] font-semibold text-gold-300">
                       {tf({ en: "Per person", bn: "জনপ্রতি" })}
                     </dt>
-                    <dd className="font-body mt-1 text-[0.9rem] text-ink-soft">
+                    <dd className="font-body mt-1 text-[0.9rem] text-cream-50/72">
                       {tf(SITE.pricePerPerson)}
                     </dd>
                   </div>
@@ -217,7 +219,7 @@ export function HomeView() {
 
             <Reveal y={40} scale={0.96} blur>
               <div className="relative">
-                <div className="absolute -right-4 -top-4 h-full w-full rounded-[1.6rem] border border-gold-500/40" />
+                <div className="absolute -right-4 -top-4 h-full w-full rounded-[1.6rem] border border-gold-300/40" />
                 <Parallax speed={24}>
                   <div className="card-sheen group relative aspect-[4/5] overflow-hidden rounded-[1.6rem] shadow-float">
                     <Image
@@ -232,8 +234,8 @@ export function HomeView() {
                     />
                   </div>
                 </Parallax>
-                <Rose className="pointer-events-none absolute -bottom-8 -left-8 h-28 w-24 text-gold-600/40" />
-                <DottedArc className="pointer-events-none absolute -right-5 -top-5 h-20 w-20 text-gold-600/40" />
+                <Rose className="pointer-events-none absolute -bottom-8 -left-8 h-28 w-24 text-gold-300/45" />
+                <DottedArc className="pointer-events-none absolute -right-5 -top-5 h-20 w-20 text-gold-300/45" />
               </div>
             </Reveal>
           </div>
@@ -369,29 +371,27 @@ export function HomeView() {
       {/* ============================================ VISIT / CLOSING CTA */}
       <section
         id="visit"
-        className="relative overflow-hidden bg-navy-950 py-24 text-cream-50 sm:py-28"
+        className="section-tint relative overflow-hidden py-24 sm:py-28"
       >
-        <span className="seam absolute inset-x-0 top-0 opacity-60" />
-        <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
+        <span className="seam absolute inset-x-0 top-0" />
         <SectionMark
           index={4}
           label={t("aboutPage.cta.eyebrow")}
-          tone="light"
           className="left-2 top-8 sm:left-6 sm:top-10"
         />
-        <span className="deco-glow -left-24 top-10 h-80 w-80 opacity-70" />
-        <FloralSpray className="pointer-events-none absolute -right-8 top-6 hidden h-72 w-64 [transform:scaleX(-1)] text-gold-300/16 lg:block" />
-        <WaterLily className="pointer-events-none absolute left-10 bottom-6 hidden h-32 w-32 text-cream-50/12 md:block" />
-        <PalmFrond className="pointer-events-none absolute right-6 bottom-4 h-36 w-44 text-gold-300/16" />
+        <span className="deco-glow -left-24 top-10 h-80 w-80" />
+        <FloralSpray className="pointer-events-none absolute -right-8 top-6 hidden h-72 w-64 [transform:scaleX(-1)] text-gold-600/12 lg:block" />
+        <WaterLily className="pointer-events-none absolute left-10 bottom-6 hidden h-32 w-32 text-sky-400/22 md:block" />
+        <PalmFrond className="pointer-events-none absolute right-6 bottom-4 h-36 w-44 text-gold-600/12" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center sm:px-6">
           <Reveal>
-            <p className="eyebrow justify-center !text-gold-300">
+            <p className="eyebrow justify-center">
               {t("aboutPage.cta.eyebrow")}
             </p>
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="font-title mt-4 text-[2.1rem] text-cream-50 sm:text-[2.8rem]">
+            <h2 className="font-title mt-4 text-[2.1rem] sm:text-[2.8rem]">
               {t("aboutPage.cta.title")}
             </h2>
           </Reveal>
@@ -399,7 +399,7 @@ export function HomeView() {
             <span className="rule-draw mx-auto mt-5 block" />
           </Reveal>
           <Reveal delay={0.14}>
-            <p className="font-body mx-auto mt-5 max-w-xl leading-relaxed text-cream-50/75">
+            <p className="font-body mx-auto mt-5 max-w-xl leading-relaxed text-ink-soft">
               {t("aboutPage.cta.body")}
             </p>
           </Reveal>
@@ -409,19 +409,19 @@ export function HomeView() {
               <ButtonLink href="/menu" variant="gold" size="lg">
                 {t("aboutPage.cta.menu")}
               </ButtonLink>
-              <CallNowButton tone="light" size="lg" />
+              <CallNowButton tone="dark" size="lg" />
             </div>
           </Reveal>
 
           <Reveal delay={0.26}>
-            <div className="mt-10 flex flex-col items-center gap-2 text-sm text-cream-50/70">
+            <div className="mt-10 flex flex-col items-center gap-2 text-sm text-ink-soft">
               <p className="font-body">{tf(SITE.address)}</p>
               <p className="font-body">{tf(SITE.hours)}</p>
               <a
                 href={mapsHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-body mt-1 inline-flex items-center gap-1.5 text-gold-300 transition-colors hover:text-gold-200"
+                className="font-body mt-1 inline-flex items-center gap-1.5 text-gold-700 transition-colors hover:text-gold-800"
               >
                 {t("contact.directions")}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">

@@ -93,7 +93,7 @@ export function DishView({
               <AnimatedHeading text={tf(dish.name)} delay={0.1} />
             </h1>
             <Reveal delay={0.15} y={16}>
-              <p className="font-body mt-3 text-lg leading-relaxed text-ink-soft">
+              <p className="font-script mt-3 text-xl leading-relaxed text-ink-soft">
                 {tf(dish.tagline)}
               </p>
             </Reveal>

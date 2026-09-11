@@ -16,7 +16,7 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      className="content-layer relative mt-12 scroll-mt-24 overflow-hidden bg-navy-950 text-cream-50/78"
+      className="content-layer relative scroll-mt-24 overflow-hidden bg-navy-950 text-cream-50/78"
     >
       <div className="absolute inset-0 text-cream-50 bg-dots opacity-[0.05]" />
       <Sprig className="pointer-events-none absolute -left-6 top-10 h-40 w-28 text-gold-300/12" />

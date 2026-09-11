@@ -17,7 +17,11 @@ const NAV = [
 export function Navbar() {
   const pathname = usePathname();
   const { t, tf } = useLanguage();
-  const isHome = pathname === "/";
+  // pages that open on a full-bleed dark hero get the transparent-to-solid
+  // treatment; deeper pages (e.g. a single dish) sit on a light background
+  // and should stay solid from the start.
+  const segments = pathname.split("/").filter(Boolean);
+  const hasDarkHero = pathname === "/" || (segments[0] === "menu" && segments.length <= 2);
 
   const isActive = (href: string) =>
     href === "/"
@@ -48,7 +52,7 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
-  const solid = scrolled || !isHome || menuOpen;
+  const solid = scrolled || !hasDarkHero || menuOpen;
   const tone: "light" | "dark" = solid ? "dark" : "light";
 
   return (
