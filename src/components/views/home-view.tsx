@@ -163,49 +163,47 @@ export function HomeView() {
       {/* ============================================ ABOUT THE RESTAURANT */}
       <section
         id="about"
-        className="section-blue relative overflow-hidden py-24 sm:py-28"
+        className="section-tint relative overflow-hidden py-24 sm:py-28"
       >
-        <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
         <span className="seam absolute inset-x-0 top-0 opacity-60" />
         <SectionMark
           index={1}
           label={t("home.about.eyebrow")}
-          tone="light"
           className="left-2 top-8 sm:left-6 sm:top-10"
         />
         <span className="deco-glow left-[-4rem] bottom-10 h-80 w-80 opacity-70" />
-        <FloralSpray className="pointer-events-none absolute -right-10 top-10 hidden h-72 w-64 rotate-6 text-gold-300/16 lg:block" />
-        <WaterLily className="pointer-events-none absolute -left-8 bottom-8 h-40 w-40 text-cream-50/12" />
-        <Sprig className="pointer-events-none absolute right-8 bottom-24 hidden h-40 w-28 text-gold-300/12 md:block" />
+        <FloralSpray className="pointer-events-none absolute -right-10 top-10 hidden h-72 w-64 rotate-6 text-gold-600/12 lg:block" />
+        <WaterLily className="pointer-events-none absolute -left-8 bottom-8 h-40 w-40 text-sky-400/22" />
+        <Sprig className="pointer-events-none absolute right-8 bottom-24 hidden h-40 w-28 text-gold-600/10 md:block" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <Reveal delay={0.08}>
               <div>
-                <p className="eyebrow !text-gold-300">{t("home.about.eyebrow")}</p>
-                <h2 className="font-title mt-4 text-[2.1rem] text-cream-50 sm:text-[2.7rem]">
+                <p className="eyebrow">{t("home.about.eyebrow")}</p>
+                <h2 className="font-title mt-4 text-[2.1rem] sm:text-[2.7rem]">
                   {t("home.about.title")}
                 </h2>
                 <span className="rule-draw mt-5 block" />
-                <div className="font-body mt-6 space-y-4 leading-relaxed text-cream-50/75">
+                <div className="font-body mt-6 space-y-4 leading-relaxed text-ink-soft">
                   <p>{t("home.about.p1")}</p>
                   <p>{t("home.about.p2")}</p>
                 </div>
 
                 <dl className="mt-8 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-cream-50/15 bg-cream-50/5 p-4 shadow-card backdrop-blur-sm">
-                    <dt className="font-script text-[1rem] font-semibold text-gold-300">
+                  <div className="rounded-2xl border border-navy-800/10 bg-white/60 p-4 shadow-card backdrop-blur-sm">
+                    <dt className="font-script text-[1rem] font-semibold text-gold-700">
                       {t("contact.hours")}
                     </dt>
-                    <dd className="font-body mt-1 text-[0.9rem] text-cream-50/72">
+                    <dd className="font-body mt-1 text-[0.9rem] text-ink-soft">
                       {t("home.about.hours")}
                     </dd>
                   </div>
-                  <div className="rounded-2xl border border-cream-50/15 bg-cream-50/5 p-4 shadow-card backdrop-blur-sm">
-                    <dt className="font-script text-[1rem] font-semibold text-gold-300">
+                  <div className="rounded-2xl border border-navy-800/10 bg-white/60 p-4 shadow-card backdrop-blur-sm">
+                    <dt className="font-script text-[1rem] font-semibold text-gold-700">
                       {tf({ en: "Per person", bn: "জনপ্রতি" })}
                     </dt>
-                    <dd className="font-body mt-1 text-[0.9rem] text-cream-50/72">
+                    <dd className="font-body mt-1 text-[0.9rem] text-ink-soft">
                       {tf(SITE.pricePerPerson)}
                     </dd>
                   </div>
@@ -219,7 +217,7 @@ export function HomeView() {
 
             <Reveal y={40} scale={0.96} blur>
               <div className="relative">
-                <div className="absolute -right-4 -top-4 h-full w-full rounded-[1.6rem] border border-gold-300/40" />
+                <div className="absolute -right-4 -top-4 h-full w-full rounded-[1.6rem] border border-gold-500/40" />
                 <Parallax speed={24}>
                   <div className="card-sheen group relative aspect-[4/5] overflow-hidden rounded-[1.6rem] shadow-float">
                     <Image
@@ -234,8 +232,8 @@ export function HomeView() {
                     />
                   </div>
                 </Parallax>
-                <Rose className="pointer-events-none absolute -bottom-8 -left-8 h-28 w-24 text-gold-300/45" />
-                <DottedArc className="pointer-events-none absolute -right-5 -top-5 h-20 w-20 text-gold-300/45" />
+                <Rose className="pointer-events-none absolute -bottom-8 -left-8 h-28 w-24 text-gold-600/40" />
+                <DottedArc className="pointer-events-none absolute -right-5 -top-5 h-20 w-20 text-gold-600/40" />
               </div>
             </Reveal>
           </div>
@@ -247,23 +245,25 @@ export function HomeView() {
       {/* ============================================ OUR STORY */}
       <section
         id="story"
-        className="relative overflow-hidden py-24 sm:py-28"
+        className="relative overflow-hidden bg-brand-blue py-24 text-cream-50 sm:py-28"
       >
+        <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
         <SectionMark
           index={2}
           label={t("home.story.eyebrow")}
+          tone="light"
           className="right-2 top-8 text-right sm:right-6 sm:top-10"
         />
         <span className="deco-glow right-[-6rem] top-24 h-80 w-80" />
         <Lotus className="pointer-events-none absolute -left-10 top-16 h-40 w-56 text-sky-400/25" />
-        <Rose className="pointer-events-none absolute right-6 bottom-10 hidden h-44 w-32 text-gold-600/14 lg:block" />
-        <BayLeaf className="pointer-events-none absolute left-1/2 -top-4 hidden h-40 w-20 -translate-x-1/2 rotate-6 text-gold-600/10 md:block" />
+        <Rose className="pointer-events-none absolute right-6 bottom-10 hidden h-44 w-32 text-gold-300/16 lg:block" />
+        <BayLeaf className="pointer-events-none absolute left-1/2 -top-4 hidden h-40 w-20 -translate-x-1/2 rotate-6 text-gold-300/12 md:block" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <Reveal y={40} scale={0.96} blur>
               <div className="relative">
-                <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-[1.6rem] border border-gold-500/40 sm:block" />
+                <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-[1.6rem] border border-gold-300/40 sm:block" />
                 <Parallax speed={24}>
                   <div className="card-sheen relative aspect-[4/5] overflow-hidden rounded-[1.6rem] shadow-float">
                     <Image
@@ -278,22 +278,22 @@ export function HomeView() {
                     />
                   </div>
                 </Parallax>
-                <WaterLily className="pointer-events-none absolute -bottom-9 -right-9 h-28 w-28 text-gold-600/40" />
+                <WaterLily className="pointer-events-none absolute -bottom-9 -right-9 h-28 w-28 text-gold-300/40" />
               </div>
             </Reveal>
 
             <Reveal delay={0.1}>
               <div>
-                <p className="eyebrow">{t("home.story.eyebrow")}</p>
-                <h2 className="font-title mt-4 text-[2.1rem] sm:text-[2.7rem]">
+                <p className="eyebrow !text-gold-300">{t("home.story.eyebrow")}</p>
+                <h2 className="font-title mt-4 text-[2.1rem] text-cream-50 sm:text-[2.7rem]">
                   {t("home.story.title")}
                 </h2>
                 <span className="rule-draw mt-5 block" />
-                <div className="font-body mt-6 space-y-4 leading-relaxed text-ink-soft">
+                <div className="font-body mt-6 space-y-4 leading-relaxed text-cream-50/75">
                   <p>{t("home.story.p1")}</p>
                   <p>{t("home.story.p2")}</p>
                 </div>
-                <p className="mt-6 font-script text-2xl text-gold-700">
+                <p className="mt-6 font-script text-2xl text-gold-300">
                   {tf(SITE.motto)}
                 </p>
               </div>
@@ -305,7 +305,7 @@ export function HomeView() {
       {/* ============================================ SIGNATURE DISHES */}
       <section
         id="featured"
-        className="section-blue relative overflow-hidden py-24 text-cream-50 sm:py-28"
+        className="relative overflow-hidden bg-brand-blue py-24 text-cream-50 sm:py-28"
       >
         <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
         <SectionMark
@@ -316,7 +316,7 @@ export function HomeView() {
         />
         <span className="deco-glow -left-24 top-10 h-80 w-80 opacity-70" />
         <FloralSpray className="pointer-events-none absolute -right-8 top-6 hidden h-72 w-64 text-gold-300/16 lg:block" />
-        <WaterLily className="pointer-events-none absolute left-8 bottom-6 hidden h-32 w-32 text-cream-50/12 md:block" />
+        <WaterLily className="pointer-events-none absolute left-8 bottom-6 hidden h-32 w-32 text-sky-400/22 md:block" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">

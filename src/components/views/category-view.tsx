@@ -82,47 +82,50 @@ export function CategoryView({ category }: { category: MenuCategory }) {
       </section>
 
       {/* dishes */}
-      <section className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <span className="deco-glow -right-32 top-24 h-96 w-96" />
-        <Sprig className="pointer-events-none absolute -left-6 top-8 hidden h-40 w-28 text-gold-600/10 lg:block" />
-        <FloralSpray className="pointer-events-none absolute -right-10 top-2 hidden h-72 w-60 [transform:scaleX(-1)] text-gold-600/10 lg:block" />
-        <WaterLily className="pointer-events-none absolute -left-8 bottom-16 h-36 w-36 text-sky-400/20" />
-        <Lotus className="pointer-events-none absolute right-10 bottom-4 hidden h-32 w-44 text-sky-400/20 md:block" />
-        <div className="space-y-16">
-          {sections.map(({ section, dishes }) => {
-            if (dishes.length === 0) return null;
-            return (
-              <div key={section?.id ?? "all"}>
-                {section && (
-                  <Reveal>
-                    <div className="mb-8 flex items-center gap-4">
-                      <h2 className="text-[1.7rem] text-navy-900 sm:text-[2.1rem]">
-                        {tf(section.title)}
-                      </h2>
-                      <span className="h-px flex-1 bg-gradient-to-r from-gold-500/60 to-transparent" />
-                    </div>
-                  </Reveal>
-                )}
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {dishes.map((dish, i) => (
-                    <Reveal
-                      key={dish.slug}
-                      delay={(i % 3) * 0.09}
-                      y={32}
-                      scale={0.96}
-                      blur
-                    >
-                      <DishCard
-                        dish={dish}
-                        categorySlug={category.slug}
-                        priority={ordered.indexOf(dish.slug) < priorityCount}
-                      />
+      <section className="relative overflow-hidden bg-brand-blue py-16 text-cream-50 sm:py-20">
+        <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <span className="deco-glow -right-32 top-24 h-96 w-96" />
+          <Sprig className="pointer-events-none absolute -left-6 top-8 hidden h-40 w-28 text-gold-300/12 lg:block" />
+          <FloralSpray className="pointer-events-none absolute -right-10 top-2 hidden h-72 w-60 [transform:scaleX(-1)] text-gold-300/12 lg:block" />
+          <WaterLily className="pointer-events-none absolute -left-8 bottom-16 h-36 w-36 text-sky-400/22" />
+          <Lotus className="pointer-events-none absolute right-10 bottom-4 hidden h-32 w-44 text-sky-400/22 md:block" />
+          <div className="relative z-10 space-y-16">
+            {sections.map(({ section, dishes }) => {
+              if (dishes.length === 0) return null;
+              return (
+                <div key={section?.id ?? "all"}>
+                  {section && (
+                    <Reveal>
+                      <div className="mb-8 flex items-center gap-4">
+                        <h2 className="text-[1.7rem] text-cream-50 sm:text-[2.1rem]">
+                          {tf(section.title)}
+                        </h2>
+                        <span className="h-px flex-1 bg-gradient-to-r from-gold-300/60 to-transparent" />
+                      </div>
                     </Reveal>
-                  ))}
+                  )}
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {dishes.map((dish, i) => (
+                      <Reveal
+                        key={dish.slug}
+                        delay={(i % 3) * 0.09}
+                        y={32}
+                        scale={0.96}
+                        blur
+                      >
+                        <DishCard
+                          dish={dish}
+                          categorySlug={category.slug}
+                          priority={ordered.indexOf(dish.slug) < priorityCount}
+                        />
+                      </Reveal>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
     </>

@@ -28,24 +28,25 @@ export function DishView({
   const related = category.dishes.filter((d) => d.slug !== dish.slug).slice(0, 3);
 
   return (
-    <article className="relative overflow-hidden pt-28 pb-10 sm:pt-36">
+    <article className="relative overflow-hidden bg-brand-blue pt-28 pb-10 text-cream-50 sm:pt-36">
+      <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
       <span className="deco-glow -left-32 top-16 h-96 w-96" />
-      <PlateRings className="pointer-events-none absolute -left-24 top-24 h-80 w-80 text-navy-800/[0.05]" />
-      <FloralSpray className="pointer-events-none absolute -right-10 top-4 hidden h-72 w-60 [transform:scaleX(-1)] text-gold-600/10 lg:block" />
-      <WaterLily className="pointer-events-none absolute left-4 bottom-10 hidden h-32 w-32 text-sky-400/20 md:block" />
+      <PlateRings className="pointer-events-none absolute -left-24 top-24 h-80 w-80 text-gold-300/10" />
+      <FloralSpray className="pointer-events-none absolute -right-10 top-4 hidden h-72 w-60 [transform:scaleX(-1)] text-gold-300/12 lg:block" />
+      <WaterLily className="pointer-events-none absolute left-4 bottom-10 hidden h-32 w-32 text-sky-400/22 md:block" />
       <Floaty
         className="pointer-events-none absolute -right-8 top-40 hidden lg:block"
         dur={12}
         dist={18}
       >
-        <SpiceStar className="h-28 w-28 text-gold-600/12" />
+        <SpiceStar className="h-28 w-28 text-gold-300/14" />
       </Floaty>
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <Link
             href={`/menu/${category.slug}`}
-            className="group inline-flex items-center gap-2 text-sm font-medium text-ink-soft transition-colors hover:text-navy-900"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-cream-50/70 transition-colors hover:text-cream-50"
           >
             <svg
               width="16"
@@ -64,7 +65,7 @@ export function DishView({
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <Reveal y={40} scale={0.96} blur>
             <div className="relative">
-              <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-[1.8rem] border border-gold-500/40 sm:block" />
+              <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-[1.8rem] border border-gold-300/40 sm:block" />
               <Parallax speed={22}>
                 <div className="card-sheen group relative aspect-[4/3] overflow-hidden rounded-[1.7rem] border border-navy-800/10 bg-navy-900 shadow-float">
                   <DishMedia
@@ -77,23 +78,23 @@ export function DishView({
                   />
                 </div>
               </Parallax>
-              <DottedArc className="absolute -bottom-6 -right-6 hidden h-24 w-24 text-gold-600/35 sm:block" />
+              <DottedArc className="absolute -bottom-6 -right-6 hidden h-24 w-24 text-gold-300/40 sm:block" />
             </div>
           </Reveal>
 
           <div className="lg:pt-2">
             {category.real && (
               <Reveal y={16}>
-                <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-gold-500/40 bg-gold-500/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-wider text-gold-700">
+                <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-gold-300/40 bg-gold-300/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-wider text-gold-300">
                   ★ {tf({ en: "House kitchen", bn: "ঘরের রান্না" })}
                 </span>
               </Reveal>
             )}
-            <h1 className="text-[2.4rem] leading-tight sm:text-[3rem]">
+            <h1 className="text-[2.4rem] leading-tight text-cream-50 sm:text-[3rem]">
               <AnimatedHeading text={tf(dish.name)} delay={0.1} />
             </h1>
             <Reveal delay={0.15} y={16}>
-              <p className="font-script mt-3 text-xl leading-relaxed text-ink-soft">
+              <p className="font-script mt-3 text-xl leading-relaxed text-cream-50/75">
                 {tf(dish.tagline)}
               </p>
             </Reveal>
@@ -103,7 +104,7 @@ export function DishView({
                 <span className="rounded-full bg-navy-850 px-4 py-2 text-sm font-bold text-cream-50 shadow-[0_12px_28px_-14px_rgba(12,22,54,0.7)]">
                   {tf(dish.price)}
                 </span>
-                <span className="font-body text-xs text-ink-faint">{t("item.priceNote")}</span>
+                <span className="font-body text-xs text-cream-50/55">{t("item.priceNote")}</span>
               </div>
             </Reveal>
 
@@ -114,16 +115,16 @@ export function DishView({
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="mt-10 border-t border-navy-800/10 pt-8">
-                <p className="eyebrow">{t("item.story")}</p>
+              <div className="mt-10 border-t border-cream-50/15 pt-8">
+                <p className="eyebrow !text-gold-300">{t("item.story")}</p>
                 <span className="rule-draw mt-3 block" />
-                <p className="font-body mt-4 leading-[1.8] text-ink">{tf(dish.story)}</p>
+                <p className="font-body mt-4 leading-[1.8] text-cream-50/80">{tf(dish.story)}</p>
               </div>
             </Reveal>
 
             <Reveal delay={0.1}>
               <div className="mt-8">
-                <p className="eyebrow">{t("item.ingredients")}</p>
+                <p className="eyebrow !text-gold-300">{t("item.ingredients")}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {ingredients.map((item, i) => (
                     <Reveal
@@ -132,7 +133,7 @@ export function DishView({
                       delay={0.05 + i * 0.04}
                       y={10}
                     >
-                      <span className="font-script inline-block rounded-full border border-navy-800/12 bg-sky-50 px-3.5 py-1.5 text-[0.95rem] text-navy-900 transition-colors duration-300 hover:border-gold-500/50 hover:bg-gold-500/5">
+                      <span className="font-script inline-block rounded-full border border-cream-50/20 bg-cream-50/8 px-3.5 py-1.5 text-[0.95rem] text-cream-50 transition-colors duration-300 hover:border-gold-300/50 hover:bg-gold-300/10">
                         {item}
                       </span>
                     </Reveal>
@@ -142,7 +143,7 @@ export function DishView({
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="font-body mt-8 text-xs leading-relaxed text-ink-faint">
+              <p className="font-body mt-8 text-xs leading-relaxed text-cream-50/55">
                 {t("item.disclaimer")}
               </p>
             </Reveal>
@@ -151,13 +152,13 @@ export function DishView({
 
         {related.length > 0 && (
           <section className="relative mt-24">
-            <Sprig className="pointer-events-none absolute -right-4 -top-10 h-32 w-24 text-gold-600/12" />
+            <Sprig className="pointer-events-none absolute -right-4 -top-10 h-32 w-24 text-gold-300/14" />
             <Reveal>
               <div className="mb-8 flex items-center gap-4">
-                <h2 className="text-[1.7rem] text-navy-900 sm:text-[2.1rem]">
+                <h2 className="text-[1.7rem] text-cream-50 sm:text-[2.1rem]">
                   {t("item.related", { category: tf(category.name) })}
                 </h2>
-                <span className="h-px flex-1 bg-gradient-to-r from-gold-500/60 to-transparent" />
+                <span className="h-px flex-1 bg-gradient-to-r from-gold-300/60 to-transparent" />
               </div>
             </Reveal>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

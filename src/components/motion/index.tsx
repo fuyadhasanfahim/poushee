@@ -63,14 +63,11 @@ export function Reveal({
     }
     let done = false;
     let io: IntersectionObserver | undefined;
-    // eslint-disable-next-line prefer-const
-    let timer: ReturnType<typeof setTimeout>;
 
     const cleanup = () => {
       window.removeEventListener("scroll", check);
       window.removeEventListener("resize", check);
       io?.disconnect();
-      clearTimeout(timer);
     };
     const show = () => {
       if (done) return;
@@ -90,10 +87,11 @@ export function Reveal({
       );
       io.observe(el);
     }
+    // Belt-and-braces alongside the observer — genuinely viewport-gated,
+    // unlike the old blanket timer this replaced.
     window.addEventListener("scroll", check, { passive: true });
     window.addEventListener("resize", check);
     check();
-    timer = setTimeout(show, 1400);
     return cleanup;
   }, [reduce]);
 

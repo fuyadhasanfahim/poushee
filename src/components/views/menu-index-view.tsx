@@ -44,18 +44,20 @@ export function MenuIndexView() {
         </div>
       </section>
 
-      <section className="section-tint relative overflow-hidden py-16 sm:py-20">
+      <section className="relative overflow-hidden bg-brand-blue py-16 text-cream-50 sm:py-20">
+        <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
         <span className="seam absolute inset-x-0 top-0" />
         <SectionMark
           index={1}
           label={t("menuIndex.eyebrow")}
+          tone="light"
           className="left-2 top-6 sm:left-6 sm:top-8"
         />
         <span className="deco-glow -left-24 top-10 h-80 w-80" />
-        <Sprig className="pointer-events-none absolute -right-6 top-24 h-44 w-28 text-gold-600/12" />
-        <FloralSpray className="pointer-events-none absolute -left-10 top-4 hidden h-72 w-64 text-gold-600/10 lg:block" />
-        <WaterLily className="pointer-events-none absolute right-4 bottom-10 h-36 w-36 text-sky-400/22" />
-        <Rose className="pointer-events-none absolute left-8 bottom-28 hidden h-40 w-28 text-gold-600/12 md:block" />
+        <Sprig className="pointer-events-none absolute -right-6 top-24 h-44 w-28 text-gold-300/14" />
+        <FloralSpray className="pointer-events-none absolute -left-10 top-4 hidden h-72 w-64 text-gold-300/12 lg:block" />
+        <WaterLily className="pointer-events-none absolute right-4 bottom-10 h-36 w-36 text-sky-400/25" />
+        <Rose className="pointer-events-none absolute left-8 bottom-28 hidden h-40 w-28 text-gold-300/14 md:block" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

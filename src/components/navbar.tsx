@@ -53,14 +53,14 @@ export function Navbar() {
   }, [menuOpen]);
 
   const solid = scrolled || !hasDarkHero || menuOpen;
-  const tone: "light" | "dark" = solid ? "dark" : "light";
+  const tone: "light" | "dark" = "light";
 
   return (
     <>
     <header
       className={`nav-in fixed inset-x-0 top-0 z-50 transition-[background,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         solid
-          ? "border-b border-navy-800/10 bg-white/80 shadow-[0_10px_40px_-24px_rgba(12,22,54,0.4)] backdrop-blur-xl"
+          ? "border-b border-cream-50/10 bg-navy-950/90 shadow-[0_10px_40px_-24px_rgba(6,12,34,0.6)] backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >

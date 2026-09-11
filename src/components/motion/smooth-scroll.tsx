@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * App-wide inertial smooth scrolling. Kept deliberately gentle so it feels
@@ -18,6 +19,9 @@ import { useEffect } from "react";
 const ANCHOR_OFFSET = 96;
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const lenisRef = useRef<import("lenis").default | undefined>(undefined);
+
   useEffect(() => {
     if (
       typeof window === "undefined" ||
@@ -55,6 +59,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
         wheelMultiplier: 0.9,
         touchMultiplier: 1.4,
       });
+      lenisRef.current = lenis;
 
       const raf = (time: number) => {
         lenis?.raf(time);
@@ -99,8 +104,20 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       cancelAnimationFrame(frame);
       document.removeEventListener("click", onAnchorClick);
       lenis?.destroy();
+      lenisRef.current = undefined;
     };
   }, []);
+
+  // Lenis owns scroll independently of the browser, so Next's default
+  // scroll-to-top on navigation never reaches it — without this, a page
+  // opens still sitting at whatever scroll position the previous page was
+  // left at. Snap to top on every route change; a same-page hash link
+  // (`#about`) is already handled by `onAnchorClick` above, so skip those.
+  useEffect(() => {
+    if (window.location.hash) return;
+    lenisRef.current?.scrollTo(0, { immediate: true });
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return <>{children}</>;
 }
