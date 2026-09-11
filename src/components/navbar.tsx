@@ -14,6 +14,10 @@ const NAV = [
   { key: "nav.about", href: "/#about" },
 ] as const;
 
+// Must match the Lenis anchor offset in smooth-scroll.tsx — the fixed
+// navbar height plus a little breathing room.
+const NAV_SCROLL_OFFSET = 96;
+
 export function Navbar() {
   const pathname = usePathname();
   const { t, tf } = useLanguage();
@@ -23,12 +27,20 @@ export function Navbar() {
   const segments = pathname.split("/").filter(Boolean);
   const hasDarkHero = pathname === "/" || (segments[0] === "menu" && segments.length <= 2);
 
+  // Which in-page section of "/" the visitor has scrolled to — lets the
+  // Home / About links swap their active underline as the hero gives way
+  // to the About section (and back), instead of Home staying lit the
+  // whole time just because the URL never changes.
+  const [onAboutSection, setOnAboutSection] = useState(false);
+
   const isActive = (href: string) =>
     href === "/"
-      ? pathname === "/"
-      : href === "/menu"
-        ? pathname.startsWith("/menu")
-        : false;
+      ? pathname === "/" && !onAboutSection
+      : href === "/#about"
+        ? pathname === "/" && onAboutSection
+        : href === "/menu"
+          ? pathname.startsWith("/menu")
+          : false;
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -38,6 +50,21 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setOnAboutSection(false);
+      return;
+    }
+    const about = document.getElementById("about");
+    if (!about || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      ([entry]) => setOnAboutSection(entry.isIntersecting),
+      { rootMargin: `-${NAV_SCROLL_OFFSET}px 0px -70% 0px` },
+    );
+    io.observe(about);
+    return () => io.disconnect();
+  }, [pathname]);
 
   useEffect(() => {
     // close the mobile sheet on navigation
