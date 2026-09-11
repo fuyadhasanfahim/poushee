@@ -34,9 +34,11 @@ export function ScrollProgress() {
     : [];
 
   const [active, setActive] = useState<string>(rail[0]?.id ?? "");
-  // hero photo, the signature band and the closing CTA are the dark planes.
+  // hero photo, the story band and the signature band are the dark planes;
+  // "about" and "visit" sit on the light section-tint background. Keep in
+  // sync with the section backgrounds in home-view.tsx.
   const overDark =
-    active === "hero" || active === "featured" || active === "visit";
+    active === "hero" || active === "story" || active === "featured";
 
   /* progress bar — JS fallback only where CSS scroll timelines are absent */
   useEffect(() => {
