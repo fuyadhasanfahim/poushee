@@ -10,10 +10,6 @@ type Props = {
   block?: boolean;
 };
 
-/**
- * "Call Now" — a real `tel:` link to the restaurant's primary number.
- * (Replaces the old inert "Order Now" button per the client's brief.)
- */
 export function CallNowButton({
   tone = "gold",
   size = "md",

@@ -1,9 +1,5 @@
-/* Decorative SVG motifs. All inherit `currentColor`, all aria-hidden.
-   Used to lift backgrounds and cards without extra image weight. */
-
 type V = { className?: string; style?: React.CSSProperties };
 
-/** A coriander / herb sprig — the house leaf motif. */
 export function Sprig({ className, style }: V) {
   return (
     <svg
@@ -48,7 +44,6 @@ export function Sprig({ className, style }: V) {
   );
 }
 
-/** A single bay leaf. */
 export function BayLeaf({ className, style }: V) {
   return (
     <svg
@@ -81,7 +76,6 @@ export function BayLeaf({ className, style }: V) {
   );
 }
 
-/** Star anise. */
 export function SpiceStar({ className, style }: V) {
   const pts = Array.from({ length: 8 });
   return (
@@ -111,7 +105,6 @@ export function SpiceStar({ className, style }: V) {
   );
 }
 
-/** Three rising steam curls — echoes the poushee badge. */
 export function SteamCurls({ className, style }: V) {
   return (
     <svg
@@ -135,7 +128,6 @@ export function SteamCurls({ className, style }: V) {
   );
 }
 
-/** Concentric plate rings. */
 export function PlateRings({ className, style }: V) {
   return (
     <svg
@@ -161,7 +153,6 @@ export function PlateRings({ className, style }: V) {
   );
 }
 
-/** A dotted quarter-arc, for corners. */
 export function DottedArc({ className, style }: V) {
   return (
     <svg
@@ -184,14 +175,6 @@ export function DottedArc({ className, style }: V) {
   );
 }
 
-/* ------------------------------------------------------------------ *
- *  Bengali florals — the water lily (shapla, our national flower),
- *  the rose, the lotus and a curling flower spray. Line-drawn so they
- *  stay crisp at any size and inherit `currentColor`.
- * ------------------------------------------------------------------ */
-
-/** Shapla — water lily. Two rings of pointed petals, a starburst centre
- *  and a lily pad behind. */
 export function WaterLily({ className, style }: V) {
   const outer = Array.from({ length: 12 });
   const inner = Array.from({ length: 8 });
@@ -203,7 +186,6 @@ export function WaterLily({ className, style }: V) {
       fill="none"
       aria-hidden="true"
     >
-      {/* lily pad */}
       <path
         d="M70 118c30 0 52-16 52-38 0-9-4-15-9-15-4 0-6 4-10 4-6 0-9-8-19-8s-13 8-19 8c-4 0-6-4-10-4-5 0-9 6-9 15 0 22 22 38 33 38Z"
         fill="currentColor"
@@ -255,7 +237,6 @@ export function WaterLily({ className, style }: V) {
   );
 }
 
-/** A rose in bloom on a short leafy stem — spiralled petals. */
 export function Rose({ className, style }: V) {
   return (
     <svg
@@ -307,7 +288,6 @@ export function Rose({ className, style }: V) {
   );
 }
 
-/** Lotus — five broad front petals over a lower fan. */
 export function Lotus({ className, style }: V) {
   return (
     <svg
@@ -353,7 +333,6 @@ export function Lotus({ className, style }: V) {
   );
 }
 
-/** A curling stem set with small blossoms and leaves — for section corners. */
 export function FloralSpray({ className, style }: V) {
   return (
     <svg
@@ -414,7 +393,6 @@ export function FloralSpray({ className, style }: V) {
   );
 }
 
-/** A fanned palm frond — a nod to the Cox's Bazar coast. */
 export function PalmFrond({ className, style }: V) {
   return (
     <svg
@@ -458,7 +436,6 @@ export function PalmFrond({ className, style }: V) {
   );
 }
 
-/** Soft blurred organic blob — pure fill, meant to sit behind content. */
 export function Blob({ className, style }: V) {
   return (
     <svg

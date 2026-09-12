@@ -6,11 +6,6 @@ import { num } from "@/lib/i18n/dictionary";
 import { DishMedia } from "./dish-media";
 import type { MenuCategory } from "@/content/types";
 
-/**
- * Menu index category card — matches the home "Signature dishes" treatment:
- * photo fills the card, name / blurb sit over a dark scrim in light type.
- * Name in Lobster Two, blurb in Dancing Script.
- */
 export function CategoryCard({
   category,
   index,
@@ -37,7 +32,6 @@ export function CategoryCard({
         className="!absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
       />
 
-      {/* scrims */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/45 to-navy-950/5" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-transparent" />
       <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.05]" />

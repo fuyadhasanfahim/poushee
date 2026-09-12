@@ -2,23 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 type LogoProps = {
-  /** "light" for dark backgrounds, "dark" for the ivory ground */
   tone?: "light" | "dark";
-  /** badge only */
   compact?: boolean;
-  /** show the "HOTEL & RESTAURANT" line under the wordmark */
   sub?: boolean;
   className?: string;
-  /** rendered wordmark height in px */
   height?: number;
 };
 
-/**
- * Recreation of the printed poushee® mark: round badge, then
- *   P ( পউষী / OUSHE ) E®   [ / HOTEL & RESTAURANT ]
- * drawn as inline SVG so it stays crisp at any size. Royal blue on
- * light, ivory on dark.
- */
 export function Logo({
   tone = "dark",
   compact = false,
@@ -29,9 +19,6 @@ export function Logo({
   const fill =
     tone === "light" ? "var(--color-cream-50)" : "var(--color-brand-blue)";
 
-  /* Tightened lockup — the big P, the small OUSHE and the big E now sit
-     as one word "POUSHEE", with পউষী nested directly above OUSHE, exactly
-     like the printed mark. */
   const vbH = sub ? 122 : 94;
   const vbW = 300;
   const w = (height / vbH) * vbW;

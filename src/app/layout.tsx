@@ -18,14 +18,12 @@ import { FloatingActions } from "@/components/floating-actions";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { ScrollProgress } from "@/components/scroll-progress";
 
-/* Body + logo — Inter (the LCP font, so keep it preloaded) */
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body-en",
 });
 
-/* Primary display / titles — Lobster Two */
 const lobsterTwo = Lobster_Two({
   weight: ["400", "700"],
   style: ["normal", "italic"],
@@ -34,15 +32,12 @@ const lobsterTwo = Lobster_Two({
   variable: "--font-title-en",
 });
 
-/* Secondary / accent headings — Dancing Script (variable weight) */
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-script-en",
 });
 
-/* Bengali body — not preloaded: English visitors never pay for it, it
-   loads on demand when the visitor switches to Bengali. */
 const hindSiliguri = Hind_Siliguri({
   weight: ["400", "600", "700"],
   subsets: ["bengali"],
@@ -51,8 +46,6 @@ const hindSiliguri = Hind_Siliguri({
   variable: "--font-body-bn",
 });
 
-/* Bengali display — elegant serif to stand in for the Latin display faces
-   (also on demand) */
 const tiroBangla = Tiro_Bangla({
   weight: "400",
   subsets: ["bengali"],

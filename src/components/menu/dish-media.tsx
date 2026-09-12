@@ -13,11 +13,6 @@ type Props = {
   className?: string;
 };
 
-/**
- * A dish photo, or a branded midnight placeholder (dot field + plate
- * rings + herb sprig + the dish name set in the display serif) while
- * photography is still being sourced.
- */
 export function DishMedia({
   src,
   alt,

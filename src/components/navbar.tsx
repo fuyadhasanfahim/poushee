@@ -14,23 +14,14 @@ const NAV = [
   { key: "nav.about", href: "/#about" },
 ] as const;
 
-// Must match the Lenis anchor offset in smooth-scroll.tsx — the fixed
-// navbar height plus a little breathing room.
 const NAV_SCROLL_OFFSET = 96;
 
 export function Navbar() {
   const pathname = usePathname();
   const { t, tf } = useLanguage();
-  // pages that open on a full-bleed dark hero get the transparent-to-solid
-  // treatment; deeper pages (e.g. a single dish) sit on a light background
-  // and should stay solid from the start.
   const segments = pathname.split("/").filter(Boolean);
   const hasDarkHero = pathname === "/" || (segments[0] === "menu" && segments.length <= 2);
 
-  // Which in-page section of "/" the visitor has scrolled to — lets the
-  // Home / About links swap their active underline as the hero gives way
-  // to the About section (and back), instead of Home staying lit the
-  // whole time just because the URL never changes.
   const [onAboutSection, setOnAboutSection] = useState(false);
 
   const isActive = (href: string) =>
@@ -67,7 +58,6 @@ export function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    // close the mobile sheet on navigation
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMenuOpen(false);
   }, [pathname]);

@@ -1,14 +1,6 @@
 import type { MenuCategory } from "./types";
 
-/* ------------------------------------------------------------------ *
- *  poushee menu — 15 chapters, transcribed from the client's printed
- *  menu (pages 1–15). Category 4 (Beef & Mutton) uses the client's
- *  real photography and copy verified against Bangladeshi sources:
- *  Prothom Alo, Bangla Tribune, bn.wikipedia (Mezban / Kalabhuna).
- * ------------------------------------------------------------------ */
-
 export const MENU: MenuCategory[] = [
-  /* ============================================================ 1 */
   {
     slug: "rice-biriyani",
     order: 1,
@@ -176,7 +168,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 2 */
   {
     slug: "starter-appetizer",
     order: 2,
@@ -292,7 +283,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 3 */
   {
     slug: "chicken",
     order: 3,
@@ -380,7 +370,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 4 — REAL */
   {
     slug: "beef-mutton",
     order: 4,
@@ -631,7 +620,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 5 */
   {
     slug: "fish-fry",
     order: 5,
@@ -718,7 +706,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 6 */
   {
     slug: "fish-curry",
     order: 6,
@@ -818,7 +805,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 7 — combined */
   {
     slug: "breakfast-set-menu",
     order: 7,
@@ -916,7 +902,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 8 */
   {
     slug: "bbq-fish",
     order: 8,
@@ -1028,7 +1013,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 9 — combined */
   {
     slug: "bbq-chicken-beef",
     order: 9,
@@ -1152,7 +1136,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 10 — combined */
   {
     slug: "pickles-dessert",
     order: 10,
@@ -1275,7 +1258,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 11 — combined */
   {
     slug: "bread-salad",
     order: 11,
@@ -1398,7 +1380,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 12 — combined */
   {
     slug: "soup-fried-rice",
     order: 12,
@@ -1495,7 +1476,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 13 */
   {
     slug: "juice",
     order: 13,
@@ -1607,7 +1587,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 14 */
   {
     slug: "shakes-beverages",
     order: 14,
@@ -1718,7 +1697,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 
-  /* ============================================================ 15 */
   {
     slug: "breakfast-specials",
     order: 15,
@@ -1805,10 +1783,6 @@ export const MENU: MenuCategory[] = [
     ],
   },
 ];
-
-/* ------------------------------------------------------------------ *
- *  Helpers
- * ------------------------------------------------------------------ */
 
 export function getCategory(slug: string): MenuCategory | undefined {
   return MENU.find((c) => c.slug === slug);

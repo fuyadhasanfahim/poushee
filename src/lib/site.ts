@@ -1,10 +1,5 @@
-/**
- * Central, static business information for poushee®.
- * Sourced from the client's official business card.
- */
 export const SITE = {
   name: "Poushee",
-  /** plain-text brand name for body copy (the stylised "PousheE" lives only in the logo) */
   wordmark: "Poushee",
   registered: true,
   url: "https://poushee.vercel.app",
@@ -31,7 +26,6 @@ export const SITE = {
 
   phones: ["+8801881222444", "+8801881222666"],
   phonesDisplay: ["+88 01881-222444", "+88 01881-222666"],
-  /** primary number for "Call Now" / WhatsApp actions */
   callNumber: "+8801881222666",
   callNumberDisplay: "+88 01881-222666",
   whatsapp: "8801881222666",

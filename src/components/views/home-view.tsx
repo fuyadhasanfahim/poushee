@@ -55,7 +55,6 @@ export function HomeView() {
 
   return (
     <>
-      {/* ============================================ HERO */}
       <section
         id="hero"
         className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-950 pt-24 sm:pt-28"
@@ -76,7 +75,6 @@ export function HomeView() {
           <div className="absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
         </div>
 
-        {/* floating botanicals */}
         <Floaty className="pointer-events-none absolute -left-10 top-20 hidden sm:block" dur={12} dist={20}>
           <FloralSpray className="h-64 w-56 text-gold-300/20" />
         </Floaty>
@@ -160,7 +158,6 @@ export function HomeView() {
 
       <Marquee />
 
-      {/* ============================================ ABOUT THE RESTAURANT */}
       <section
         id="about"
         className="section-tint relative overflow-hidden py-24 sm:py-28"
@@ -242,7 +239,6 @@ export function HomeView() {
 
       <SeamDivider className="py-2" />
 
-      {/* ============================================ OUR STORY */}
       <section
         id="story"
         className="relative overflow-hidden bg-brand-blue py-24 text-cream-50 sm:py-28"
@@ -302,7 +298,6 @@ export function HomeView() {
         </div>
       </section>
 
-      {/* ============================================ SIGNATURE DISHES */}
       <section
         id="featured"
         className="relative overflow-hidden bg-brand-blue py-24 text-cream-50 sm:py-28"
@@ -368,7 +363,6 @@ export function HomeView() {
         </div>
       </section>
 
-      {/* ============================================ VISIT / CLOSING CTA */}
       <section
         id="visit"
         className="section-tint relative overflow-hidden py-24 sm:py-28"

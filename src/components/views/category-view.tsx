@@ -30,7 +30,6 @@ export function CategoryView({ category }: { category: MenuCategory }) {
 
   return (
     <>
-      {/* header band */}
       <section className="relative overflow-hidden bg-navy-950 pt-28 pb-16 text-cream-50 sm:pt-36 sm:pb-20">
         {category.cover && (
           <div className="absolute inset-0">
@@ -81,7 +80,6 @@ export function CategoryView({ category }: { category: MenuCategory }) {
         </div>
       </section>
 
-      {/* dishes */}
       <section className="relative overflow-hidden bg-brand-blue py-16 text-cream-50 sm:py-20">
         <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.06]" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

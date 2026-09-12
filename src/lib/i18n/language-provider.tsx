@@ -24,9 +24,7 @@ type LanguageContextValue = {
   lang: Lang;
   setLang: (lang: Lang) => void;
   toggle: () => void;
-  /** UI string lookup with optional `{token}` interpolation. */
   t: (key: UIKey, vars?: Record<string, string | number>) => string;
-  /** Localised content field ({ en, bn }) lookup. */
   tf: (value: Localized) => string;
   ready: boolean;
 };
@@ -44,20 +42,16 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>(DEFAULT_LANG);
   const [ready, setReady] = useState(false);
 
-  // Hydrate from the pre-paint script / storage.
   useEffect(() => {
     let stored: Lang | null = null;
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw === "en" || raw === "bn") stored = raw;
     } catch {
-      /* storage unavailable */
     }
     const initial =
       stored ??
       (document.documentElement.classList.contains("lang-bn") ? "bn" : DEFAULT_LANG);
-    // Intentional: SSR renders the default language; we sync to the visitor's
-    // stored preference once, after mount, to avoid a hydration mismatch.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLangState(initial);
     applyLang(initial);
@@ -70,7 +64,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      /* ignore */
     }
   }, []);
 
@@ -81,7 +74,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       try {
         window.localStorage.setItem(STORAGE_KEY, next);
       } catch {
-        /* ignore */
       }
       return next;
     });
@@ -114,8 +106,4 @@ export function useLanguage(): LanguageContextValue {
   return ctx;
 }
 
-/**
- * Blocking snippet injected before paint so a returning Bengali visitor
- * never sees an English flash. Keep it tiny and dependency-free.
- */
 export const LANG_BOOTSTRAP_SCRIPT = `(function(){var d=document.documentElement;d.classList.add('js');try{var l=localStorage.getItem('${STORAGE_KEY}');if(l==='bn'){d.classList.add('lang-bn');d.lang='bn';}}catch(e){}})();`;

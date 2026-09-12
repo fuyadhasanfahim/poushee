@@ -6,16 +6,6 @@ import { useLanguage } from "@/lib/i18n/language-provider";
 
 type RailItem = { id: string; label: string };
 
-/**
- * Two things at once:
- *  1. a hairline reading-progress bar pinned under the navbar, and
- *  2. a right-edge section rail (desktop) that tracks which section is
- *     in view and lets you jump between them.
- *
- * The bar is a CSS scroll-driven animation (zero JS) on modern browsers;
- * a tiny passive rAF listener fills in for the rest. The rail uses one
- * IntersectionObserver.
- */
 export function ScrollProgress() {
   const pathname = usePathname();
   const { tf } = useLanguage();
@@ -34,13 +24,9 @@ export function ScrollProgress() {
     : [];
 
   const [active, setActive] = useState<string>(rail[0]?.id ?? "");
-  // hero photo, the story band and the signature band are the dark planes;
-  // "about" and "visit" sit on the light section-tint background. Keep in
-  // sync with the section backgrounds in home-view.tsx.
   const overDark =
     active === "hero" || active === "story" || active === "featured";
 
-  /* progress bar — JS fallback only where CSS scroll timelines are absent */
   useEffect(() => {
     const el = barRef.current;
     if (!el) return;
@@ -70,7 +56,6 @@ export function ScrollProgress() {
     };
   }, []);
 
-  /* active-section tracking */
   useEffect(() => {
     if (!rail.length) return;
     const els = rail
@@ -89,20 +74,17 @@ export function ScrollProgress() {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-    // rail is rebuilt every render; its ids only change with route/language
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, rail.map((r) => r.id).join()]);
 
   return (
     <>
-      {/* progress hairline */}
       <div
         ref={barRef}
         aria-hidden
         className="scroll-progress fixed inset-x-0 top-0 z-[60] h-[3px] bg-gradient-to-r from-gold-400 via-gold-500 to-gold-300"
       />
 
-      {/* section rail — desktop only */}
       {rail.length > 0 && (
         <nav
           aria-label="Sections"

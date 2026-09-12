@@ -4,10 +4,6 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "@/lib/i18n/language-provider";
 import { SITE } from "@/lib/site";
 
-/**
- * Fixed bottom-right speed-dial: a single gold FAB that pops open into
- * WhatsApp, Call Now, Foodpanda and Directions. Shown on every page.
- */
 export function FloatingActions() {
   const { t, tf } = useLanguage();
   const [open, setOpen] = useState(false);

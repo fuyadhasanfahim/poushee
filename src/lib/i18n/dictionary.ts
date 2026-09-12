@@ -3,17 +3,11 @@ export type Lang = "en" | "bn";
 export const LANGS: Lang[] = ["en", "bn"];
 export const DEFAULT_LANG: Lang = "en";
 
-/** A piece of content that exists in both languages. */
 export type Localized = { en: string; bn: string };
 
-/** Pick the correct string for the active language. */
 export function pick(value: Localized, lang: Lang): string {
   return value[lang] ?? value.en;
 }
-
-/* -------------------------------------------------------------------- *
- *  UI string dictionary
- * -------------------------------------------------------------------- */
 
 const en = {
   "nav.home": "Home",
@@ -310,7 +304,6 @@ const bn: Record<UIKey, string> = {
 
 export const DICT: Record<Lang, Record<UIKey, string>> = { en, bn };
 
-/** Format `{token}` placeholders. */
 export function format(str: string, vars?: Record<string, string | number>): string {
   if (!vars) return str;
   return str.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? `{${k}}`));
@@ -318,12 +311,10 @@ export function format(str: string, vars?: Record<string, string | number>): str
 
 const BN_DIGITS = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
 
-/** Convert ASCII digits in a string/number to Bengali digits (for lang === "bn"). */
 export function toBnDigits(value: string | number): string {
   return String(value).replace(/\d/g, (d) => BN_DIGITS[Number(d)]);
 }
 
-/** Localise a plain integer for display. */
 export function num(value: number, lang: Lang): string {
   return lang === "bn" ? toBnDigits(value) : String(value);
 }

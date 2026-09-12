@@ -2,13 +2,6 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
-/* ------------------------------------------------------------------ *
- *  Motion primitives — CSS-driven. No animation library is shipped;
- *  these components only toggle classes / set CSS custom properties.
- *  The animation itself lives in globals.css and runs on the
- *  compositor (opacity + transform only) — 60fps on mid-range phones.
- * ------------------------------------------------------------------ */
-
 function usePrefersReducedMotion() {
   const [reduce, setReduce] = useState(false);
   useEffect(() => {
@@ -28,17 +21,12 @@ type RevealProps = {
   delay?: number;
   y?: number;
   scale?: number;
-  /** kept for call-site compatibility — adds a touch more travel */
   blur?: boolean;
   as?: Tag;
   className?: string;
   style?: CSSProperties;
 };
 
-/**
- * Fade + lift into view, once. IntersectionObserver drives it, with a
- * scroll fallback and a hard timeout so content can never stay hidden.
- */
 export function Reveal({
   children,
   delay = 0,
@@ -87,8 +75,6 @@ export function Reveal({
       );
       io.observe(el);
     }
-    // Belt-and-braces alongside the observer — genuinely viewport-gated,
-    // unlike the old blanket timer this replaced.
     window.addEventListener("scroll", check, { passive: true });
     window.addEventListener("resize", check);
     check();
@@ -118,10 +104,6 @@ export function Reveal({
   );
 }
 
-/**
- * Scroll-linked vertical drift. Pure CSS via scroll-driven animations
- * where supported; a harmless static offset (or nothing) elsewhere.
- */
 export function Parallax({
   children,
   speed = 40,
@@ -147,10 +129,6 @@ export function Parallax({
   );
 }
 
-/**
- * Gentle infinite float for decorative shapes. Compositor-only, and
- * paused by an observer whenever it scrolls out of view.
- */
 export function Floaty({
   children,
   className = "",
@@ -198,10 +176,6 @@ export function Floaty({
   );
 }
 
-/**
- * Word-by-word display heading. CSS transform + a single class toggle,
- * so it always ends visible even if frames were dropped.
- */
 export function AnimatedHeading({
   text,
   className = "",

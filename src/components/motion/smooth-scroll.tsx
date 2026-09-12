@@ -3,19 +3,6 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
-/**
- * App-wide inertial smooth scrolling. Kept deliberately gentle so it feels
- * like weighted glass, never floaty. Skipped entirely for reduced-motion
- * users, and paused while the tab is hidden so it never fights a
- * background render. Anchor clicks (#about, #contact) glide via Lenis.
- */
-
-/**
- * The single anchor offset for the whole app: the fixed navbar height plus a
- * little breathing room. Must stay in sync with `scroll-padding-top` in
- * globals.css (6rem). Sections must NOT also carry `scroll-margin-top`, or the
- * two offsets stack and the target lands pushed down the page.
- */
 const ANCHOR_OFFSET = 96;
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
@@ -67,9 +54,6 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       };
       frame = requestAnimationFrame(raf);
 
-      // Re-align a deep-link (`/#contact`, `/#about`) once everything below the
-      // fold has loaded — the browser's own jump on load happens before web
-      // fonts and images settle, which is what leaves the section sitting low.
       const hash = window.location.hash;
       if (hash.length > 1) {
         const settle = () => scrollToHash(hash, true);
@@ -108,11 +92,6 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  // Lenis owns scroll independently of the browser, so Next's default
-  // scroll-to-top on navigation never reaches it — without this, a page
-  // opens still sitting at whatever scroll position the previous page was
-  // left at. Snap to top on every route change; a same-page hash link
-  // (`#about`) is already handled by `onAnchorClick` above, so skip those.
   useEffect(() => {
     if (window.location.hash) return;
     lenisRef.current?.scrollTo(0, { immediate: true });

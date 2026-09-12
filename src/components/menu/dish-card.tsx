@@ -5,11 +5,6 @@ import { useLanguage } from "@/lib/i18n/language-provider";
 import { DishMedia } from "./dish-media";
 import type { Dish } from "@/content/types";
 
-/**
- * Menu dish card — photo fills the card, the name / tagline / price sit
- * over a dark scrim in light type, matching the home "Signature dishes"
- * treatment.
- */
 export function DishCard({
   dish,
   categorySlug,
@@ -35,7 +30,6 @@ export function DishCard({
         className="!absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
       />
 
-      {/* scrims */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/45 to-navy-950/5" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-transparent" />
       <div className="pointer-events-none absolute inset-0 text-cream-50 bg-dots opacity-[0.05]" />
