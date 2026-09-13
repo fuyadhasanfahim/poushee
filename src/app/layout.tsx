@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import {
   Inter,
   Lobster_Two,
-  Dancing_Script,
   Hind_Siliguri,
   Tiro_Bangla,
 } from "next/font/google";
@@ -30,12 +29,6 @@ const lobsterTwo = Lobster_Two({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-title-en",
-});
-
-const dancingScript = Dancing_Script({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-script-en",
 });
 
 const hindSiliguri = Hind_Siliguri({
@@ -99,7 +92,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${lobsterTwo.variable} ${dancingScript.variable} ${hindSiliguri.variable} ${tiroBangla.variable} antialiased`}
+      className={`${inter.variable} ${lobsterTwo.variable} ${hindSiliguri.variable} ${tiroBangla.variable} antialiased`}
     >
       <body className="flex min-h-dvh flex-col">
         <script dangerouslySetInnerHTML={{ __html: LANG_BOOTSTRAP_SCRIPT }} />

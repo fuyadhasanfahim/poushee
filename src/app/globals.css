@@ -61,12 +61,12 @@
   /* Type
      - body / UI (nav, eyebrows, buttons, "view details", prices): Inter
      - titles (h1, big statements): Lobster Two   -> --font-title
-     - secondary / accent (h2–h6, card titles, mottos): Dancing Script -> --font-script
+     - secondary / accent (h2–h6, card titles, mottos): Inter -> --font-script
      `--font-display` is kept as a legacy alias of the script face. */
   --font-body: var(--font-body-en), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-body-en), ui-sans-serif, system-ui, sans-serif;
   --font-title: var(--font-title-en), "Lobster Two", "Brush Script MT", cursive;
-  --font-script: var(--font-script-en), "Dancing Script", "Segoe Script", cursive;
+  --font-script: var(--font-body);
   --font-display: var(--font-script);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
@@ -196,7 +196,7 @@ h3,
 h4,
 h5,
 h6 {
-  /* secondary / accent tier — Dancing Script */
+  /* secondary / accent tier — Inter */
   font-family: var(--font-script);
   font-weight: 600;
   font-optical-sizing: auto;
@@ -236,7 +236,7 @@ p {
     font-family: var(--font-title);
     font-optical-sizing: auto;
   }
-  /* secondary / accent face — Dancing Script.
+  /* secondary / accent face — Inter.
      `.font-display` is kept as an alias so existing markup keeps working. */
   .font-script,
   .font-display {
@@ -269,7 +269,7 @@ p {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    /* secondary / accent face — Dancing Script */
+    /* secondary / accent face — Inter */
     font-family: var(--font-script);
     text-transform: none;
     letter-spacing: 0.01em;
