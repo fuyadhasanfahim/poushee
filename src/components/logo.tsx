@@ -20,7 +20,7 @@ export function Logo({
     tone === "light" ? "var(--color-cream-50)" : "var(--color-brand-blue)";
 
   const vbH = sub ? 122 : 94;
-  const vbW = 300;
+  const vbW = 332;
   const w = (height / vbH) * vbW;
 
   return (
@@ -49,11 +49,11 @@ export function Logo({
           className="shrink-0"
         >
           <text
-            x="-3"
-            y="83"
+            x="-4"
+            y="85"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="800"
-            fontSize="104"
+            fontSize="112"
             letterSpacing="-4"
           >
             P
@@ -81,20 +81,20 @@ export function Logo({
           </text>
           <text
             x="238"
-            y="83"
+            y="85"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="800"
-            fontSize="104"
+            fontSize="112"
             letterSpacing="-4"
           >
             E
           </text>
           <text
-            x="292"
-            y="31"
+            x="314"
+            y="30"
             fontFamily="var(--font-body-en), sans-serif"
-            fontWeight="600"
-            fontSize="15"
+            fontWeight="700"
+            fontSize="17"
           >
             ®
           </text>
