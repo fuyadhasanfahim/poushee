@@ -19,8 +19,8 @@ export function Logo({
   const fill =
     tone === "light" ? "var(--color-cream-50)" : "var(--color-brand-blue)";
 
-  const vbH = sub ? 122 : 94;
-  const vbW = 332;
+  const vbH = sub ? 130 : 102;
+  const vbW = 340;
   const w = (height / vbH) * vbW;
 
   return (
@@ -50,9 +50,9 @@ export function Logo({
         >
           <text
             x="-4"
-            y="85"
+            y="93"
             fontFamily="var(--font-body-en), sans-serif"
-            fontWeight="800"
+            fontWeight="900"
             fontSize="112"
             letterSpacing="-4"
           >
@@ -60,48 +60,49 @@ export function Logo({
           </text>
           <text
             x="150"
-            y="37"
+            y="49"
             textAnchor="middle"
-            fontFamily="var(--font-heading-bn), var(--font-body-bn), serif"
-            fontWeight="600"
-            fontSize="43"
+            fontFamily="var(--font-body-bn), sans-serif"
+            fontWeight="700"
+            fontSize="47"
           >
             পউষী
           </text>
           <text
             x="150"
-            y="83"
+            y="91"
             textAnchor="middle"
             fontFamily="var(--font-body-en), sans-serif"
-            fontWeight="800"
-            fontSize="49"
-            letterSpacing="0.5"
+            fontWeight="900"
+            fontSize="48"
+            letterSpacing="-0.5"
           >
             OUSHE
           </text>
           <text
             x="238"
-            y="85"
+            y="93"
             fontFamily="var(--font-body-en), sans-serif"
-            fontWeight="800"
+            fontWeight="900"
             fontSize="112"
             letterSpacing="-4"
           >
             E
           </text>
           <text
-            x="314"
-            y="30"
+            x="318"
+            y="20"
+            textAnchor="middle"
             fontFamily="var(--font-body-en), sans-serif"
             fontWeight="700"
-            fontSize="17"
+            fontSize="22"
           >
             ®
           </text>
           {sub && (
             <text
               x="150"
-              y="113"
+              y="121"
               textAnchor="middle"
               fontFamily="var(--font-body-en), sans-serif"
               fontWeight="700"
